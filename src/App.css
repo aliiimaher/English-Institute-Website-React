@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,23 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+
+/* Add Kalameh Font */
+@font-face {
+  font-family: KalamehRegular;
+  src: url("./assets/Font/Kalameh-Regular/Kalameh-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: KalamehExtraBold;
+  src: url("./assets/Font/Kalameh-ExtraBold/Kalameh-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: KalamehThin;
+  src: url("./assets/Font/Kalameh-Thin/Kalameh-Thin.ttf") format("truetype");
+}
+
+*{
+  font-family: KalamehRegular;
 }

@@ -2,8 +2,10 @@ import InputBox from "./components/InputBox";
 import Button from "./components/Button";
 import Card from "./components/Card";
 
-import personSvg from "./assets/person.svg";
-import englishCoursePng from "./assets/learn-english-language.png";
+import "./App.css";
+
+import personSvg from "./assets/Pic/person.svg";
+import englishCoursePng from "./assets/Pic/learn-english-language.png";
 
 function App() {
   return (

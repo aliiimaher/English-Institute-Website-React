@@ -10,6 +10,11 @@ function InputBox({ placeHolder, icon}: Props) {
         className="input-group mb-3 rounded"
         style={{ backgroundColor: "#3A365E", padding: "8px" }}
       >
+        <img
+          src={icon}
+          alt="Image"
+          className="rounded"
+        />
         <input
           type="text"
           className="form-control border-0"
@@ -23,11 +28,6 @@ function InputBox({ placeHolder, icon}: Props) {
             outline: "none",
             boxShadow: "none",
           }}
-        />
-        <img
-          src={icon}
-          alt="Image"
-          className="rounded"
         />
       </div>
     </>
