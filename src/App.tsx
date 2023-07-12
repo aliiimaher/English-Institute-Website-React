@@ -1,6 +1,7 @@
 import InputBox from "./components/InputBox";
 import Button from "./components/Button";
 import Card from "./components/Card";
+import Header from "./components/Header";
 
 import "./App.css";
 
@@ -9,7 +10,7 @@ import englishCoursePng from "./assets/Pic/learn-english-language.png";
 
 function App() {
   return (
-    <div>
+    <>
       <InputBox placeHolder="یوزنیم" icon={personSvg} />
       <Button text="hello" size="large" />
       <Card
@@ -19,7 +20,8 @@ function App() {
         courseTeacher="مهدی وکیلی"
         coursePrice=" ۲۰۰۰۰ تومان"
       />
-    </div>
+      <Header />
+    </>
   );
 }
 
