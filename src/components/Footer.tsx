@@ -24,7 +24,7 @@ function Footer() {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav mb-2 mb-lg-0 menu-items footer-col-3">
-                <li className="nav-item">
+                <li className="nav-item footer-col-3-subtitle">
                   <a className="nav-link" aria-current="page" href="#">
                     شهر‌های زبان لرن
                   </a>
