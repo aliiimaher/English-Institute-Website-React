@@ -1,11 +1,19 @@
 .my-btn {
-    background-color: #F27E2E;
-    color: #1C1A2D;
-    margin-right: 40px;
-    border: 4px;
-    border-style: solid;
-    border-color: #F27E2E;
-    font-family: "KalamehExtraBold";
-    font-size: 20px;
-    font-weight: 700;
+  margin-right: 40px !important;
+  border: 4px !important;
+  border-style: solid !important;
+  border-color: #f27e2e !important;
+  font-family: "KalamehExtraBold" !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+}
+
+.background-yes {
+  background-color: #f27e2e !important;
+  color: #1c1a2d !important;
+}
+
+.background-no {
+  background-color: #3a365e !important;
+  color: #f27e2e !important;
 }

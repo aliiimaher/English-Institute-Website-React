@@ -44,7 +44,7 @@ function Header() {
             </ul>
           </div>
           <Button text="ثبت نام" size="large" />
-          <Button text="ورود" size="large" />
+          <Button text="ورود" size="large" backgroundColor="no" />
         </div>
       </nav>
     </>
