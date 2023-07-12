@@ -55,6 +55,10 @@
   font-family: KalamehThin;
   src: url("./assets/Font/Kalameh-Thin/Kalameh-Thin.ttf") format("truetype");
 }
+@font-face {
+  font-family: KalamehBold;
+  src: url("./assets/Font/Kalameh-Bold/Kalameh-Bold.ttf") format("truetype");
+}
 
 *{
   font-family: KalamehRegular;
