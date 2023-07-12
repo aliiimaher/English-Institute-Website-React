@@ -1,7 +1,7 @@
 import Button from "./Button";
 import "../styles/components/Card.scss";
 
-import teacherSvg from "../assets/teacher.svg";
+import teacherSvg from "../assets/Pic/teacher.svg";
 
 interface Props {
   icon?: string;
