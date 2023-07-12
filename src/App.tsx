@@ -3,6 +3,7 @@ import Button from "./components/Button";
 import Card from "./components/Card";
 
 import personSvg from "./assets/person.svg";
+import englishCoursePng from "./assets/learn-english-language.png";
 
 function App() {
   return (
@@ -10,11 +11,11 @@ function App() {
       <InputBox placeHolder="یوزنیم" icon={personSvg} />
       <Button text="hello" size="large" />
       <Card
-        icon={personSvg}
-        courseTitle="english"
-        description="the best of all ..."
-        courseTeacher="ali"
-        coursePrice={20}
+        icon={englishCoursePng}
+        courseTitle="آموزش مکالمه زبان انگلیسی"
+        description="در سرتاسر دنیا، چه شرق چه ..."
+        courseTeacher="مهدی وکیلی"
+        coursePrice=" ۲۰۰۰۰ تومان"
       />
     </div>
   );

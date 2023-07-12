@@ -1,4 +1,39 @@
-.teacher-container {
-    display: flex;
+.my-card {
+  width: 20rem;
+  border-radius: 14px !important;
+  border-style: solid !important;
+  border-width: 4px !important;
+  border-color: #3a365e !important;
+  background-color: #1c1a2d !important;
+  color: #ead2b7 !important;
+}
 
+.teacher-container {
+  margin: 20px;
+  display: flex;
+  justify-content: left;
+}
+
+.btn-price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // justify-content: center;
+  vertical-align: middle;
+  margin: 20px;
+}
+
+h5 {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+}
+
+h3 {
+  font-size: 20px !important;
+  font-weight: 400 !important;
+}
+
+p {
+  font-size: 16px !important;
+  font-weight: 400 !important;
 }
