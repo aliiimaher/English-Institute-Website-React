@@ -1,0 +1,27 @@
+.container {
+    max-height: 270px;
+    // max-height: 270px;
+    width: auto;
+    background-color: #3A365E;
+}
+
+.follow-us-in-social {
+    font-size: 16px;
+    color: #EAD2B7;
+}
+
+.follow-us-in-social-logos {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-col-3 {
+    font-size: 16px;
+    color: #EAD2B7 !important;
+    display: flex;
+    flex-direction: column !important;
+}
+
+.footer-col-3-subtitle {
+    font-style: bold;
+}
