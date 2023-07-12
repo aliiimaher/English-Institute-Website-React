@@ -2,6 +2,8 @@ import InputBox from "./components/InputBox";
 import Button from "./components/Button";
 import Card from "./components/Card";
 
+import "./App.css";
+
 import personSvg from "./assets/person.svg";
 import englishCoursePng from "./assets/learn-english-language.png";
 
