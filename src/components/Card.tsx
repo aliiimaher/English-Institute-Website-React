@@ -21,7 +21,7 @@ function Card({
       <div className="card" style={{ width: "18rem" }}>
         <img src={icon} className="card-img-top" alt="card image" />
         <div className="card-body">
-          <h5 className="card-title">{courseTitle}</h5>
+          <h5 className="card-title" dir="rtl">{courseTitle}</h5>
           <p className="card-text">{description}</p>
           <div className="teacher-container">
             <h3>{courseTeacher}</h3>
