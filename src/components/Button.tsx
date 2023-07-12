@@ -24,8 +24,12 @@ function Button({ text, size = "small" }: Props) {
     <>
       <button
         type="button"
-        className={"btn btn-primary border-0 " + btnSize}
-        style={{ backgroundColor: "#F27E2E", color: "#1C1A2D" }}
+        className={"btn btn-primary border-0 shadow " + btnSize}
+        style={{
+          backgroundColor: "#F27E2E",
+          color: "#1C1A2D",
+          marginRight: "40px",
+        }}
       >
         {text}
       </button>

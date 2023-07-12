@@ -43,8 +43,8 @@ function Header() {
               </li>
             </ul>
           </div>
-            <Button text="ثبت نام" size="large" />
-            <Button text="ورود" size="large" />
+          <Button text="ثبت نام" size="large" />
+          <Button text="ورود" size="large" />
         </div>
       </nav>
     </>
