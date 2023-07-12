@@ -1,0 +1,34 @@
+.menu-items {
+  font-weight: 700;
+  font-size: 18px;
+  color: #ead2b7;
+  text-decoration: none;
+}
+
+li {
+  margin-left: 64px;
+}
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #ead2b7;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
