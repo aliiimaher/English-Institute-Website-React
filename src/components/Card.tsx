@@ -28,11 +28,11 @@ function Card({
             {courseTitle}
           </h5>
           <p className="card-text">{description}</p>
-          <div className="teacher-container" style={{ fontFamily: "KalamehRegular" }}>
+          <div className="teacher-container">
             <img src={teacherSvg} alt="teacherSvg" />
             <h3 style={{ marginRight: "8px" }}>{courseTeacher}</h3>
           </div>
-          <div className="btn-price-container" style={{ fontFamily: "KalamehExtraBold" }}>
+          <div className="btn-price-container">
             {coursePrice}
             <a href="#">
               <Button text="مشاهده دوره" size="large" />
