@@ -1,45 +1,25 @@
-import InputBox from "./components/InputBox";
-import Button from "./components/Button";
-import Card from "./components/Card";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import CardH from "./components/CardH";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
-import personSvg from "./assets/Pic/person.svg";
-import englishCoursePng from "./assets/Pic/learn-english-language.png";
-import englishCoursePngH from "./assets/Pic/learn-english-design-cardh.png";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+import LoginPage from "./pages/Login";
+import RegisterPage from "./pages/Register";
+import TestPage from "./pages/Test";
 
 function App() {
   return (
     <>
       <Header />
-      <Button text="hello" size="large" backgroundColor="yes" />
-      <InputBox placeHolder="یوزنیم" icon={personSvg} />
-      <Card
-        icon={englishCoursePng}
-        courseTitle="آموزش مکالمه زبان انگلیسی"
-        description="در سرتاسر دنیا، چه شرق چه ..."
-        courseTeacher="مهدی وکیلی"
-        coursePrice=" ۲۰,۰۰۰ تومان"
-      />
-      <CardH
-        picture={englishCoursePngH}
-        courseTitle="آموزش مکالمه زبان انگلیسی"
-        courseDescription="در سرتاسر دنیا، چه شرق چه ..."
-        courseTeacher="مهدی وکیلی"
-        coursePrice=" ۲۰,۰۰۰ تومان"
-        background="no"
-      />
-      <CardH
-        picture={englishCoursePngH}
-        courseTitle="آموزش مکالمه زبان انگلیسی"
-        courseDescription="در سرتاسر دنیا، چه شرق چه ..."
-        courseTeacher="مهدی وکیلی"
-        coursePrice=" ۲۰,۰۰۰ تومان"
-        background="yes"
-      />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/test" element={<TestPage />} />
+        </Routes>
+      </BrowserRouter>
+      عرض ادب
       <Footer />
     </>
   );
