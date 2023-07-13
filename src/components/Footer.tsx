@@ -20,12 +20,11 @@ function Footer() {
           >
             <div
               className="collapse navbar-collapse menu-items"
-              style={{ justifyContent: "flex-end" }}
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav mb-2 mb-lg-0 menu-items footer-col-3">
-                <li className="nav-item footer-col-3-subtitle">
-                  <a className="nav-link" aria-current="page" href="#">
+              <ul className="navbar-nav mb-2 mb-lg-0 footer-col-3">
+                <li className="nav-item">
+                  <a className="nav-link subtitle" aria-current="page" href="#">
                     شهر‌های زبان لرن
                   </a>
                 </li>
@@ -50,9 +49,9 @@ function Footer() {
                   </a>
                 </li>
               </ul>
-              <ul className="navbar-nav mb-2 mb-lg-0 menu-items footer-col-3">
+              <ul className="navbar-nav mb-2 mb-lg-0 footer-col-3">
                 <li className="nav-item">
-                  <a className="nav-link" aria-current="page" href="#">
+                  <a className="nav-link subtitle" aria-current="page" href="#">
                     درباره ما
                   </a>
                 </li>
@@ -77,9 +76,9 @@ function Footer() {
                   </a>
                 </li>
               </ul>
-              <ul className="navbar-nav mb-2 mb-lg-0 menu-items footer-col-3">
+              <ul className="navbar-nav mb-2 mb-lg-0 footer-col-3">
                 <li className="nav-item">
-                  <a className="nav-link" aria-current="page" href="#">
+                  <a className="nav-link subtitle" aria-current="page" href="#">
                     تلفن‌های تماس
                   </a>
                 </li>
@@ -94,7 +93,7 @@ function Footer() {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link subtitle" href="#">
                     پشتیبانی
                   </a>
                 </li>
@@ -105,16 +104,16 @@ function Footer() {
                 </li>
               </ul>
               <div className="follow-us-in-social">
-                <h5>ما را در شبکه‌هاي اجتماعي دنبال کنيد!</h5>
+                <h5>ما را در شبکه‌های اجتماعی دنبال کنيد!</h5>
                 <div className="follow-us-in-social-logos">
-                  <a className="navbar-brand" href="#">
-                    <img src={telegramSvg} alt="Logo" width="80" height="63" />
+                  <a className="navbar-brand logo" href="#">
+                    <img src={telegramSvg} alt="Logo" width="45" height="45" />
                   </a>
-                  <a className="navbar-brand" href="#">
-                    <img src={youtbubeSvg} alt="Logo" width="80" height="63" />
+                  <a className="navbar-brand logo" href="#">
+                    <img src={youtbubeSvg} alt="Logo" width="45" height="30" />
                   </a>
-                  <a className="navbar-brand" href="#">
-                    <img src={instagramSvg} alt="Logo" width="80" height="63" />
+                  <a className="navbar-brand logo" href="#">
+                    <img src={instagramSvg} alt="Logo" width="45" height="45" />
                   </a>
                 </div>
               </div>
