@@ -3,25 +3,43 @@ import Button from "./components/Button";
 import Card from "./components/Card";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import CardH from "./components/CardH";
 
 import "./App.css";
 
 import personSvg from "./assets/Pic/person.svg";
 import englishCoursePng from "./assets/Pic/learn-english-language.png";
+import englishCoursePngH from "./assets/Pic/learn-english-design-cardh.png";
 
 function App() {
   return (
     <>
-      {/* <InputBox placeHolder="یوزنیم" icon={personSvg} />
-      <Button text="hello" size="large" />
+      <Header />
+      <Button text="hello" size="large" backgroundColor="yes" />
+      <InputBox placeHolder="یوزنیم" icon={personSvg} />
       <Card
         icon={englishCoursePng}
         courseTitle="آموزش مکالمه زبان انگلیسی"
         description="در سرتاسر دنیا، چه شرق چه ..."
         courseTeacher="مهدی وکیلی"
-        coursePrice=" ۲۰۰۰۰ تومان"
+        coursePrice=" ۲۰,۰۰۰ تومان"
       />
-      <Header /> */}
+      <CardH
+        picture={englishCoursePngH}
+        courseTitle="آموزش مکالمه زبان انگلیسی"
+        courseDescription="در سرتاسر دنیا، چه شرق چه ..."
+        courseTeacher="مهدی وکیلی"
+        coursePrice=" ۲۰,۰۰۰ تومان"
+        background="no"
+      />
+      <CardH
+        picture={englishCoursePngH}
+        courseTitle="آموزش مکالمه زبان انگلیسی"
+        courseDescription="در سرتاسر دنیا، چه شرق چه ..."
+        courseTeacher="مهدی وکیلی"
+        coursePrice=" ۲۰,۰۰۰ تومان"
+        background="yes"
+      />
       <Footer />
     </>
   );
