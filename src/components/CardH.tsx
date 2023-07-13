@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
+import "../styles/components/CardH.scss";
+
 import teacherSvg from "../assets/Pic/teacher.svg";
+import closeSvg from "../assets/Pic/closeTicket.svg";
 
 interface Props {
   picture: string;
@@ -19,7 +22,7 @@ function CardH({
   coursePrice,
   background,
 }: Props) {
-  const [cardBackground, setCardBackground] = useState("background-yes");
+  const [cardBackground, setCardBackground] = useState("card-h-background-yes");
 
   useEffect(() => {
     generateCardBackground();
@@ -27,32 +30,35 @@ function CardH({
 
   const generateCardBackground = () => {
     if (background === "no") {
-      setCardBackground("background-no");
+      setCardBackground("card-h-background-no");
     } else {
-      setCardBackground("background-yes");
+      setCardBackground("card-h-background-yes");
     }
   };
 
   return (
     <>
       <div
-        className={"card mb-3 " + cardBackground}
-        style={{ maxWidth: "540px" }}
+        className={"card mb-3 my-card-h " + cardBackground}
+        style={{ maxWidth: "890px", maxHeight: "170px" }}
       >
-        <div className="row g-0">
-          <div className="col-md-4">
+        <div className="row g-0" style={{ display: "flex", justifyContent: "space-between" }}>
+          <div className="col-md-3">
             <img
               src={picture}
-              className="img-fluid rounded-start"
+              className="img-fluid rounded-end"
               alt="card picture"
             />
           </div>
-          <div className="col-md-8">
-            <div className="card-body">
-              <h5 className="card-title">{courseTitle}</h5>
-              <p className="card-text">{courseDescription}</p>
-              <div>
-                <div className="text-body-secondary teacher-container">
+          <div className="col-md-9">
+            <div className="card-body text-part-container">
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <h5 className="card-title">{courseTitle}</h5>
+                <img src={closeSvg} style={{ margin: "2px"}} />
+              </div>
+                <p className="card-text">{courseDescription}</p>
+              <div className="price-teacher-container">
+                <div className="card-h-teacher-container">
                   <img src={teacherSvg} alt="teacherSvg" />
                   <h3 style={{ marginRight: "8px" }}>{courseTeacher}</h3>
                 </div>

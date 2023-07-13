@@ -15,21 +15,30 @@ function App() {
   return (
     <>
       <Header />
-      <Button text="hello" size="large" />
+      <Button text="hello" size="large" backgroundColor="yes" />
       <InputBox placeHolder="یوزنیم" icon={personSvg} />
       <Card
         icon={englishCoursePng}
         courseTitle="آموزش مکالمه زبان انگلیسی"
         description="در سرتاسر دنیا، چه شرق چه ..."
         courseTeacher="مهدی وکیلی"
-        coursePrice=" ۲۰۰۰۰ تومان"
+        coursePrice=" ۲۰,۰۰۰ تومان"
       />
       <CardH
         picture={englishCoursePngH}
         courseTitle="آموزش مکالمه زبان انگلیسی"
         courseDescription="در سرتاسر دنیا، چه شرق چه ..."
         courseTeacher="مهدی وکیلی"
-        coursePrice=" ۲۰۰۰۰ تومان"
+        coursePrice=" ۲۰,۰۰۰ تومان"
+        background="no"
+      />
+      <CardH
+        picture={englishCoursePngH}
+        courseTitle="آموزش مکالمه زبان انگلیسی"
+        courseDescription="در سرتاسر دنیا، چه شرق چه ..."
+        courseTeacher="مهدی وکیلی"
+        coursePrice=" ۲۰,۰۰۰ تومان"
+        background="yes"
       />
       <Footer />
     </>

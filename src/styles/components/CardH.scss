@@ -1,0 +1,39 @@
+.my-card-h {
+  color: #ead2b7 !important;
+  border: 4px !important;
+  border-style: solid !important;
+  border-radius: 20px !important;
+  border-color: #3a365e !important;
+}
+
+// :scope(.card) {
+//   --bs-card-spacer-x: 0px !important;
+//   --bs-card-spacer-y: 0px !important;
+// }
+.card {
+  --bs-card-spacer-x: 0px !important;
+  --bs-card-spacer-y: 0px !important;
+}
+
+.text-part-container {
+  margin: 20px 20px 20px 20px;
+}
+
+.price-teacher-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-h-teacher-container {
+  display: flex;
+  // justify-content: ;
+}
+
+.card-h-background-yes {
+  background-color: #3a365e !important;
+}
+
+.card-h-background-no {
+  background-color: #1c1a2d !important;
+}
