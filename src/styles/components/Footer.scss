@@ -1,22 +1,37 @@
+.menu-items {
+  display: flex;
+  justify-content: space-between;
+}
+
 .follow-us-in-social {
-    font-size: 16px;
-    color: #EAD2B7;
+  font-size: 16px;
+  color: #ead2b7;
 }
 
 .follow-us-in-social-logos {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 20px;
 }
 
 .footer-col-3 {
-    font-size: 16px;
-    font-family: KalamehThin !important;
-    color: #EAD2B7 !important;
-    display: flex;
-    flex-direction: column !important;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column !important;
 }
 
-.footer-col-3-subtitle {
-    font-family: KalamehExtraBold !important;
-    font-size: 25px !important;
+.subtitle {
+  font-family: KalamehBold !important;
+}
+
+.nav-link {
+  color: #ead2b7 !important;
+  font-family: KalamehThin;
+}
+
+.logo {
+  margin-right: 0 !important;
+  display: flex;
+  align-items: center;
 }
