@@ -1,5 +1,6 @@
 .login-container {
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
   background-image: linear-gradient(
     to right,
@@ -11,12 +12,24 @@
 }
 
 .login-right-side {
+  padding-left: 120px;
+  color: #ead2b7;
+}
+
+.login-right-side-up {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 120px;
-  color: #ead2b7;
+}
+
+.login-remember-btn {
+  margin-top: 72px;
+}
+
+.login-btn {
+  display: flex;
+  justify-content: center;
 }
 
 .login-left-side {
@@ -30,6 +43,11 @@
   color: #ead2b7;
 }
 
+.login-under-input-box {
+  display: flex !important;
+  justify-content: space-between;
+}
+
 h1 {
   font-family: KalamehExtraBold;
   font-weight: 700;
@@ -40,4 +58,9 @@ h1 {
 h3 {
   font-size: 24px !important;
   padding-bottom: 68px;
+}
+
+h6 {
+  font-family: KalamehThin;
+  font-size: 16px !important;
 }

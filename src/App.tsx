@@ -20,6 +20,8 @@ function App() {
         </Routes>
       </BrowserRouter>
       عرض ادب
+      <br />
+      طول ادب
       <Footer />
     </>
   );
