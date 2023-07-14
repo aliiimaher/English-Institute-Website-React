@@ -17,8 +17,7 @@ function Button({
 }: Props) {
   const [btnSize, setBtnSize] = useState("btn-sm");
   const [btnBackground, setBtnBackground] = useState("background-yes");
-  const [btn100WidthStatus, setBtn100WidthStatus] =
-    useState("btn-no-100-width");
+  const [btn100WidthStatus, setBtn100WidthStatus] = useState("");
 
   useEffect(() => {
     generateBtnSize(), generateBtnBackground(), generateBtnWidth();
@@ -44,7 +43,7 @@ function Button({
     if (btn100Width === "yes") {
       setBtn100WidthStatus("btn-yes-100-width");
     } else {
-      setBtn100WidthStatus("btn-no-100-width");
+      setBtn100WidthStatus("");
     }
   };
 
@@ -53,7 +52,12 @@ function Button({
       <button
         type="button"
         className={
-          "btn btn-primary shadow my-btn " + btnSize + " " + btnBackground + " " + btn100WidthStatus
+          "btn btn-primary shadow my-btn " +
+          btnSize +
+          " " +
+          btnBackground +
+          " " +
+          btn100WidthStatus
         }
       >
         {text}
