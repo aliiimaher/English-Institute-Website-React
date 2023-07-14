@@ -32,7 +32,7 @@ function Login() {
                 مرا به خاطر بسپار
               </div>
               <div className="login-btn">
-                <Button text="ورود" size="large" />
+                <Button text="ورود" size="large" btn100Width="yes" />
               </div>
               <div>
                 حساب کاربری ندارید؟

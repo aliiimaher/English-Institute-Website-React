@@ -6,14 +6,22 @@ interface Props {
   text: string;
   size?: "small" | "large";
   backgroundColor?: "yes" | "no";
+  btn100Width?: "yes" | "no";
 }
 
-function Button({ text, size = "small", backgroundColor = "yes" }: Props) {
+function Button({
+  text,
+  size = "small",
+  backgroundColor = "yes",
+  btn100Width = "no",
+}: Props) {
   const [btnSize, setBtnSize] = useState("btn-sm");
   const [btnBackground, setBtnBackground] = useState("background-yes");
+  const [btn100WidthStatus, setBtn100WidthStatus] =
+    useState("btn-no-100-width");
 
   useEffect(() => {
-    generateBtnSize(), generateBtnBackground();
+    generateBtnSize(), generateBtnBackground(), generateBtnWidth();
   }, []);
 
   const generateBtnSize = () => {
@@ -32,12 +40,20 @@ function Button({ text, size = "small", backgroundColor = "yes" }: Props) {
     }
   };
 
+  const generateBtnWidth = () => {
+    if (btn100Width === "yes") {
+      setBtn100WidthStatus("btn-yes-100-width");
+    } else {
+      setBtn100WidthStatus("btn-no-100-width");
+    }
+  };
+
   return (
     <>
       <button
         type="button"
         className={
-          "btn btn-primary shadow my-btn " + btnSize + " " + btnBackground
+          "btn btn-primary shadow my-btn " + btnSize + " " + btnBackground + " " + btn100WidthStatus
         }
       >
         {text}
