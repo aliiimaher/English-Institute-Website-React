@@ -44,7 +44,9 @@ function Header() {
             </ul>
           </div>
           <Button text="ثبت نام" size="large" />
-          <Button text="ورود" size="large" backgroundColor="no" />
+          <div style={{ marginRight: "40px" }}>
+            <Button text="ورود" size="large" backgroundColor="no" />
+          </div>
         </div>
       </nav>
     </>
