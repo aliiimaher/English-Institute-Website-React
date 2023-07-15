@@ -23,8 +23,10 @@ function Login() {
       <div className="login-container">
         <div className="login-right-side">
           <div className="login-right-side-up">
-            <h1>از اینجا وارد شوید!</h1>
-            <h3>برای دسترسی به خدمات میبایست ابتدا وارد حساب خود شوید.</h3>
+            <h1 style={{ paddingBottom: "16px" }}>از اینجا وارد شوید!</h1>
+            <h3 style={{ paddingBottom: "68px" }}>
+              برای دسترسی به خدمات میبایست ابتدا وارد حساب خود شوید.
+            </h3>
             <InputBox placeHolder="نام کاربری یا ایمیل" icon={personSvg} />
             <InputBox placeHolder="رمز عبور" icon={passwordSvg} />
           </div>

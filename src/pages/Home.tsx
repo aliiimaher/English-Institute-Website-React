@@ -23,38 +23,53 @@ function Home() {
         <img src={homePageSvg1} alt="home page svg 1" />
       </div>
       <div className="home-page-courses-in-row">
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <h1>دوره‌های ویژه</h1>
-            <h3>سایر دوره‌ها --</h3>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "40px",
+          }}
+        >
+          <h1>دوره‌های ویژه</h1>
+          <h3>سایر دوره‌ها --</h3>
         </div>
-        <Card
-          icon={englishCoursePng}
-          courseTitle="آموزش مکالمه زبان انگلیسی"
-          description="در سرتاسر دنیا، چه شرق چه ..."
-          courseTeacher="مهدی وکیلی"
-          coursePrice=" ۲۰,۰۰۰ تومان"
-        />
-        <Card
-          icon={englishCoursePng}
-          courseTitle="آموزش مکالمه زبان انگلیسی"
-          description="در سرتاسر دنیا، چه شرق چه ..."
-          courseTeacher="مهدی وکیلی"
-          coursePrice=" ۲۰,۰۰۰ تومان"
-        />
-        <Card
-          icon={englishCoursePng}
-          courseTitle="آموزش مکالمه زبان انگلیسی"
-          description="در سرتاسر دنیا، چه شرق چه ..."
-          courseTeacher="مهدی وکیلی"
-          coursePrice=" ۲۰,۰۰۰ تومان"
-        />
-        <Card
-          icon={englishCoursePng}
-          courseTitle="آموزش مکالمه زبان انگلیسی"
-          description="در سرتاسر دنیا، چه شرق چه ..."
-          courseTeacher="مهدی وکیلی"
-          coursePrice=" ۲۰,۰۰۰ تومان"
-        />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+          }}
+        >
+          <Card
+            icon={englishCoursePng}
+            courseTitle="آموزش مکالمه زبان انگلیسی"
+            description="در سرتاسر دنیا، چه شرق چه ..."
+            courseTeacher="مهدی وکیلی"
+            coursePrice=" ۲۰,۰۰۰ تومان"
+          />
+          <Card
+            icon={englishCoursePng}
+            courseTitle="آموزش مکالمه زبان انگلیسی"
+            description="در سرتاسر دنیا، چه شرق چه ..."
+            courseTeacher="مهدی وکیلی"
+            coursePrice=" ۲۰,۰۰۰ تومان"
+          />
+          <Card
+            icon={englishCoursePng}
+            courseTitle="آموزش مکالمه زبان انگلیسی"
+            description="در سرتاسر دنیا، چه شرق چه ..."
+            courseTeacher="مهدی وکیلی"
+            coursePrice=" ۲۰,۰۰۰ تومان"
+          />
+          <Card
+            icon={englishCoursePng}
+            courseTitle="آموزش مکالمه زبان انگلیسی"
+            description="در سرتاسر دنیا، چه شرق چه ..."
+            courseTeacher="مهدی وکیلی"
+            coursePrice=" ۲۰,۰۰۰ تومان"
+          />
+        </div>
       </div>
     </>
   );

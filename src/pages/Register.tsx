@@ -31,8 +31,8 @@ function Register() {
           </div>
         </div>
         <div className="register-left-side">
-          <h1>سلام!</h1>
-          <h3>
+          <h1 style={{ paddingBottom: "16px" }}>سلام!</h1>
+          <h3 style={{ marginBottom: "68px" }}>
             به جمع زبان لرنی‌ها خیلی خوش اومدی!
             <br />
             اینجا قراره با هم مثل آب خوردن هر زبونی رو یاد بگیریم!
