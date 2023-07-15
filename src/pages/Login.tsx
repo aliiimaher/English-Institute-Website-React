@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "../styles/pages/Login.scss";
 import axios from "axios";
 
@@ -10,7 +11,7 @@ import loginSvg from "../assets/Pic/loginSvg.svg";
 
 function Login() {
   axios
-    .post("http://localhost:8000/signup/")
+    .get("http://localhost:8000/get/")
     .then((response) => {
       console.log(response.data);
     })
