@@ -1,4 +1,5 @@
 import "../styles/pages/Login.scss";
+import axios from "axios";
 
 import InputBox from "../components/InputBox";
 import Button from "../components/Button";
@@ -8,6 +9,15 @@ import passwordSvg from "../assets/Pic/passwordSvg.svg";
 import loginSvg from "../assets/Pic/loginSvg.svg";
 
 function Login() {
+  axios
+    .post("http://localhost:8000/signup/")
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
   return (
     <>
       <div className="login-container">
@@ -32,7 +42,7 @@ function Login() {
                 مرا به خاطر بسپار
               </div>
               <div className="login-btn">
-                <Button text="ورود" size="large" btn100Width="yes"/>
+                <Button text="ورود" size="large" btn100Width="yes" />
               </div>
               <div>
                 حساب کاربری ندارید؟
