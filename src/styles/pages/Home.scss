@@ -11,3 +11,27 @@
 .home-page-courses-in-row {
   padding: 40px;
 }
+
+.home-page-zaban-learn-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px;
+}
+
+.home-page-zaban-learn-info-item {
+  padding: 56px;
+  font-size: 24px;
+  font-weight: 900;
+  display: flex;
+    justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-page-zaban-learn-info-item-numbers {
+  color: #f27e2e;
+  font-family: KalamehBold;
+  font-size: 60px;
+  font-weight: 900;
+  margin: 24px;
+}
