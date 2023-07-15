@@ -7,6 +7,7 @@ import homePageSvg1 from "../assets/Pic/homePageSvg1.svg";
 import homePageSvg2 from "../assets/Pic/homePageSvg2.svg";
 import homePageSvg3 from "../assets/Pic/homePageSvg3.svg";
 import englishCoursePng from "../assets/Pic/learn-english-language.png";
+import leftArrowSvg from "../assets/Pic/leftArrowSvg.svg";
 
 function Home() {
   return (
@@ -32,13 +33,19 @@ function Home() {
           }}
         >
           <h1>دوره‌های ویژه</h1>
-          <h3>سایر دوره‌ها --</h3>
+          <a href="somewhere">
+            <h3>
+              سایر دوره‌ها
+              <img src={leftArrowSvg} style={{ marginRight: "8px" }} />
+            </h3>
+          </a>
         </div>
         <div
           style={{
             display: "flex",
-            justifyContent: "space-around",
+            justifyContent: "space-between",
             alignItems: "center",
+            margin: "40px",
           }}
         >
           <Card
