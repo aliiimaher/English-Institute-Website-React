@@ -1,3 +1,5 @@
+import "../styles/pages/Register.scss";
+
 import InputBox from "../components/InputBox";
 import Button from "../components/Button";
 
@@ -20,7 +22,7 @@ function Register() {
           </div>
           <div className="register-right-side-down">
             <Button text="ثبت نام" size="large" btn100Width="yes" />
-            <div>
+            <div style={{ marginTop: "16px" }}>
               حساب کاربری دارید؟
               <a style={{ fontWeight: "700", color: "#58A4BD" }} href="/login">
                 ورود به حساب کاربری
