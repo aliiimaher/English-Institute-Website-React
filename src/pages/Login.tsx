@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "../styles/pages/Login.scss";
 import axios from "axios";
 
