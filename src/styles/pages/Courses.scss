@@ -1,0 +1,12 @@
+.courses-page-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.courses-page-container-left {
+    display: flex;
+    flex-direction: row;
+    row-gap: 20px;
+    justify-content: space-between;
+}
