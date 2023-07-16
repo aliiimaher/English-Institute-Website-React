@@ -102,6 +102,55 @@ function Home() {
           </div>
         </div>
       </div>
+      <div className="home-page-end-part">
+        <div className="home-page-end-part-title">
+          <hr className="home-page-line-before-title" />
+          خدمات زبان آموزان و استادان
+          <hr className="home-page-line-after-title" />
+        </div>
+        <div className="home-page-ads-2">
+          <div className="home-page-ads-2-right-side">
+            <h1 style={{ marginBottom: "12%" }}>زبان لرن برای زبان آموزان</h1>
+            <h4
+              style={{
+                marginBottom: "6%",
+                fontWeight: "700",
+                lineHeight: "160%",
+              }}
+            >
+              آکادمی زبان لرن برای زبان آموزان گرامی تسهیلات فراوانی نظیر
+              دوره‌ها قرار داده است. زبان آموزان برای دسترسی به این تسهیلات
+              میبایست ابتدا در سایت ثبت نام کنند. برای ثبت نام میتوانید از دکمه
+              زیر استفاده کنید.
+            </h4>
+            <Button text="ثبت نام به عنوان زبان آموز" size="large" />
+          </div>
+          <div className="home-page-ads-2-left-side">
+            <img src={homePageSvg2} alt="home page svg 2" />
+          </div>
+        </div>
+        <div className="home-page-ads-3">
+          <div className="home-page-ads-3-right-side">
+            <img src={homePageSvg3} alt="home page svg 3" />
+          </div>
+          <div className="home-page-ads-3-left-side">
+            <h1 style={{ marginBottom: "12%" }}>زبان لرن برای زبان استادان</h1>
+            <h4
+              style={{
+                marginBottom: "6%",
+                fontWeight: "700",
+                lineHeight: "160%",
+              }}
+            >
+              آکادمی زبان لرن برای استادان گرامی تسهیلات فراوانی نظیر دوره‌ و
+              اطلاعیه کلاس آنلاین و حضوری قرار داده است. استادان برای دسترسی به
+              این تسهیلات میبایست ابتدا در سایت ثبت نام کنند. برای ثبت نام
+              میتوانید از دکمه زیر استفاده کنید.
+            </h4>
+            <Button text="ثبت نام به عنوان استاد" size="large" />
+          </div>
+        </div>
+      </div>
     </>
   );
 }

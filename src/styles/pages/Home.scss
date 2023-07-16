@@ -44,3 +44,45 @@
   font-weight: 900;
   margin: 8px;
 }
+
+.home-page-end-part-title {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 2%;
+}
+
+.home-page-line-before-title,
+.home-page-line-after-title {
+  flex-grow: 1;
+  height: 1px;
+  background-color: black;
+  margin: 0 64px;
+}
+
+.home-page-ads-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.home-page-ads-2-right-side {
+  max-width: 600px;
+}
+
+.home-page-ads-3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.home-page-ads-3-left-side {
+  max-width: 600px;
+}
