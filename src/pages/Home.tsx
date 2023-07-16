@@ -78,26 +78,28 @@ function Home() {
           />
         </div>
       </div>
-      <div className="home-page-zaban-learn-info">
-        <div className="home-page-zaban-learn-info-item">
-          تعداد زبان آموزان
-          <br />
-          ثبت نامی زبان لرن
-          <br />
-          <div className="home-page-zaban-learn-info-item-numbers">۲۰۰۰+</div>
-        </div>
-        <div className="home-page-zaban-learn-info-item">
-          تعداد استادان
-          <br />
-          ثبت نامی زبان لرن
-          <br />
-          <div className="home-page-zaban-learn-info-item-numbers">۳۸</div>
-        </div>
-        <div className="home-page-zaban-learn-info-item">
-          تعداد دوره‌های
-          <br /> ثبت شده زبان لرن
-          <br />
-          <div className="home-page-zaban-learn-info-item-numbers">۴۰۰+</div>
+      <div>
+        <div className="home-page-zaban-learn-info">
+          <div className="home-page-zaban-learn-info-item">
+            تعداد زبان آموزان
+            <br />
+            ثبت نامی زبان لرن
+            <br />
+            <div className="home-page-zaban-learn-info-item-numbers">۲۰۰۰+</div>
+          </div>
+          <div className="home-page-zaban-learn-info-item">
+            تعداد استادان
+            <br />
+            ثبت نامی زبان لرن
+            <br />
+            <div className="home-page-zaban-learn-info-item-numbers">۳۸</div>
+          </div>
+          <div className="home-page-zaban-learn-info-item">
+            تعداد دوره‌های
+            <br /> ثبت شده زبان لرن
+            <br />
+            <div className="home-page-zaban-learn-info-item-numbers">۴۰۰+</div>
+          </div>
         </div>
       </div>
     </>
