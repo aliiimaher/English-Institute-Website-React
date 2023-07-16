@@ -1,0 +1,88 @@
+.home-page-ads-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16%;
+  padding: 40px;
+  padding-top: 6%;
+  background-color: #3a365e;
+}
+
+.home-page-zaban-learn-info {
+  max-width: 1240px;
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  border-radius: 16px;
+  box-shadow: 18px 18px 30px 0px #000000cc, -18px -18px 30px 0px #322f51;
+}
+
+.home-page-zaban-learn-info-item {
+  height: 240px;
+  width: 320px;
+  padding: 5%;
+  font-size: 24px;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 18px 18px 30px 0px #000000cc inset,
+    -18px -18px 30px 0px #322f51 inset;
+  margin: 8% 4% 8% 4%;
+}
+
+.home-page-zaban-learn-info-item-numbers {
+  color: #f27e2e;
+  font-family: KalamehBold;
+  font-size: 60px;
+  font-weight: 900;
+  margin: 8px;
+}
+
+.home-page-end-part-title {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 2%;
+}
+
+.home-page-line-before-title,
+.home-page-line-after-title {
+  flex-grow: 1;
+  height: 1px;
+  background-color: black;
+  margin: 0 64px;
+}
+
+.home-page-ads-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.home-page-ads-2-right-side {
+  max-width: 600px;
+}
+
+.home-page-ads-3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.home-page-ads-3-left-side {
+  max-width: 600px;
+}
