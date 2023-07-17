@@ -1,12 +1,104 @@
 .courses-page-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.courses-page-container-right {
+  max-width: 320px;
+  padding: 16px;
+  margin: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3a365e;
+}
+
+.dropdown-language {
+  width: 246px;
+  border-radius: 16px;
+  background-color: #1c1a2d;
+  padding: 20px;
+}
+
+.dropdown-language-item {
+  margin-right: 16px;
+  margin-bottom: 12px;
 }
 
 .courses-page-container-left {
-    display: flex;
-    flex-direction: row;
-    row-gap: 20px;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  row-gap: 20px;
+  justify-content: space-between;
+}
+
+.dropdown-btn {
+  font-family: KalamehBold !important;
+  font-size: 20px !important;
+  color: #ead2b7 !important;
+  padding-bottom: 0 !important;
+}
+
+.form-check-input {
+  background-color: #1c1a2d !important;
+  border: 1px solid #ead2b7 !important;
+  border-radius: 6px !important;
+}
+
+.form-check-input:checked[type="checkbox"] {
+  --bs-form-check-bg-image: url(../../assets//Pic/checkedCheckboxSvg.svg) !important;
+}
+
+.dropdown-fee {
+  width: 246px;
+  border-radius: 16px;
+  background-color: #1c1a2d;
+  padding: 20px;
+}
+
+.dropdown-fee-item {
+  margin-right: 16px;
+  margin-bottom: 12px;
+}
+
+.dropdown-fee-radio-btn {
+  border-radius: 8px !important;
+}
+
+.dropdown-tech-way {
+  width: 246px;
+  border-radius: 16px;
+  background-color: #1c1a2d;
+  padding: 20px;
+}
+
+.dropdown-tech-way-item {
+  margin-right: 16px;
+  margin-bottom: 12px;
+}
+
+.dropdown-teachers {
+  width: 246px;
+  border-radius: 16px;
+  background-color: #1c1a2d;
+  padding: 20px;
+}
+
+.dropdown-teachers-item {
+  margin-right: 16px;
+  margin-bottom: 12px;
+}
+
+.dropdown-diff-level {
+  width: 246px;
+  border-radius: 16px;
+  background-color: #1c1a2d;
+  padding: 20px;
+}
+
+.dropdown-diff-level-item {
+  margin-right: 16px;
+  margin-bottom: 12px;
 }

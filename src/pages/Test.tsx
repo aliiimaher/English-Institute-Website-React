@@ -72,3 +72,27 @@ function Test() {
 }
 
 export default Test;
+
+
+
+{/* <Card
+icon={englishCoursePng}
+courseTitle="آموزش مکالمه زبان انگلیسی"
+description="در سرتاسر دنیا، چه شرق چه ..."
+courseTeacher="مهدی وکیلی"
+coursePrice=" ۲۰,۰۰۰ تومان"
+/>
+<Card
+icon={englishCoursePng}
+courseTitle="آموزش مکالمه زبان انگلیسی"
+description="در سرتاسر دنیا، چه شرق چه ..."
+courseTeacher="مهدی وکیلی"
+coursePrice=" ۲۰,۰۰۰ تومان"
+/>
+<Card
+icon={englishCoursePng}
+courseTitle="آموزش مکالمه زبان انگلیسی"
+description="در سرتاسر دنیا، چه شرق چه ..."
+courseTeacher="مهدی وکیلی"
+coursePrice=" ۲۰,۰۰۰ تومان"
+/> */}
