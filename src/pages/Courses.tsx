@@ -2,9 +2,9 @@ import { useState } from "react";
 
 import "../styles/pages/Courses.scss";
 
-// import Card from "../components/Card";
+import Card from "../components/Card";
 
-// import englishCoursePng from "../assets/Pic/learn-english-language.png";
+import englishCoursePng from "../assets/Pic/learn-english-language.png";
 import closedMenuToggleSvg from "../assets/Pic/closedMenuToggleSvg.svg";
 import openedMenuToggleSvg from "../assets/Pic/openedMenuToggleSvg.svg";
 
@@ -69,12 +69,14 @@ function Courses() {
     }
   };
 
+  // ========== dropdown menu toggle svg states ==========
   const [isToggle1, setIsToggle1] = useState(true);
   const [isToggle2, setIsToggle2] = useState(true);
   const [isToggle3, setIsToggle3] = useState(true);
   const [isToggle4, setIsToggle4] = useState(true);
   const [isToggle5, setIsToggle5] = useState(true);
 
+  // ========== handles for dropdown menu toggling ==========
   const handleSvgClick1 = () => {
     setIsToggle1(!isToggle1);
   };
@@ -90,6 +92,7 @@ function Courses() {
   const handleSvgClick5 = () => {
     setIsToggle5(!isToggle5);
   };
+  
   return (
     <>
       <div className="courses-page-container">
@@ -174,9 +177,9 @@ function Courses() {
             </div>
           </div>
           {/* test btn */}
-          <button onClick={() => console.log(selectedLanguages)}>
+          {/* <button onClick={() => console.log(selectedLanguages)}>
             Languages
-          </button>
+          </button> */}
 
           {/* ========== Fee ========== */}
           <div className="dropdown-fee">
@@ -239,7 +242,7 @@ function Courses() {
             </div>
           </div>
           {/* test btn */}
-          <button onClick={() => console.log(selectedFee)}>Fee</button>
+          {/* <button onClick={() => console.log(selectedFee)}>Fee</button> */}
 
           {/* ========== TechWay ========== */}
           <div className="dropdown-tech-way">
@@ -299,7 +302,7 @@ function Courses() {
             </div>
           </div>
           {/* test btn */}
-          <button onClick={() => console.log(selectedTechWay)}>Tech way</button>
+          {/* <button onClick={() => console.log(selectedTechWay)}>Tech way</button> */}
 
           {/* ========== teachers ========== */}
           <div className="dropdown-teachers">
@@ -359,9 +362,9 @@ function Courses() {
             </div>
           </div>
           {/* test btn */}
-          <button onClick={() => console.log(selectedTeachers)}>
+          {/* <button onClick={() => console.log(selectedTeachers)}>
             Teachers
-          </button>
+          </button> */}
 
           {/* ========== diff levels ========== */}
           <div className="dropdown-diff-level">
@@ -421,13 +424,82 @@ function Courses() {
             </div>
           </div>
           {/* test btn */}
-          <button onClick={() => console.log(selectedDiffLevels)}>
+          {/* <button onClick={() => console.log(selectedDiffLevels)}>
             Diff levels
-          </button>
+          </button> */}
         </div>
 
-        {/* this left hand side we do not need it at the moment */}
-        <div className="courses-page-container-left"></div>
+        <div className="courses-page-container-left">
+          <div className="card-row-test">
+            <Card
+              icon={englishCoursePng}
+              courseTitle="آموزش مکالمه زبان انگلیسی"
+              description="در سرتاسر دنیا، چه شرق چه ..."
+              courseTeacher="مهدی وکیلی"
+              coursePrice=" ۲۰,۰۰۰ تومان"
+            />
+            <Card
+              icon={englishCoursePng}
+              courseTitle="آموزش مکالمه زبان انگلیسی"
+              description="در سرتاسر دنیا، چه شرق چه ..."
+              courseTeacher="مهدی وکیلی"
+              coursePrice=" ۲۰,۰۰۰ تومان"
+            />
+            <Card
+              icon={englishCoursePng}
+              courseTitle="آموزش مکالمه زبان انگلیسی"
+              description="در سرتاسر دنیا، چه شرق چه ..."
+              courseTeacher="مهدی وکیلی"
+              coursePrice=" ۲۰,۰۰۰ تومان"
+            />
+          </div>
+          <div className="card-row-test">
+            <Card
+              icon={englishCoursePng}
+              courseTitle="آموزش مکالمه زبان انگلیسی"
+              description="در سرتاسر دنیا، چه شرق چه ..."
+              courseTeacher="مهدی وکیلی"
+              coursePrice=" ۲۰,۰۰۰ تومان"
+            />
+            <Card
+              icon={englishCoursePng}
+              courseTitle="آموزش مکالمه زبان انگلیسی"
+              description="در سرتاسر دنیا، چه شرق چه ..."
+              courseTeacher="مهدی وکیلی"
+              coursePrice=" ۲۰,۰۰۰ تومان"
+            />
+            <Card
+              icon={englishCoursePng}
+              courseTitle="آموزش مکالمه زبان انگلیسی"
+              description="در سرتاسر دنیا، چه شرق چه ..."
+              courseTeacher="مهدی وکیلی"
+              coursePrice=" ۲۰,۰۰۰ تومان"
+            />
+          </div>
+          <div className="card-row-test">
+            <Card
+              icon={englishCoursePng}
+              courseTitle="آموزش مکالمه زبان انگلیسی"
+              description="در سرتاسر دنیا، چه شرق چه ..."
+              courseTeacher="مهدی وکیلی"
+              coursePrice=" ۲۰,۰۰۰ تومان"
+            />
+            <Card
+              icon={englishCoursePng}
+              courseTitle="آموزش مکالمه زبان انگلیسی"
+              description="در سرتاسر دنیا، چه شرق چه ..."
+              courseTeacher="مهدی وکیلی"
+              coursePrice=" ۲۰,۰۰۰ تومان"
+            />
+            <Card
+              icon={englishCoursePng}
+              courseTitle="آموزش مکالمه زبان انگلیسی"
+              description="در سرتاسر دنیا، چه شرق چه ..."
+              courseTeacher="مهدی وکیلی"
+              coursePrice=" ۲۰,۰۰۰ تومان"
+            />
+          </div>
+        </div>
       </div>
     </>
   );

@@ -7,12 +7,13 @@
 .courses-page-container-right {
   max-width: 320px;
   padding: 16px;
-  margin: 20px;
+  margin: 40px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #3a365e;
+  block-size: fit-content;
 }
 
 .dropdown-language {
@@ -20,18 +21,12 @@
   border-radius: 16px;
   background-color: #1c1a2d;
   padding: 20px;
+  margin-bottom: 16px;
 }
 
 .dropdown-language-item {
   margin-right: 16px;
   margin-bottom: 12px;
-}
-
-.courses-page-container-left {
-  display: flex;
-  flex-direction: row;
-  row-gap: 20px;
-  justify-content: space-between;
 }
 
 .dropdown-btn {
@@ -56,6 +51,7 @@
   border-radius: 16px;
   background-color: #1c1a2d;
   padding: 20px;
+  margin-bottom: 16px;
 }
 
 .dropdown-fee-item {
@@ -72,6 +68,7 @@
   border-radius: 16px;
   background-color: #1c1a2d;
   padding: 20px;
+  margin-bottom: 16px;
 }
 
 .dropdown-tech-way-item {
@@ -84,6 +81,7 @@
   border-radius: 16px;
   background-color: #1c1a2d;
   padding: 20px;
+  margin-bottom: 16px;
 }
 
 .dropdown-teachers-item {
@@ -101,4 +99,19 @@
 .dropdown-diff-level-item {
   margin-right: 16px;
   margin-bottom: 12px;
+}
+
+.courses-page-container-left {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 24px;
+  margin: 40px;
+  margin-right: 32px;
+  width: 100%;
+}
+
+.card-row-test {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
