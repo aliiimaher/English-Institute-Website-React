@@ -1,5 +1,6 @@
-// src/App.tsx
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import testData from "./Data/TestData";
 
 import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
@@ -17,7 +18,7 @@ function MyRoutes() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/courses" element={<CoursesPage />} />
-        <Route path="/course-info" element={<CourseInfoPage />} />
+        <Route path="/course-info" element={<CourseInfoPage thisCourse={testData}  />} />
         <Route path="/test" element={<TestPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
