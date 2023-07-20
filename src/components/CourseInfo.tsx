@@ -66,7 +66,7 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
               </table>
             </div>
             <div className="course-info-up-side-left-hand-teacher-info">
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
                 <img
                   src={thisCourse.teacherPicturePath}
                   style={{ borderRadius: "100%", marginLeft: "16px" }}
