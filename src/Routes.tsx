@@ -6,6 +6,7 @@ import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import CoursesPage from "./pages/Courses";
 import TestPage from "./pages/Test";
+import NotFound from "./pages/NotFound";
 
 function MyRoutes() {
   return (
@@ -16,6 +17,7 @@ function MyRoutes() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/courses" element={<CoursesPage />} />
         <Route path="/test" element={<TestPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
