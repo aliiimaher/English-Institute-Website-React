@@ -6,3 +6,32 @@
 .course-info-up-side-right-hand {
   max-width: 880px;
 }
+
+.course-info-up-side-left-hand {
+  max-width: 400px;
+}
+
+.course-info-up-side-left-hand-course-sub-info-items {
+  display: flex;
+}
+
+.course-info-up-side-left-hand-course-sub-info {
+  display: flex !important;
+  gap: 10%;
+}
+
+tr,
+td {
+  //   padding: 8px !important;
+  margin: 8px !important;
+}
+
+th {
+  display: flex;
+}
+
+.course-info-up-side-left-hand-teacher-info {
+  padding: 20px;
+  background-color: #3A365E;
+  border-radius: 20px;
+}
