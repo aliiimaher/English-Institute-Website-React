@@ -7,6 +7,7 @@ interface Props {
   size?: "small" | "large";
   backgroundColor?: "yes" | "no";
   btn100Width?: "yes" | "no";
+  icon?: string;
 }
 
 function Button({
@@ -14,13 +15,18 @@ function Button({
   size = "small",
   backgroundColor = "yes",
   btn100Width = "no",
+  icon,
 }: Props) {
   const [btnSize, setBtnSize] = useState("btn-sm");
   const [btnBackground, setBtnBackground] = useState("background-yes");
   const [btn100WidthStatus, setBtn100WidthStatus] = useState("");
+  const [btnIcon, setBtnIcon] = useState("");
 
   useEffect(() => {
-    generateBtnSize(), generateBtnBackground(), generateBtnWidth();
+    generateBtnSize(),
+      generateBtnBackground(),
+      generateBtnWidth(),
+      generateSpaceForBtnIcon();
   }, []);
 
   const generateBtnSize = () => {
@@ -47,6 +53,14 @@ function Button({
     }
   };
 
+  const generateSpaceForBtnIcon = () => {
+    if (icon) {
+      setBtnIcon("btn-icon-true");
+    } else {
+      setBtnIcon("");
+    }
+  };
+
   return (
     <>
       <button
@@ -60,6 +74,7 @@ function Button({
           btn100WidthStatus
         }
       >
+        {<img src={icon} className={btnIcon} />}
         {text}
       </button>
     </>

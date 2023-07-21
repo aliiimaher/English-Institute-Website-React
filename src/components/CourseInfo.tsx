@@ -55,7 +55,11 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
                   className="half-circle-left"
                 ></span>
               </div>
-              <Button text="اضافه کردن به سبد خرید" size="large" />
+              <Button
+                text="اضافه کردن به سبد خرید"
+                size="large"
+                icon={cartSvg}
+              />
             </div>
             <div className="course-info-up-side-left-hand-course-sub-info">
               <table style={{ width: "90%" }}>
