@@ -11,27 +11,61 @@
   max-width: 400px;
 }
 
-.course-info-up-side-left-hand-course-sub-info-items {
-  display: flex;
-}
-
 .course-info-up-side-left-hand-course-sub-info {
-  display: flex !important;
-  gap: 10%;
+  padding: 20px;
+  background-color: #3a365e;
+  border-radius: 20px;
+  margin-bottom: 20px;
 }
 
 tr,
 td {
-  //   padding: 8px !important;
   margin: 8px !important;
+  padding-bottom: 8px;
 }
 
 th {
   display: flex;
+  padding-bottom: 8px;
 }
 
 .course-info-up-side-left-hand-teacher-info {
   padding: 20px;
-  background-color: #3A365E;
+  background-color: #3a365e;
   border-radius: 20px;
+}
+
+.course-info-up-side-left-hand-price-ticket {
+  display: flex;
+  flex-direction: column;
+  background-color: #3a365e;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.course-info-page-ticket-shape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1c1a2d;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  height: 124px;
+}
+
+.half-circle-left {
+  width: 8%;
+  height: 40%;
+  border-top-right-radius: 110px;
+  border-bottom-right-radius: 110px;
+}
+
+.half-circle-right {
+  width: 8%;
+  height: 40%;
+  border-top-left-radius: 110px;
+  border-bottom-left-radius: 110px;
 }

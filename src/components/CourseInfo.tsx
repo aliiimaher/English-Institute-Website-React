@@ -7,6 +7,7 @@ import teacherSvg from "../assets/Pic/CourseInfo/teacher_course_info.svg";
 import videoSvg from "../assets/Pic/CourseInfo/video_course_info.svg";
 import clockSvg from "../assets/Pic/CourseInfo/clock_course_info.svg";
 import graduateSvg from "../assets/Pic/CourseInfo/graduate_course_info.svg";
+import cartSvg from "../assets/Pic/CourseInfo/cart.svg";
 
 interface CoursesPageProps {
   thisCourse: CourseData;
@@ -23,11 +24,41 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
           </div>
           <div className="course-info-up-side-left-hand">
             <div className="course-info-up-side-left-hand-price-ticket">
-              <div>قیمت: {thisCourse.price}</div>
+              <div className="course-info-page-ticket-shape">
+                <span
+                  style={{ backgroundColor: "#3A365E" }}
+                  className="half-circle-right"
+                ></span>
+                <div
+                  style={{
+                    borderLeft: "1px dashed #3A365E",
+                    paddingLeft: "12px",
+                    height: "124px",
+                    display: "flex",
+                    alignItems: "center",
+                    marginRight: "-8%",
+                  }}
+                >
+                  قیمت:
+                </div>
+                <div
+                  style={{
+                    marginLeft: "-8%",
+                    fontSize: "28px",
+                    fontWeight: "700",
+                  }}
+                >
+                  {thisCourse.price}
+                </div>
+                <span
+                  style={{ backgroundColor: "#3A365E" }}
+                  className="half-circle-left"
+                ></span>
+              </div>
               <Button text="اضافه کردن به سبد خرید" size="large" />
             </div>
             <div className="course-info-up-side-left-hand-course-sub-info">
-              <table style={{ width: "60%" }}>
+              <table style={{ width: "90%" }}>
                 <tr>
                   <th>
                     <img src={teacherSvg} style={{ marginLeft: "8px" }} />
@@ -66,7 +97,13 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
               </table>
             </div>
             <div className="course-info-up-side-left-hand-teacher-info">
-              <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginBottom: "16px",
+                }}
+              >
                 <img
                   src={thisCourse.teacherPicturePath}
                   style={{ borderRadius: "100%", marginLeft: "16px" }}
