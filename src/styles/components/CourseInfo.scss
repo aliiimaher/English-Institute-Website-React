@@ -1,5 +1,7 @@
 .course-info-page-container {
   padding: 40px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .course-info-up-side {
@@ -81,22 +83,15 @@ th {
 }
 
 .course-info-down-side-right-hand {
-  max-width: 540px;
+  max-width: 720px;
 }
 
 .course-info-down-side-left-hand-arrow {
   background-color: #ead2b7;
   min-width: 3px;
+  margin-left: 240px;
 }
 
-.arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-}
-
-.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+.course-info-page-preview-part {
+  margin-top: 8%;
 }

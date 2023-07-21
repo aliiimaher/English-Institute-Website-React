@@ -20,7 +20,7 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
         <div className="course-info-up-side">
           <div className="course-info-up-side-right-hand">
             <img src={thisCourse.picturePath} alt="course picture" />
-            <div>{thisCourse.description}</div>
+            <div style={{ marginTop: "20px" }}>{thisCourse.description}</div>
           </div>
           <div className="course-info-up-side-left-hand">
             <div className="course-info-up-side-left-hand-price-ticket">
@@ -128,13 +128,21 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
           <div className="course-info-down-side-right-hand">
             <div className="course-info-down-side-right-hand">
               {thisCourse.children}
-              {thisCourse.preViews}
+              <div className="course-info-page-preview-part">
+                <div
+                  style={{
+                    fontWeight: "700",
+                    fontSize: "20px",
+                    marginTop: "40px",
+                  }}
+                >
+                  پيش نمايش
+                </div>
+                {thisCourse.preViews}
+              </div>
             </div>
           </div>
           <div className="course-info-down-side-left-hand-arrow"></div>
-          <div>
-            <i className="arrow down"></i>
-          </div>
         </div>
       </div>
     </>
