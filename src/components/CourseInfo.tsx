@@ -124,7 +124,18 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
             </div>
           </div>
         </div>
-        <div className="course-info-down-side"></div>
+        <div className="course-info-down-side">
+          <div className="course-info-down-side-right-hand">
+            <div className="course-info-down-side-right-hand">
+              {thisCourse.children}
+              {thisCourse.preViews}
+            </div>
+          </div>
+          <div className="course-info-down-side-left-hand-arrow"></div>
+          <div>
+            <i className="arrow down"></i>
+          </div>
+        </div>
       </div>
     </>
   );

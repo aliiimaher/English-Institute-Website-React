@@ -20,12 +20,18 @@ const courseData: CourseData = {
   numberOfSessions: "۷۲ ویدیو",
   duration: "۲۴:۶:۰۰",
   numberOfStudents: "۶,۰۳۰ نفر",
-  children: "bash",
+  children:
+    "در این آموزش اصول گرامر پایه زبان انگلیسی در کوتاه ترین زمان ممکن تدریس شده است. معمولا در دوره های عادی آموزشی، زمانی در حدود ۶" +
+    "ماه به آموزش این مباحث اختصاص داده می شود. این آموزش برای زبان آموزانی که ارائه انگلیسی گرامر، یادگیری را برای آن ها بسیار دشوار نموده " +
+    " است، گزینه مناسبی به شمار می رود به این دلیل که توضیحات کاملا فارسی بوده اما در عین حال معادل انگلیسی زمان ها و یا اصطلاحات کلیدی " +
+    " نیز به صورت انگلیسی مطرح شده اند. از دیگر مزایای این آموزش بررسی اصولی قواعد گرامر با استفاده از روش های به روز دنیا و مطابق با استاندارد " +
+    " سلتا است که از آن جمله می توان به: بررسی مفهوم، فرم و استفاده از تایم لاین ها اشاره کرد.",
 };
 
 export default courseData;
 
-{/* <div className="course-info-up-side-left-hand-course-sub-info">
+{
+  /* <div className="course-info-up-side-left-hand-course-sub-info">
 <div className="course-info-up-side-left-hand-course-sub-info-items-questions">
   <div className="course-info-up-side-left-hand-course-sub-info-items">
     <img src={teacherSvg} style={{ marginLeft: "8px" }} />
@@ -52,4 +58,5 @@ export default courseData;
   <div>{thisCourse.duration}</div>
   <div>{thisCourse.numberOfStudents}</div>
 </div>
-</div> */}
+</div> */
+}
