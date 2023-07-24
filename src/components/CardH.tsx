@@ -11,6 +11,7 @@ interface Props {
   courseDescription: string;
   courseTeacher: string;
   coursePrice: string;
+  onClick?: () => void;
   background?: "yes" | "no";
 }
 
@@ -20,6 +21,7 @@ function CardH({
   courseDescription,
   courseTeacher,
   coursePrice,
+  onClick,
   background,
 }: Props) {
   const [cardBackground, setCardBackground] = useState("card-h-background-yes");
@@ -42,7 +44,10 @@ function CardH({
         className={"card mb-3 my-card-h " + cardBackground}
         style={{ maxWidth: "890px", maxHeight: "170px" }}
       >
-        <div className="row g-0" style={{ display: "flex", justifyContent: "space-between" }}>
+        <div
+          className="row g-0"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
           <div className="col-md-3">
             <img
               src={picture}
@@ -54,9 +59,9 @@ function CardH({
             <div className="card-body text-part-container">
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <h5 className="card-title">{courseTitle}</h5>
-                <img src={closeSvg} style={{ margin: "2px"}} />
+                <img src={closeSvg} style={{ margin: "2px" }} onClick={onClick} />
               </div>
-                <p className="card-text">{courseDescription}</p>
+              <p className="card-text">{courseDescription}</p>
               <div className="price-teacher-container">
                 <div className="card-h-teacher-container">
                   <img src={teacherSvg} alt="teacherSvg" />

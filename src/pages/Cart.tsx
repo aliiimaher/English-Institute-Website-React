@@ -19,7 +19,7 @@ import persianToEnglishNumerals from "../helper/PersianToEnglishFunction";
 
 function Cart() {
   // list of orders
-  var orders: CardHData[] = [
+  const [orders, setOrders] = useState<CardHData[]>([
     {
       picture: englishCourseSvg,
       courseTitle: "آموزش مکالمه زبان انگلیسی",
@@ -44,7 +44,15 @@ function Cart() {
       coursePrice: "۲۰,۰۰۰ تومان",
       background: "no",
     },
-  ];
+  ]);
+
+  // ========== handle for removing card ==========
+  const handleRemoveCard = (index: number) => {
+    const updatedOrders = [...orders];
+    updatedOrders.splice(index, 1);
+    setOrders(updatedOrders);
+    handleCalculateTotalPrice();
+  };
 
   var price = 0;
   var discount = 5000;
@@ -64,7 +72,7 @@ function Cart() {
 
   useEffect(() => {
     handleCalculateTotalPrice();
-  }, []);
+  }, [orders]);
 
   return (
     <>
@@ -86,6 +94,7 @@ function Cart() {
                 courseDescription={item.courseDescription}
                 courseTeacher={item.courseTeacher}
                 coursePrice={item.coursePrice}
+                onClick={() => handleRemoveCard(index)}
                 background={item.background}
               />
             ))}

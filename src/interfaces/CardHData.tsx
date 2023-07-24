@@ -4,5 +4,6 @@ export default interface CardHData {
   courseDescription: string;
   courseTeacher: string;
   coursePrice: string;
+  onClick?: () => void;
   background?: "yes" | "no";
 }
