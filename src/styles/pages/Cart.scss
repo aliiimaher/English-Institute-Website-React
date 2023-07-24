@@ -1,6 +1,10 @@
 .cart-page-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+}
+
+.cart-page-right-hand {
+  margin: 40px;
 }
 
 .cart-page-right-hand-danger-box {
@@ -11,7 +15,8 @@
   font-size: 20px;
   padding: 20px;
   border-radius: 20px;
-  max-width: 890px;
+  // max-width: 890px;
+  margin-bottom: 24px;
 }
 
 .cart-page-left-hand {
