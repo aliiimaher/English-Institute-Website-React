@@ -25,7 +25,7 @@ function Cart() {
       courseTitle: "آموزش مکالمه زبان انگلیسی",
       courseDescription: "در سرتاسر دنیا، چه شرق چه ...",
       courseTeacher: "یوسف اسدی",
-      coursePrice: "۲۰",
+      coursePrice: "۲۰,۰۰۰ تومان",
       background: "no",
     },
     {
@@ -33,7 +33,7 @@ function Cart() {
       courseTitle: "آموزش مکالمه زبان انگلیسی",
       courseDescription: "در سرتاسر دنیا، چه شرق چه ...",
       courseTeacher: "یوسف اسدی",
-      coursePrice: "۲۰",
+      coursePrice: "۲۰,۰۰۰ تومان",
       background: "no",
     },
     {
@@ -41,20 +41,22 @@ function Cart() {
       courseTitle: "آموزش مکالمه زبان انگلیسی",
       courseDescription: "در سرتاسر دنیا، چه شرق چه ...",
       courseTeacher: "یوسف اسدی",
-      coursePrice: "۲۰",
+      coursePrice: "۲۰,۰۰۰ تومان",
       background: "no",
     },
   ];
 
   var price = 0;
-  var discount = 5;
+  var discount = 5000;
   const [finalPrice, setFinalPrice] = useState(0);
 
   // ========== handle for calculation total price ==========
   const handleCalculateTotalPrice = () => {
     price = 0;
     orders.forEach((item) => {
-      let temp = persianToEnglishNumerals(item.coursePrice.replace("تومان", ""))
+      let temp = persianToEnglishNumerals(
+        item.coursePrice.replace("تومان", "").replace(",", "")
+      );
       price += Number(temp);
     });
     setFinalPrice(price - discount);
@@ -62,7 +64,7 @@ function Cart() {
 
   useEffect(() => {
     handleCalculateTotalPrice();
-  }, [price]);
+  }, []);
 
   return (
     <>
@@ -107,7 +109,7 @@ function Cart() {
                     <div style={{ fontFamily: "KalamehThin" }}>مبلغ کل:</div>
                   </th>
                   <td>
-                    <strong>{price} تومان</strong>
+                    <strong>{finalPrice + discount} تومان</strong>
                   </td>
                 </tr>
 
