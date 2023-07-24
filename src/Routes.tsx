@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import testData from "./Data/TestData";
+import testUser1 from "./Data/TestUser1";
 
 import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
@@ -25,7 +26,7 @@ function MyRoutes() {
           element={<CourseInfoPage thisCourse={testData} />}
         />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/panel" element={<Panel />} />
+        <Route path="/panel" element={<Panel thisUser={testUser1} />}  />
         <Route path="/test" element={<TestPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
