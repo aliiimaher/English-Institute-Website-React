@@ -15,6 +15,8 @@ import englishCourseSvg from "../assets/Pic/learn-english-design-cardh.png";
 import CardHData from "../interfaces/CardHData";
 import CardH from "../components/CardH";
 
+import persianToEnglishNumerals from "../helper/PersianToEnglishFunction";
+
 function Cart() {
   // list of orders
   var orders: CardHData[] = [
@@ -52,7 +54,8 @@ function Cart() {
   const handleCalculateTotalPrice = () => {
     price = 0;
     orders.forEach((item) => {
-      price += Number(item.coursePrice.replace("تومان", ""));
+      let temp = persianToEnglishNumerals(item.coursePrice.replace("تومان", ""))
+      price += Number(temp);
     });
     setFinalPrice(price - discount);
   };
