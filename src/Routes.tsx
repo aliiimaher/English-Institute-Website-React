@@ -8,6 +8,7 @@ import RegisterPage from "./pages/Register";
 import CoursesPage from "./pages/Courses";
 import CourseInfoPage from "./components/CourseInfo";
 import Cart from "./pages/Cart";
+import Panel from "./pages/Panel";
 import TestPage from "./pages/Test";
 import NotFound from "./pages/NotFound";
 
@@ -24,6 +25,7 @@ function MyRoutes() {
           element={<CourseInfoPage thisCourse={testData} />}
         />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/panel" element={<Panel />} />
         <Route path="/test" element={<TestPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
