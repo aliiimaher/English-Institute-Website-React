@@ -9,21 +9,57 @@ import paymentSvg from "../assets/Pic/Cart/PaymentSvg.svg";
 import priceSvg from "../assets/Pic/Cart/PriceSvg.svg";
 import discountSvg from "../assets/Pic/Cart/DiscountSvg.svg";
 
-function Cart() {
-    // var orders: Card[];
+import englishCourseSvg from "../assets/Pic/learn-english-design-cardh.png";
 
-  var price = 30000;
-  var discount = 5000;
+// import for rendering orders
+import CardHData from "../interfaces/CardHData";
+import CardH from "../components/CardH";
+
+function Cart() {
+  // list of orders
+  var orders: CardHData[] = [
+    {
+      picture: englishCourseSvg,
+      courseTitle: "آموزش مکالمه زبان انگلیسی",
+      courseDescription: "در سرتاسر دنیا، چه شرق چه ...",
+      courseTeacher: "یوسف اسدی",
+      coursePrice: "۲۰",
+      background: "no",
+    },
+    {
+      picture: englishCourseSvg,
+      courseTitle: "آموزش مکالمه زبان انگلیسی",
+      courseDescription: "در سرتاسر دنیا، چه شرق چه ...",
+      courseTeacher: "یوسف اسدی",
+      coursePrice: "۲۰",
+      background: "no",
+    },
+    {
+      picture: englishCourseSvg,
+      courseTitle: "آموزش مکالمه زبان انگلیسی",
+      courseDescription: "در سرتاسر دنیا، چه شرق چه ...",
+      courseTeacher: "یوسف اسدی",
+      coursePrice: "۲۰",
+      background: "no",
+    },
+  ];
+
+  var price = 0;
+  var discount = 5;
   const [finalPrice, setFinalPrice] = useState(0);
 
-  // ========== handle for calculate final price ==========
-  const handleCalculateFinalPrice = () => {
+  // ========== handle for calculation total price ==========
+  const handleCalculateTotalPrice = () => {
+    price = 0;
+    orders.forEach((item) => {
+      price += Number(item.coursePrice.replace("تومان", ""));
+    });
     setFinalPrice(price - discount);
   };
 
   useEffect(() => {
-    handleCalculateFinalPrice();
-  });
+    handleCalculateTotalPrice();
+  }, [price]);
 
   return (
     <>
@@ -33,6 +69,21 @@ function Cart() {
             <img src={dangerSvg} style={{ marginLeft: "24px" }} />
             لطفا در خرید خود دقت کنید، هزینه پرداختی به هیچ عنوان قابل استرداد
             نمی باشد!
+          </div>
+
+          {/* here test */}
+          <div>
+            {orders.map((item, index) => (
+              <CardH
+                key={index}
+                picture={item.picture}
+                courseTitle={item.courseTitle}
+                courseDescription={item.courseDescription}
+                courseTeacher={item.courseTeacher}
+                coursePrice={item.coursePrice}
+                background={item.background}
+              />
+            ))}
           </div>
         </div>
         <div className="cart-page-left-hand">
