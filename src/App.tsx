@@ -4,13 +4,17 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import MyRoutes from "./Routes";
+import { Provider } from "react-redux";
+import store from "./store";
 
 function App() {
   return (
     <>
-      <Header />
-      <MyRoutes />
-      <Footer />
+      <Provider store={store}>
+        <Header />
+        <MyRoutes />
+        <Footer />
+      </Provider>
     </>
   );
 }
