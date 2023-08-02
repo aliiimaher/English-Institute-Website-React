@@ -1,0 +1,30 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "gooz",
+      "author": "ali",
+      "id": 2
+    },
+    {
+      "title": "gooz",
+      "author": "ali",
+      "token": "yiksvndlvndklvndkjvbdyvdyuvdhjkvnndjvndjvhulvbdjlhv",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

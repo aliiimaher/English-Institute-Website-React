@@ -1,0 +1,12 @@
+.panel-dashboard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 80%;
+}
+
+.panel-dashboard-personal-info {
+  border: solid 4px #3A365E;
+  border-radius: 20px;
+  padding: 40px;
+}

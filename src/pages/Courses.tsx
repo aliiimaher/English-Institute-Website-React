@@ -177,9 +177,9 @@ function Courses() {
             </div>
           </div>
           {/* test btn */}
-          {/* <button onClick={() => console.log(selectedLanguages)}>
+          <button onClick={() => console.log(selectedLanguages)}>
             Languages
-          </button> */}
+          </button>
 
           {/* ========== Fee ========== */}
           <div className="dropdown-fee">

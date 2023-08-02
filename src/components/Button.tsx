@@ -8,6 +8,7 @@ interface Props {
   backgroundColor?: "yes" | "no";
   btn100Width?: "yes" | "no";
   icon?: string;
+  onclick?: () => void;
 }
 
 function Button({
@@ -16,6 +17,7 @@ function Button({
   backgroundColor = "yes",
   btn100Width = "no",
   icon,
+  onclick,
 }: Props) {
   const [btnSize, setBtnSize] = useState("btn-sm");
   const [btnBackground, setBtnBackground] = useState("background-yes");
@@ -73,6 +75,7 @@ function Button({
           " " +
           btn100WidthStatus
         }
+        onClick={onclick}
       >
         {<img src={icon} className={btnIcon} />}
         {text}
