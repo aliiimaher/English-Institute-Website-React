@@ -1,4 +1,4 @@
-import PanelSideBarMenu from "../../components/PanelSideBarMenu";
+// import PanelSideBarMenu from "../../components/PanelSideBarMenu";
 
 import "../../styles/pages/userPanel/Dashboard.scss";
 
@@ -7,14 +7,17 @@ import callSvg from "../../assets/Pic/Panel/CallSvg.svg";
 import locationSvg from "../../assets/Pic/Panel/LocationSvg.svg";
 import sexSvg from "../../assets/Pic/Panel/SexSvg.svg";
 import mailSvg from "../../assets/Pic/Panel/MailSvg.svg";
-import { useSelector } from "react-redux";
-import UserData from "../../interfaces/UserData";
+// import { useSelector } from "react-redux";
+// import UserData from "../../interfaces/UserData";
+import { useContext } from "react";
+import { UserContext } from "../../jsFiles/UserContext";
 
 function Dashboard() {
-  const thisUser:UserData = useSelector((thisUser:UserData) => thisUser);
+  const thisUser: any = useContext(UserContext);
+  // const thisUser:UserData = useSelector((thisUser:UserData) => thisUser);
   return (
     <>
-      <PanelSideBarMenu thisUser={thisUser} />
+      {/* <PanelSideBarMenu thisUser={thisUser} /> */}
       <div className="panel-dashboard">
         <div>
           اطلاعات حساب کاربری
@@ -28,7 +31,7 @@ function Dashboard() {
                 </div>
               </th>
               <td>
-                <strong>تومان</strong>
+                <strong>{thisUser.username}</strong>
               </td>
 
               <th>
@@ -36,7 +39,7 @@ function Dashboard() {
                 <div style={{ fontFamily: "KalamehThin" }}>جنسیت:</div>
               </th>
               <td>
-                <strong>تومان</strong>
+                <strong>{thisUser.full_name}</strong>
               </td>
             </tr>
             <tr>
