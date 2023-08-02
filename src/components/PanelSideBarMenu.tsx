@@ -2,18 +2,21 @@ import "../styles/components/PanelSideBarMenu.scss";
 
 import UserData from "../interfaces/UserData";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../jsFiles/UserContext";
 
-interface PanelSideBarMenuProps {
-  thisUser: UserData;
-}
+// only for test
+import usofPng from "../assets/Pic/CourseInfo/usof.png"
 
-function PanelSideBarMenu({ thisUser }: PanelSideBarMenuProps) {
+function PanelSideBarMenu() {
+  const thisUser: UserData = useContext(UserContext);
   return (
     <>
       <div className="panel-side-bar-menu-container">
         <div className="panel-side-bar-menu-person">
           <img
-            src={thisUser.picSrc}
+            // src={thisUser.picSrc}
+            src={usofPng}
             width="143px"
             style={{ borderRadius: "100%" }}
           />
