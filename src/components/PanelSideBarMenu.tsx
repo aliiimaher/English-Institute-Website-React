@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { UserContext } from "../jsFiles/UserContext";
 
 // only for test
-import usofPng from "../assets/Pic/CourseInfo/usof.png"
+import usofPng from "../assets/Pic/CourseInfo/usof.png";
 
 function PanelSideBarMenu() {
   const thisUser: UserData = useContext(UserContext);
@@ -21,7 +21,7 @@ function PanelSideBarMenu() {
             style={{ borderRadius: "100%" }}
           />
           <div className="panel-side-bar-menu-person-name">
-            {thisUser.f_name} {thisUser.l_name}
+            {thisUser.first_name} {thisUser.last_name}
           </div>
         </div>
         <li className="list-item-side-bar-menu">
@@ -37,7 +37,9 @@ function PanelSideBarMenu() {
           <Link to="/...">دوره‌های من</Link>
         </li>
         <li className="list-item-side-bar-menu">
-          <Link to="/">خروج از حساب کاربری</Link>
+          <Link to="/" onClick={() => localStorage.removeItem("token")}>
+            خروج از حساب کاربری
+          </Link>
         </li>
       </div>
     </>

@@ -38,15 +38,15 @@ function App() {
   return (
     <>
       <UserContext.Provider value={thisUser ? thisUser : {}}>
-        {thisUser ? (
-          <>
+        {/* {thisUser ? (
+          <> */}
             <Header />
             <MyRoutes />
             <Footer />
-          </>
+          {/* </>
         ) : (
           <p>Please Wait...</p>
-        )}
+        )} */}
       </UserContext.Provider>
     </>
   );
