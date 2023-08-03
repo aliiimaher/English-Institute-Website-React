@@ -23,9 +23,9 @@ function Dashboard() {
           <div className="panel-dashboard-personal-info">
             اطلاعات حساب کاربری
             <hr />
-            <table width="800px">
+            <table width="1000px">
               <tr>
-                <th>
+                <th className="dashboard-th">
                   <img src={personSvg} style={{ marginLeft: "8px" }} />
                   <div style={{ fontFamily: "KalamehThin" }}>
                     نام و نام خانوادگی:
@@ -33,12 +33,11 @@ function Dashboard() {
                 </th>
                 <td>
                   <strong>
-                    {thisUser.f_name}
-                    {thisUser.l_name}
+                    {thisUser.first_name} {thisUser.last_name}
                   </strong>
                 </td>
 
-                <th>
+                <th className="dashboard-th"  >
                   <img src={sexSvg} style={{ marginLeft: "8px" }} />
                   <div style={{ fontFamily: "KalamehThin" }}>جنسیت:</div>
                 </th>
@@ -47,15 +46,15 @@ function Dashboard() {
                 </td>
               </tr>
               <tr>
-                <th>
+                <th className="dashboard-th">
                   <img src={callSvg} style={{ marginLeft: "8px" }} />
                   <div style={{ fontFamily: "KalamehThin" }}>شماره تماس:</div>
                 </th>
                 <td>
-                  <strong>{thisUser.phoneNumber}</strong>
+                  <strong>{thisUser.phone_number}</strong>
                 </td>
 
-                <th>
+                <th className="dashboard-th">
                   <img src={mailSvg} style={{ marginLeft: "8px" }} />
                   <div style={{ fontFamily: "KalamehThin" }}>ایمیل:</div>
                 </th>
@@ -64,7 +63,7 @@ function Dashboard() {
                 </td>
               </tr>
               <tr>
-                <th>
+                <th className="dashboard-th">
                   <img src={locationSvg} style={{ marginLeft: "8px" }} />
                   <div style={{ fontFamily: "KalamehThin" }}>محل سکونت:</div>
                 </th>
@@ -74,11 +73,11 @@ function Dashboard() {
               </tr>
             </table>
           </div>
-          <div>
+          {/* <div>
             دوره‌های مورد علاقه شما
             <hr />
-            {/* render fav list */}
-          </div>
+            render fav list here
+          </div> */}
         </div>
       </div>
     </>

@@ -3,6 +3,7 @@
   border-radius: 20px;
   min-width: 320px;
   max-width: 500px;
+  padding: 16px;
 }
 
 .panel-side-bar-menu-person {
@@ -12,15 +13,16 @@
   align-items: center;
   background-color: #1c1a2d;
   border-radius: 16px;
-  margin: 16px;
+  margin: 0px;
   margin-bottom: 8px;
   padding: 24px 40px 24px 40px;
 }
 
 .list-item-side-bar-menu {
   background-color: #1c1a2d;
+  width: 100%;
   padding: 20px;
-  margin: 16px;
+  margin-top: 16px;
   font-size: 20px;
   font-weight: 700;
   list-style: url("../../assets/Pic/Cart/SquareBulletPointSvg.svg");

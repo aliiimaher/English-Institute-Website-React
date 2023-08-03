@@ -1,12 +1,17 @@
 .panel-dashboard {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-width: 80%;
+  justify-content: space-evenly;
+  align-items: start;
+  margin: 2%;
 }
 
 .panel-dashboard-personal-info {
   border: solid 4px #3A365E;
   border-radius: 20px;
   padding: 40px;
+}
+
+.dashboard-th {
+ min-width: 200px;
+ max-width: 300px;
 }
