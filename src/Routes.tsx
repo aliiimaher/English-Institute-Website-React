@@ -8,7 +8,8 @@ import RegisterPage from "./pages/Register";
 import CoursesPage from "./pages/Courses";
 import CourseInfoPage from "./components/CourseInfo";
 import Cart from "./pages/Cart";
-import Dashboard from "./pages/usersPanel/Dashboard";
+import DashboardPage from "./pages/usersPanel/Dashboard";
+import MyCoursesPage from "./pages/usersPanel/MyCoursesPage";
 import TestPage from "./pages/Test";
 import NotFound from "./pages/NotFound";
 
@@ -25,9 +26,8 @@ function MyRoutes() {
           element={<CourseInfoPage thisCourse={testData} />}
         />
         <Route path="/cart" element={<Cart />} />
-        {/* test */}
-        <Route path="/panel-dashboard" element={<Dashboard />} />
-        {/* test */}
+        <Route path="/panel-dashboard" element={<DashboardPage />} />
+        <Route path="/panel-my-courses" element={<MyCoursesPage />} />
         <Route path="/test" element={<TestPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
