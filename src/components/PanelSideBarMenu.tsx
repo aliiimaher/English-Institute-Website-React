@@ -25,7 +25,7 @@ function PanelSideBarMenu() {
           </div>
         </div>
         <li className="list-item-side-bar-menu">
-          <Link to="/...">داشبورد</Link>
+          <Link to="/panel-dashboard">داشبورد</Link>
         </li>
         <li className="list-item-side-bar-menu">
           <Link to="/...">ویرایش حساب کاربری</Link>
@@ -34,7 +34,7 @@ function PanelSideBarMenu() {
           <Link to="/...">فاکتورها</Link>
         </li>
         <li className="list-item-side-bar-menu">
-          <Link to="/...">دوره‌های من</Link>
+          <Link to="/panel-my-courses">دوره‌های من</Link>
         </li>
         <li className="list-item-side-bar-menu">
           <Link to="/" onClick={() => localStorage.removeItem("token")}>

@@ -6,11 +6,11 @@ import teacherSvg from "../assets/Pic/teacher.svg";
 import closeSvg from "../assets/Pic/closeTicket.svg";
 
 interface Props {
-  picture: string;
+  picture?: string;
   courseTitle: string;
-  courseDescription: string;
-  courseTeacher: string;
-  coursePrice: string;
+  courseDescription?: string;
+  courseTeacher?: string;
+  coursePrice?: string;
   onClick?: () => void;
   background?: "yes" | "no";
 }
