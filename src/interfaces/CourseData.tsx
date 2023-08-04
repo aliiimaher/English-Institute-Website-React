@@ -7,6 +7,7 @@ export default interface CourseData {
   price?: string;
   teacher?: string;
   teacherPicturePath?: string;
+  teacherSubtitle?: string;
   teacherDescription?: string;
   numberOfSessions?: string;
   duration?: string;

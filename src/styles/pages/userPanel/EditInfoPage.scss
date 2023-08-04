@@ -1,0 +1,36 @@
+.panel-edit-info {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.panel-edit-info-table {
+  width: 1000px;
+  tr {
+    // background-color: green;
+    padding: 0 !important;
+  }
+  td {
+    width: 50%;
+    padding: 0 !important;
+  }
+  th {
+    width: 50%;
+  }
+  strong {
+    display: flex;
+    img {
+      margin-right: 8px;
+    }
+    input {
+        color: #1c1a2d;
+        background-color: #ead2b7;
+        border: none;
+        border-radius: 20px;
+        padding: 4px;
+      
+        &::placeholder {
+          color: #606060;
+        }
+      }
+  }
+}
