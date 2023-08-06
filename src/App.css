@@ -64,3 +64,7 @@
   font-family: KalamehRegular;
   color: #EAD2B7;
 }
+
+.app-container {
+  min-height: 80vh;
+}
