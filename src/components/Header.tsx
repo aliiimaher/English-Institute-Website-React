@@ -8,7 +8,6 @@ function Header() {
     <>
       <nav
         className="navbar navbar-expand-lg"
-        style={{ backgroundColor: "#3a365e" }}
       >
         <div
           className="container-fluid"

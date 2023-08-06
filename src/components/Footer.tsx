@@ -12,7 +12,7 @@ function Footer() {
       <nav className="navbar navbar-expand-lg">
         <div
           className="container-fluid"
-          style={{ marginLeft: "40px", marginRight: "40px" }}
+          style={{ marginLeft: "40px", marginRight: "40px", padding: "40px" }}
         >
           <div
             className="collapse navbar-collapse menu-items"
