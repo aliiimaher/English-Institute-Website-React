@@ -40,10 +40,12 @@ function App() {
       <UserContext.Provider value={thisUser ? thisUser : {}}>
         {/* {thisUser ? (
           <> */}
-            <Header />
-            <MyRoutes />
-            <Footer />
-          {/* </>
+        <Header />
+        <div className="app-container">
+          <MyRoutes />
+        </div>
+        <Footer />
+        {/* </>
         ) : (
           <p>Please Wait...</p>
         )} */}
