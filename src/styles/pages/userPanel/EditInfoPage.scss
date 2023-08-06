@@ -1,17 +1,21 @@
 .panel-edit-info {
   display: flex;
   justify-content: space-evenly;
+  margin: 40px;
 }
 
 .panel-edit-info-table {
   width: 1000px;
   tr {
-    // background-color: green;
     padding: 0 !important;
   }
   td {
-    width: 50%;
+    width: 25%;
     padding: 0 !important;
+    text-align: center;
+    img {
+      float: left;
+    }
   }
   th {
     width: 50%;
@@ -22,15 +26,15 @@
       margin-right: 8px;
     }
     input {
-        color: #1c1a2d;
-        background-color: #ead2b7;
-        border: none;
-        border-radius: 20px;
-        padding: 4px;
-      
-        &::placeholder {
-          color: #606060;
-        }
+      color: #1c1a2d;
+      background-color: #ead2b7;
+      border: none;
+      border-radius: 20px;
+      padding: 4px;
+
+      &::placeholder {
+        color: #606060;
       }
+    }
   }
 }

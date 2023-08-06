@@ -15,9 +15,11 @@ import { useForm } from "react-hook-form";
 
 import "../../styles/pages/userPanel/EditInfoPage.scss";
 import Button from "../../components/Button";
+import axios from "axios";
 
 type FormValues = {
-  fullName: string;
+  firstName: string;
+  lastName: string;
   phoneNumber: string;
   email: string;
   location: string;
@@ -29,8 +31,36 @@ type FormValues = {
 function EditInfoPage() {
   const thisUser: UserData = useContext(UserContext);
 
+  const onclick = function () {
+    const api = axios.create({ baseURL: "http://localhost:8000/" });
+    api
+      .put(
+        "user/edit/",
+        {
+          email: watch("email") || thisUser.email,
+          first_name: watch("firstName") || thisUser.first_name,
+          last_name: watch("lastName") || thisUser.last_name,
+          sex: watch("sex") || thisUser.sex,
+          location: watch("location") || thisUser.location,
+          phone_number: watch("phoneNumber") || thisUser.phone_number,
+        },
+        {
+          headers: {
+            Authorization: "Token " + window.localStorage.getItem("token"),
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   // ========== filled or unfilled status ==========
-  const [filledStatusName, setFilledStatusName] = useState(true);
+  const [filledStatusFName, setFilledStatusFName] = useState(true);
+  const [filledStatusLName, setFilledStatusLName] = useState(true);
   const [filledStatusPhoneNumber, setFilledStatusPhoneNumber] = useState(true);
   const [filledStatusEmail, setFilledStatusEmail] = useState(true);
   const [filledStatusLocation, setFilledStatusLocation] = useState(true);
@@ -38,8 +68,11 @@ function EditInfoPage() {
   // ....
 
   // ========== handles for filled status ==========
-  const handleFilledStatusName = () => {
-    setFilledStatusName(!filledStatusName);
+  const handleFilledStatusFName = () => {
+    setFilledStatusFName(!filledStatusFName);
+  };
+  const handleFilledStatusLName = () => {
+    setFilledStatusLName(!filledStatusLName);
   };
   const handleFilledStatusPhoneNumber = () => {
     setFilledStatusPhoneNumber(!filledStatusPhoneNumber);
@@ -64,18 +97,24 @@ function EditInfoPage() {
 
   // ========== combined handle for the save edited info btn ==========
   const handleCombinedClick = () => {
-    setFilledStatusName(true);
+    setFilledStatusFName(true);
+    setFilledStatusLName(true);
     setFilledStatusPhoneNumber(true);
     setFilledStatusEmail(true);
     setFilledStatusLocation(true);
     setFilledStatusSex(true);
     console.log(
-      watch("fullName"),
+      watch("firstName"),
+      watch("lastName"),
       watch("phoneNumber"),
       watch("email"),
       watch("location"),
       watch("sex")
     );
+    onclick();
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500);
   };
 
   return (
@@ -86,40 +125,82 @@ function EditInfoPage() {
         </div>
         <div className="panel-edit-info-left-side">
           <div className="panel-dashboard-personal-info">
-            اطلاعات حساب کاربری
+            <strong>اطلاعات حساب کاربری</strong>
             <hr />
             <table className="panel-edit-info-table">
               <tr>
                 <th>
-                  <img src={personSvg} style={{ marginLeft: "8px" }} />
-                  <div style={{ fontFamily: "KalamehThin" }}>
-                    نام و نام خانوادگی:
+                  <div
+                    style={{
+                      fontFamily: "KalamehThin",
+                    }}
+                  >
+                    <img src={personSvg} style={{ marginLeft: "8px" }} />
+                    نام:
                   </div>
                 </th>
                 <td>
                   <strong>
-                    {filledStatusName ? (
-                      thisUser.first_name + " " + thisUser.last_name
+                    {filledStatusFName ? (
+                      thisUser.first_name
                     ) : (
                       <form onSubmit={handleSubmit(onSubmit)}>
                         <input
-                          {...register("fullName")}
-                          placeholder={
-                            thisUser.first_name + " " + thisUser.last_name
-                          }
+                          {...register("firstName")}
+                          placeholder={thisUser.first_name}
                         />
                       </form>
                     )}
-                    {thisUser.first_name && thisUser.last_name ? (
-                      <img
-                        src={editSvg}
-                        width="24px"
-                        onClick={handleFilledStatusName}
-                      />
+                  </strong>
+                </td>
+                <td>
+                  {thisUser.first_name ? (
+                    <img
+                      src={editSvg}
+                      width="24px"
+                      onClick={handleFilledStatusFName}
+                    />
+                  ) : (
+                    <img src={plusSvg} onClick={handleFilledStatusFName} />
+                  )}
+                </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <div
+                    style={{
+                      fontFamily: "KalamehThin",
+                    }}
+                  >
+                    <img src={personSvg} style={{ marginLeft: "8px" }} />
+                    نام خانوادگی:
+                  </div>
+                </th>
+                <td>
+                  <strong>
+                    {filledStatusLName ? (
+                      thisUser.last_name
                     ) : (
-                      <img src={plusSvg} onClick={handleFilledStatusName} />
+                      <form onSubmit={handleSubmit(onSubmit)}>
+                        <input
+                          {...register("lastName")}
+                          placeholder={thisUser.last_name}
+                        />
+                      </form>
                     )}
                   </strong>
+                </td>
+                <td>
+                  {thisUser.last_name ? (
+                    <img
+                      src={editSvg}
+                      width="24px"
+                      onClick={handleFilledStatusLName}
+                    />
+                  ) : (
+                    <img src={plusSvg} onClick={handleFilledStatusLName} />
+                  )}
                 </td>
               </tr>
 
@@ -142,19 +223,21 @@ function EditInfoPage() {
                         />
                       </form>
                     )}
-                    {thisUser.phone_number ? (
-                      <img
-                        src={editSvg}
-                        width="24px"
-                        onClick={handleFilledStatusPhoneNumber}
-                      />
-                    ) : (
-                      <img
-                        src={plusSvg}
-                        onClick={handleFilledStatusPhoneNumber}
-                      />
-                    )}
                   </strong>
+                </td>
+                <td>
+                  {thisUser.phone_number ? (
+                    <img
+                      src={editSvg}
+                      width="24px"
+                      onClick={handleFilledStatusPhoneNumber}
+                    />
+                  ) : (
+                    <img
+                      src={plusSvg}
+                      onClick={handleFilledStatusPhoneNumber}
+                    />
+                  )}
                 </td>
               </tr>
 
@@ -175,16 +258,18 @@ function EditInfoPage() {
                         />
                       </form>
                     )}
-                    {thisUser.email ? (
-                      <img
-                        src={editSvg}
-                        width="24px"
-                        onClick={handleFilledStatusEmail}
-                      />
-                    ) : (
-                      <img src={plusSvg} onClick={handleFilledStatusEmail} />
-                    )}
                   </strong>
+                </td>
+                <td>
+                  {thisUser.email ? (
+                    <img
+                      src={editSvg}
+                      width="24px"
+                      onClick={handleFilledStatusEmail}
+                    />
+                  ) : (
+                    <img src={plusSvg} onClick={handleFilledStatusEmail} />
+                  )}
                 </td>
               </tr>
 
@@ -205,16 +290,18 @@ function EditInfoPage() {
                         />
                       </form>
                     )}
-                    {thisUser.location ? (
-                      <img
-                        src={editSvg}
-                        width="24px"
-                        onClick={handleFilledStatusLocation}
-                      />
-                    ) : (
-                      <img src={plusSvg} onClick={handleFilledStatusLocation} />
-                    )}
                   </strong>
+                </td>
+                <td>
+                  {thisUser.location ? (
+                    <img
+                      src={editSvg}
+                      width="24px"
+                      onClick={handleFilledStatusLocation}
+                    />
+                  ) : (
+                    <img src={plusSvg} onClick={handleFilledStatusLocation} />
+                  )}
                 </td>
               </tr>
 
@@ -235,16 +322,18 @@ function EditInfoPage() {
                         />
                       </form>
                     )}
-                    {thisUser.sex ? (
-                      <img
-                        src={editSvg}
-                        width="24px"
-                        onClick={handleFilledStatusSex}
-                      />
-                    ) : (
-                      <img src={plusSvg} onClick={handleFilledStatusSex} />
-                    )}
                   </strong>
+                </td>
+                <td>
+                  {thisUser.sex ? (
+                    <img
+                      src={editSvg}
+                      width="24px"
+                      onClick={handleFilledStatusSex}
+                    />
+                  ) : (
+                    <img src={plusSvg} onClick={handleFilledStatusSex} />
+                  )}
                 </td>
               </tr>
             </table>

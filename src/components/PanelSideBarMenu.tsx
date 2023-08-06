@@ -28,7 +28,7 @@ function PanelSideBarMenu() {
           <Link to="/panel-dashboard">داشبورد</Link>
         </li>
         <li className="list-item-side-bar-menu">
-          <Link to="/...">ویرایش حساب کاربری</Link>
+          <Link to="/panel-edit-info">ویرایش حساب کاربری</Link>
         </li>
         <li className="list-item-side-bar-menu">
           <Link to="/...">فاکتورها</Link>
