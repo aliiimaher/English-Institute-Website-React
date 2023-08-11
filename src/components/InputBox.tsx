@@ -2,9 +2,10 @@ interface Props {
   placeHolder?: string;
   icon?: string;
   reactHookFrom?: any;
-  }
+  type?: "text" | "password";
+}
 
-function InputBox({ placeHolder, icon, reactHookFrom }: Props) {
+function InputBox({ placeHolder, icon, reactHookFrom, type = "text" }: Props) {
   return (
     <>
       <div
@@ -13,7 +14,7 @@ function InputBox({ placeHolder, icon, reactHookFrom }: Props) {
       >
         <img src={icon} alt="Image" className="rounded" />
         <input
-          type="text"
+          type={type}
           className="form-control border-0"
           placeholder={placeHolder}
           aria-label="Username"
@@ -21,7 +22,7 @@ function InputBox({ placeHolder, icon, reactHookFrom }: Props) {
           style={{
             marginRight: "2px",
             backgroundColor: "#3A365E",
-            color: "#EAD2B7", 
+            color: "#EAD2B7",
             outline: "none",
             boxShadow: "none",
           }}

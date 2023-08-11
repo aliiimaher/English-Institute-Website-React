@@ -10,12 +10,17 @@ import loginSvg from "../assets/Pic/loginSvg.svg";
 
 import { useForm } from "react-hook-form";
 
+import { useState } from "react";
+
 type FormValues = {
   username: string;
   password: string;
 };
 
 function Login() {
+  // ========== password visibility ==========
+  const [pwdShown, setPwdShown] = useState(false);
+
   const form = useForm<FormValues>();
   const { register, handleSubmit, watch } = form;
 
@@ -34,6 +39,7 @@ function Login() {
       .then((response) => {
         window.localStorage.setItem("token", response.data.auth_token);
         console.log(response.data);
+        window.location.href = "/panel-dashboard";
       });
   };
 
@@ -54,6 +60,7 @@ function Login() {
               />
               <InputBox
                 placeHolder="رمز عبور"
+                type={pwdShown ? "text" : "password"}
                 icon={passwordSvg}
                 reactHookFrom={register("password")}
               />
@@ -61,7 +68,11 @@ function Login() {
             <div className="login-right-side-down">
               <div className="login-under-input-box">
                 <div>
-                  <input type="checkbox" style={{ marginLeft: "8px" }} />
+                  <input
+                    type="checkbox"
+                    onClick={() => setPwdShown(!pwdShown)}
+                    style={{ marginLeft: "8px" }}
+                  />
                   نمایش رمز عبور
                 </div>
                 <div>رمز عبور خود را فراموش کرده‌اید؟</div>
