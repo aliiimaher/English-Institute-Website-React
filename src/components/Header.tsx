@@ -39,19 +39,38 @@ function Header() {
                 </a>
               </li>
             </ul>
-          </div>
-          <Button
-            text="ثبت نام"
-            size="large"
-            onclick={() => (window.location.href = "/register")}
-          />
-          <div style={{ marginRight: "40px" }}>
-            <Button
-              text="ورود"
-              size="large"
-              backgroundColor="no"
-              onclick={() => (window.location.href = "/login")}
-            />
+            {window.localStorage.getItem("token") ? (
+              <>
+                <div style={{ marginLeft: "20px", marginRight: "40px" }}>
+                  <Button
+                    text="سبد خرید"
+                    size="large"
+                    onclick={() => (window.location.href = "/cart")}
+                  />
+                </div>
+                <Button
+                  text="پروفایل"
+                  size="large"
+                  onclick={() => (window.location.href = "/panel-dashboard")}
+                />
+              </>
+            ) : (
+              <>
+                <Button
+                  text="ثبت نام"
+                  size="large"
+                  onclick={() => (window.location.href = "/register")}
+                />
+                <div style={{ marginRight: "40px" }}>
+                  <Button
+                    text="ورود"
+                    size="large"
+                    backgroundColor="no"
+                    onclick={() => (window.location.href = "/login")}
+                  />
+                </div>
+              </>
+            )}
           </div>
         </div>
       </nav>
