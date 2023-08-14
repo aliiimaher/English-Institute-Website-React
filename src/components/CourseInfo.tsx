@@ -142,7 +142,6 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
               </div>
             </div>
           </div>
-          <div className="course-info-down-side-left-hand-arrow"></div>
         </div>
       </div>
     </>
