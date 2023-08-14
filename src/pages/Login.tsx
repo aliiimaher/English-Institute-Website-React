@@ -51,7 +51,6 @@ function Login() {
   const onclick = function () {
     const api = axios.create({ baseURL: "http://localhost:8000/" });
     api
-      // .post("user/token/login/", { username: "@ali", password: "123" })
       .post("user/token/login/", {
         username: watch("username"),
         password: watch("password"),
