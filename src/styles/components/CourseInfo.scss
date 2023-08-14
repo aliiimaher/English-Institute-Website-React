@@ -2,6 +2,7 @@
   padding: 40px;
   padding-left: 10%;
   padding-right: 10%;
+  margin-bottom: 200px;
 }
 
 .course-info-up-side {
@@ -15,6 +16,10 @@
 
 .course-info-up-side-left-hand {
   max-width: 400px;
+  position: fixed;
+  left: 0;
+  margin-top: 0px;
+  margin-left: 10%;
 }
 
 .course-info-up-side-left-hand-course-sub-info {
