@@ -1,0 +1,26 @@
+.popUpLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  background-color: rgb(227, 242, 253, 0.2);
+//   backdrop-filter: blur(500px);
+  width: 50%;
+  border-radius: 20px;
+  margin: 80px;
+}
+
+.popUpLogin-layout-one {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.popUpLogin-layout-two {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
