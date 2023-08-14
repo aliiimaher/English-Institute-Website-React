@@ -21,7 +21,23 @@ function Login() {
   // ========== password visibility ==========
   const [pwdShown, setPwdShown] = useState(false);
 
-  const form = useForm<FormValues>();
+  // ========== remember me ==========
+  const [remember, setRemember] = useState(
+    localStorage.getItem("remember") ? true : false
+  );
+
+  const form = useForm<FormValues>({
+    defaultValues: {
+      username:
+        localStorage.getItem("username") !== null
+          ? localStorage.getItem("username")!
+          : "",
+      password:
+        localStorage.getItem("password") !== null
+          ? localStorage.getItem("password")!
+          : "",
+    },
+  });
   const { register, handleSubmit, watch } = form;
 
   const onSubmit = (data: FormValues) => {
@@ -39,6 +55,13 @@ function Login() {
       .then((response) => {
         window.localStorage.setItem("token", response.data.auth_token);
         console.log(response.data);
+        remember
+          ? (localStorage.setItem("username", watch("username")),
+            localStorage.setItem("password", watch("password")),
+            localStorage.setItem("remember", "true"))
+          : (localStorage.removeItem("username"),
+            localStorage.removeItem("password"),
+            localStorage.removeItem("remember"));
         window.location.href = "/panel-dashboard";
       });
   };
@@ -79,7 +102,12 @@ function Login() {
               </div>
               <div className="login-remember-btn">
                 <div style={{ display: "flex", justifyContent: "right" }}>
-                  <input type="checkbox" style={{ marginLeft: "8px" }} />
+                  <input
+                    type="checkbox"
+                    onClick={() => setRemember(!remember)}
+                    style={{ marginLeft: "8px" }}
+                    checked={remember ? true : false}
+                  />
                   مرا به خاطر بسپار
                 </div>
                 <div className="login-btn">
