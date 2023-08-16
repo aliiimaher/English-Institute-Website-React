@@ -73,10 +73,7 @@ function Login() {
     <>
       {forgetPasswordPopUp ? (
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <PopUpLogin
-            email={watch("username")}
-            onclick={() => setForgetPasswordPopUp(false)}
-          />
+          <PopUpLogin onclick={() => setForgetPasswordPopUp(false)} />
         </div>
       ) : (
         <>

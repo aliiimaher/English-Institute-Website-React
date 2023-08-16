@@ -13,6 +13,7 @@ import MyCoursesPage from "./pages/usersPanel/MyCoursesPage";
 import EditInfoPage from "./pages/usersPanel/EditInfoPage";
 import TestPage from "./pages/Test";
 import NotFound from "./pages/NotFound";
+import ChangePassword from "./pages/ChangePassword";
 
 function MyRoutes() {
   return (
@@ -30,6 +31,7 @@ function MyRoutes() {
         <Route path="/panel-dashboard" element={<DashboardPage />} />
         <Route path="/panel-my-courses" element={<MyCoursesPage />} />
         <Route path="/panel-edit-info" element={<EditInfoPage />} />
+        <Route path="/change-password" element={<ChangePassword />} />
         <Route path="/test" element={<TestPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -2,17 +2,56 @@ import { useState } from "react";
 import Button from "./Button";
 
 import "../styles/components/PopUpLogin.scss";
+import { useForm } from "react-hook-form";
+import InputBox from "./InputBox";
+
+import emailSvg from "../assets/Pic/emailSvg.svg";
+import passwordSvg from "../assets/Pic/passwordSvg.svg";
+
+import axios from "axios";
 
 interface Props {
-  email: string;
   onclick?: () => void;
 }
 
-function PopUpLogin({ email, onclick }: Props) {
+type FormValue = {
+  email: string;
+  passCode: string;
+};
+
+function PopUpLogin({ onclick }: Props) {
+  const form = useForm<FormValue>();
+  const { register, watch } = form;
+
   const [nextPage, setNextPage] = useState(false);
 
   const handleForForgetPassword = () => {
     // send request to backend
+    const api = axios.create({ baseURL: "http://localhost:8000/" });
+    api
+      .post("user/password_reset/", {
+        email: watch("email"),
+      })
+      .then((response) => {
+        // ...
+      });
+  };
+
+  const sendPassCode = () => {
+    const api = axios.create({ baseURL: "http://localhost:8000/" });
+    api
+      .post("user/password_reset/validate_token/", {
+        token: watch("passCode"),
+      })
+      .then((response) => {
+        console.log(response.status);
+        if (response.status === 200) {
+          localStorage.setItem("forget_password_token", watch("passCode"));
+          window.location.href = "/change-password";
+        } else {
+          alert("کد وارد شده اشتباه است.");
+        }
+      });
   };
 
   return (
@@ -21,12 +60,17 @@ function PopUpLogin({ email, onclick }: Props) {
         {nextPage ? (
           <>
             <div className="popUpLogin-layout-two">
-              <h3>رمز عبور جدید شما به آدرس {email} ارسال شد.</h3>
+              <h3>کد تایید به ایمیل شما ارسال شد.</h3>
+              <InputBox
+                placeHolder="کد تایید را وارد کنید."
+                icon={passwordSvg}
+                reactHookFrom={register("passCode")}
+              />
               <Button
-                text="باش"
+                text="تایید"
                 size="large"
                 btn100Width="yes"
-                onclick={onclick}
+                onclick={sendPassCode}
               />
             </div>
           </>
@@ -34,6 +78,13 @@ function PopUpLogin({ email, onclick }: Props) {
           <>
             <div className="popUpLogin-layout-one">
               <h3>آیا نسبت به فراموشی رمز عبور خود اطمینان دارید؟</h3>
+              <div style={{ marginTop: "16px", width: "100%" }}>
+                <InputBox
+                  placeHolder="ایمیل خود را وارد کنید."
+                  icon={emailSvg}
+                  reactHookFrom={register("email")}
+                />
+              </div>
               <div
                 style={{
                   display: "flex",
