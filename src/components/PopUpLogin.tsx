@@ -28,13 +28,9 @@ function PopUpLogin({ onclick }: Props) {
   const handleForForgetPassword = () => {
     // send request to backend
     const api = axios.create({ baseURL: "http://localhost:8000/" });
-    api
-      .post("user/password_reset/", {
-        email: watch("email"),
-      })
-      .then((response) => {
-        // ...
-      });
+    api.post("user/password_reset/", {
+      email: watch("email"),
+    });
   };
 
   const sendPassCode = () => {

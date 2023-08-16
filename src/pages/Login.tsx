@@ -67,6 +67,11 @@ function Login() {
             localStorage.removeItem("remember"));
         window.location.href = "/panel-dashboard";
       });
+    setTimeout(() => {
+      if (localStorage.getItem("token") === null) {
+        alert("رمز عبور یا نام کاربری خود را نادرست وارد کردید!");
+      }
+    }, 500);
   };
 
   return (
