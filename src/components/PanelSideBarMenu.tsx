@@ -1,7 +1,7 @@
 import "../styles/components/PanelSideBarMenu.scss";
 
 import UserData from "../interfaces/UserData";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../jsFiles/UserContext";
 
@@ -10,6 +10,7 @@ import usofPng from "../assets/Pic/CourseInfo/usof.png";
 
 function PanelSideBarMenu() {
   const thisUser: UserData = useContext(UserContext);
+  const location = useLocation();
   return (
     <>
       <div className="panel-side-bar-menu-container">
@@ -37,7 +38,14 @@ function PanelSideBarMenu() {
           <Link to="/panel-my-courses">دوره‌های من</Link>
         </li>
         <li className="list-item-side-bar-menu">
-          <Link to="/" onClick={() => localStorage.removeItem("token")}>
+          <Link
+            to={location}
+            onClick={() => {
+              window.localStorage.removeItem("token");
+              window.location.reload;
+              window.location.href = "/";
+            }}
+          >
             خروج از حساب کاربری
           </Link>
         </li>
