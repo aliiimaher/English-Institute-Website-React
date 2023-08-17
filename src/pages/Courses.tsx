@@ -465,7 +465,6 @@ function Courses() {
               icon={course.course_image}
               coursePrice={course.price.toString()}
               courseTeacher={course.teacher.fullname}
-              className="testing"
             />
           ))}
         </div>
