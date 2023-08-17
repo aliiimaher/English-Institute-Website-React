@@ -1,14 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "../styles/pages/Courses.scss";
 
 import Card from "../components/Card";
 
-import englishCoursePng from "../assets/Pic/learn-english-language.png";
 import closedMenuToggleSvg from "../assets/Pic/closedMenuToggleSvg.svg";
 import openedMenuToggleSvg from "../assets/Pic/openedMenuToggleSvg.svg";
 
+import axios from "axios";
+
+interface Teacher {
+  fullname: string;
+}
+
+interface Course {
+  title: string;
+  short_description: string;
+  course_image: string;
+  price: number;
+  teacher: Teacher;
+}
+
 function Courses() {
+  const [courses, setCourses] = useState<Course[]>([]);
+
+  useEffect(() => {
+    // Fetch data from API using Axios
+    axios
+      .get("http://localhost:8000/course/")
+      .then((response) => {
+        setCourses(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   // ========== checkbox states ==========
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
   const [selectedFee, setSelectedFee] = useState<string | null>(null);
@@ -92,7 +119,7 @@ function Courses() {
   const handleSvgClick5 = () => {
     setIsToggle5(!isToggle5);
   };
-  
+
   return (
     <>
       <div className="courses-page-container">
@@ -430,75 +457,16 @@ function Courses() {
         </div>
 
         <div className="courses-page-container-left">
-          <div className="card-row-test">
+          {courses.map((course, index) => (
             <Card
-              icon={englishCoursePng}
-              courseTitle="آموزش مکالمه زبان انگلیسی"
-              description="در سرتاسر دنیا، چه شرق چه ..."
-              courseTeacher="مهدی وکیلی"
-              coursePrice=" ۲۰,۰۰۰ تومان"
+              key={index}
+              courseTitle={course.title}
+              shortDescription={course.short_description}
+              icon={course.course_image}
+              coursePrice={course.price.toString()}
+              courseTeacher={course.teacher.fullname}
             />
-            <Card
-              icon={englishCoursePng}
-              courseTitle="آموزش مکالمه زبان انگلیسی"
-              description="در سرتاسر دنیا، چه شرق چه ..."
-              courseTeacher="مهدی وکیلی"
-              coursePrice=" ۲۰,۰۰۰ تومان"
-            />
-            <Card
-              icon={englishCoursePng}
-              courseTitle="آموزش مکالمه زبان انگلیسی"
-              description="در سرتاسر دنیا، چه شرق چه ..."
-              courseTeacher="مهدی وکیلی"
-              coursePrice=" ۲۰,۰۰۰ تومان"
-            />
-          </div>
-          <div className="card-row-test">
-            <Card
-              icon={englishCoursePng}
-              courseTitle="آموزش مکالمه زبان انگلیسی"
-              description="در سرتاسر دنیا، چه شرق چه ..."
-              courseTeacher="مهدی وکیلی"
-              coursePrice=" ۲۰,۰۰۰ تومان"
-            />
-            <Card
-              icon={englishCoursePng}
-              courseTitle="آموزش مکالمه زبان انگلیسی"
-              description="در سرتاسر دنیا، چه شرق چه ..."
-              courseTeacher="مهدی وکیلی"
-              coursePrice=" ۲۰,۰۰۰ تومان"
-            />
-            <Card
-              icon={englishCoursePng}
-              courseTitle="آموزش مکالمه زبان انگلیسی"
-              description="در سرتاسر دنیا، چه شرق چه ..."
-              courseTeacher="مهدی وکیلی"
-              coursePrice=" ۲۰,۰۰۰ تومان"
-            />
-          </div>
-          <div className="card-row-test">
-            <Card
-              icon={englishCoursePng}
-              courseTitle="آموزش مکالمه زبان انگلیسی"
-              description="در سرتاسر دنیا، چه شرق چه ..."
-              courseTeacher="مهدی وکیلی"
-              coursePrice=" ۲۰,۰۰۰ تومان"
-            />
-            <Card
-              icon={englishCoursePng}
-              courseTitle="آموزش مکالمه زبان انگلیسی"
-              description="در سرتاسر دنیا، چه شرق چه ..."
-              courseTeacher="مهدی وکیلی"
-              coursePrice=" ۲۰,۰۰۰ تومان"
-            />
-            <Card
-              icon={englishCoursePng}
-              courseTitle="آموزش مکالمه زبان انگلیسی"
-              description="در سرتاسر دنیا، چه شرق چه ..."
-              courseTeacher="مهدی وکیلی"
-              coursePrice=" ۲۰,۰۰۰ تومان"
-            />
-          </div>
+          ))}
         </div>
       </div>
     </>

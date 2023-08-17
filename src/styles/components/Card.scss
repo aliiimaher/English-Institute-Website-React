@@ -15,6 +15,11 @@
   padding-bottom: 2% !important;
 }
 
+.card-img-top {
+  max-height: 195px;
+  max-width: 312px;
+}
+
 .btn-price-container {
   display: flex;
   justify-content: space-between;
