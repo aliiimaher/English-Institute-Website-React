@@ -4,13 +4,10 @@ import "../styles/pages/Courses.scss";
 
 import Card from "../components/Card";
 
-import englishCoursePng from "../assets/Pic/learn-english-language.png";
 import closedMenuToggleSvg from "../assets/Pic/closedMenuToggleSvg.svg";
 import openedMenuToggleSvg from "../assets/Pic/openedMenuToggleSvg.svg";
 
 import axios from "axios";
-
-// import CardRendering, { Course } from "../components/CardRendering";
 
 interface Teacher {
   fullname: string;
