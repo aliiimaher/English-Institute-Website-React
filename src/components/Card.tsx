@@ -6,28 +6,30 @@ import teacherSvg from "../assets/Pic/teacher.svg";
 interface Props {
   icon?: string;
   courseTitle: string;
-  description?: string;
+  shortDescription?: string;
   courseTeacher: string;
   coursePrice: string;
+  className?: string;
 }
 
 function Card({
   icon,
   courseTitle,
-  description,
+  shortDescription,
   courseTeacher,
   coursePrice,
+  className,
 }: Props) {
   return (
     <>
       {/* this is a card {courseTitle} and {courseTeacher} */}
-      <div className="card my-card">
+      <div className={"card my-card " + className}>
         <img src={icon} className="card-img-top" alt="card image" />
         <div className="card-body">
           <h5 className="card-title" dir="rtl">
             {courseTitle}
           </h5>
-          <p className="card-text">{description}</p>
+          <p className="card-text">{shortDescription}</p>
           <div className="teacher-container">
             <img src={teacherSvg} alt="teacherSvg" />
             <h3 style={{ marginRight: "8px" }}>{courseTeacher}</h3>
