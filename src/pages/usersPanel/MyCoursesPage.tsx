@@ -8,33 +8,8 @@ import CardH from "../../components/CardH";
 
 import DangerSvg from "../../assets/pic/Cart/DangerSvg.svg";
 
-import englishCourseSvg from "../../assets/Pic/learn-english-design-cardh.png";
-
 function MyCoursesPage() {
-  // const [userCourses, _setUserCourses] = useState<CourseData[]>([]);
-  const [userCourses, _setUserCourses] = useState<CourseData[]>([
-    {
-      picturePath: englishCourseSvg,
-      title: "آموزش مکالمه زبان انگلیسی",
-      description: "در سرتاسر دنیا، چه شرق چه ...",
-      teacher: "یوسف اسدی",
-      price: "۲۰,۰۰۰ تومان",
-    },
-    {
-      picturePath: englishCourseSvg,
-      title: "آموزش مکالمه زبان انگلیسی",
-      description: "در سرتاسر دنیا، چه شرق چه ...",
-      teacher: "یوسف اسدی",
-      price: "۲۰,۰۰۰ تومان",
-    },
-    {
-      picturePath: englishCourseSvg,
-      title: "آموزش مکالمه زبان انگلیسی",
-      description: "در سرتاسر دنیا، چه شرق چه ...",
-      teacher: "یوسف اسدی",
-      price: "۲۰,۰۰۰ تومان",
-    },
-  ]);
+  const [userCourses, _setUserCourses] = useState<CourseData[]>([]);
 
   //  here we need some api for get the courses
 

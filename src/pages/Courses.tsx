@@ -9,17 +9,7 @@ import openedMenuToggleSvg from "../assets/Pic/openedMenuToggleSvg.svg";
 
 import axios from "axios";
 
-interface Teacher {
-  fullname: string;
-}
-
-interface Course {
-  title: string;
-  short_description: string;
-  course_image: string;
-  price: number;
-  teacher: Teacher;
-}
+import Course from "../interfaces/Course";
 
 function Courses() {
   const [courses, setCourses] = useState<Course[]>([]);
