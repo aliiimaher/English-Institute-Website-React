@@ -1,42 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import PanelSideBarMenu from "../../components/PanelSideBarMenu";
-import CourseData from "../../interfaces/CourseData";
+import Course from "../../interfaces/Course";
 
 import "../../styles/pages/userPanel/MyCoursesPage.scss";
 import CardH from "../../components/CardH";
 
 import DangerSvg from "../../assets/pic/Cart/DangerSvg.svg";
-
-import englishCourseSvg from "../../assets/Pic/learn-english-design-cardh.png";
+import axios from "axios";
 
 function MyCoursesPage() {
-  // const [userCourses, _setUserCourses] = useState<CourseData[]>([]);
-  const [userCourses, _setUserCourses] = useState<CourseData[]>([
-    {
-      picturePath: englishCourseSvg,
-      title: "آموزش مکالمه زبان انگلیسی",
-      description: "در سرتاسر دنیا، چه شرق چه ...",
-      teacher: "یوسف اسدی",
-      price: "۲۰,۰۰۰ تومان",
-    },
-    {
-      picturePath: englishCourseSvg,
-      title: "آموزش مکالمه زبان انگلیسی",
-      description: "در سرتاسر دنیا، چه شرق چه ...",
-      teacher: "یوسف اسدی",
-      price: "۲۰,۰۰۰ تومان",
-    },
-    {
-      picturePath: englishCourseSvg,
-      title: "آموزش مکالمه زبان انگلیسی",
-      description: "در سرتاسر دنیا، چه شرق چه ...",
-      teacher: "یوسف اسدی",
-      price: "۲۰,۰۰۰ تومان",
-    },
-  ]);
+  const [userCourses, setUserCourses] = useState<Course[]>([]);
 
-  //  here we need some api for get the courses
+  const header = {
+    "Content-Type": "application/json",
+    Authorization: "Token " + window.localStorage.getItem("token"),
+  };
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/course/thisuser/", { headers: header })
+      .then((response) => {
+        setUserCourses(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   return (
     <>
@@ -54,14 +43,14 @@ function MyCoursesPage() {
             </div>
           ) : (
             <div>
-              {userCourses.map((item, index) => (
+              {userCourses.map((course, index) => (
                 <CardH
                   key={index}
-                  picture={item.picturePath}
-                  courseTitle={item.title}
-                  courseDescription={item.description}
-                  courseTeacher={item.teacher}
-                  coursePrice={item.price}
+                  courseTitle={course.title}
+                  courseDescription={course.short_description}
+                  picture={course.course_image}
+                  coursePrice={course.price.toString()}
+                  courseTeacher={course.teacher.fullname}
                 />
               ))}
             </div>

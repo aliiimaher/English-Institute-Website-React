@@ -9,49 +9,38 @@ import paymentSvg from "../assets/Pic/Cart/PaymentSvg.svg";
 import priceSvg from "../assets/Pic/Cart/PriceSvg.svg";
 import discountSvg from "../assets/Pic/Cart/DiscountSvg.svg";
 
-import englishCourseSvg from "../assets/Pic/learn-english-design-cardh.png";
-
 // import for rendering orders
-import CardHData from "../interfaces/CardHData";
 import CardH from "../components/CardH";
 
 import persianToEnglishNumerals from "../helper/PersianToEnglishFunction";
+import Course from "../interfaces/Course";
+import axios from "axios";
 
 function Cart() {
   // list of orders
-  const [orders, setOrders] = useState<CardHData[]>([
-    {
-      picture: englishCourseSvg,
-      courseTitle: "آموزش مکالمه زبان انگلیسی",
-      courseDescription: "در سرتاسر دنیا، چه شرق چه ...",
-      courseTeacher: "یوسف اسدی",
-      coursePrice: "۲۰,۰۰۰ تومان",
-      background: "no",
-    },
-    {
-      picture: englishCourseSvg,
-      courseTitle: "آموزش مکالمه زبان انگلیسی",
-      courseDescription: "در سرتاسر دنیا، چه شرق چه ...",
-      courseTeacher: "یوسف اسدی",
-      coursePrice: "۲۰,۰۰۰ تومان",
-      background: "no",
-    },
-    {
-      picture: englishCourseSvg,
-      courseTitle: "آموزش مکالمه زبان انگلیسی",
-      courseDescription: "در سرتاسر دنیا، چه شرق چه ...",
-      courseTeacher: "یوسف اسدی",
-      coursePrice: "۲۰,۰۰۰ تومان",
-      background: "no",
-    },
-  ]);
+  const [orders, setOrders] = useState<Course[]>([]);
 
-  // ========== handle for removing card ==========
+  const header = {
+    "Content-Type": "application/json",
+    Authorization: "Token " + window.localStorage.getItem("token"),
+  };
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/cart/", { headers: header })
+      .then((response) => {
+        setOrders(response.data.course);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  
   const handleRemoveCard = (index: number) => {
     const updatedOrders = [...orders];
     updatedOrders.splice(index, 1);
     setOrders(updatedOrders);
-    handleCalculateTotalPrice();
+    // handleCalculateTotalPrice();
   };
 
   var price = 0;
@@ -59,19 +48,19 @@ function Cart() {
   const [finalPrice, setFinalPrice] = useState(0);
 
   // ========== handle for calculation total price ==========
-  const handleCalculateTotalPrice = () => {
-    price = 0;
-    orders.forEach((item) => {
-      let temp = persianToEnglishNumerals(
-        item.coursePrice.replace("تومان", "").replace(",", "")
-      );
-      price += Number(temp);
-    });
-    setFinalPrice(price - discount);
-  };
+  // const handleCalculateTotalPrice = () => {
+  //   price = 0;
+  //   orders.forEach((item) => {
+  //     let temp = persianToEnglishNumerals(
+  //       item.coursePrice.replace("تومان", "").replace(",", "")
+  //     );
+  //     price += Number(temp);
+  //   });
+  //   setFinalPrice(price - discount);
+  // };
 
   useEffect(() => {
-    handleCalculateTotalPrice();
+    // handleCalculateTotalPrice();
   }, [orders]);
 
   return (
@@ -86,18 +75,28 @@ function Cart() {
 
           {/* here test */}
           <div>
-            {orders.map((item, index) => (
-              <CardH
-                key={index}
-                picture={item.picture}
-                courseTitle={item.courseTitle}
-                courseDescription={item.courseDescription}
-                courseTeacher={item.courseTeacher}
-                coursePrice={item.coursePrice}
-                onClick={() => handleRemoveCard(index)}
-                background={item.background}
-              />
-            ))}
+            {orders !== null ? (
+              <>
+                {orders.map((item, index) => (
+                  <CardH
+                    key={index}
+                    courseTitle={item.title}
+                    courseDescription={item.short_description}
+                    picture={item.course_image}
+                    coursePrice={item.price.toString()}
+                    courseTeacher={item.teacher.fullname}
+                    onClick={() => handleRemoveCard(index)}
+                    background="no"
+                  />
+                ))}
+                {console.log(orders)}
+              </>
+            ) : (
+              <div className="panel-no-course">
+                <img src={dangerSvg} style={{ marginLeft: "8px" }} />
+                هیچ دوره‌ای پیدا نشد :(
+              </div>
+            )}
           </div>
         </div>
         <div className="cart-page-left-hand">

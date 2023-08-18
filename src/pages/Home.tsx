@@ -19,7 +19,11 @@ function Home() {
             آکادمی زبان لرن با بیش از 5 سال سابقه حرفه‌ای در آموزش زبان‌های زنده
             دنیا شما را همراهی می‌کند.
           </h2>
-          <Button text="مشاهده دوره‌های آموزشی" size="large" />
+          <Button
+            text="مشاهده دوره‌های آموزشی"
+            size="large"
+            onclick={() => (window.location.href = "courses/")}
+          />
         </div>
         <img src={homePageSvg1} alt="home page svg 1" />
       </div>
@@ -33,7 +37,7 @@ function Home() {
           }}
         >
           <h1>دوره‌های ویژه</h1>
-          <a href="somewhere">
+          <a href="courses/">
             <h3>
               سایر دوره‌ها
               <img src={leftArrowSvg} style={{ marginRight: "8px" }} />
@@ -51,28 +55,28 @@ function Home() {
           <Card
             icon={englishCoursePng}
             courseTitle="آموزش مکالمه زبان انگلیسی"
-            description="در سرتاسر دنیا، چه شرق چه ..."
+            shortDescription="در سرتاسر دنیا، چه شرق چه ..."
             courseTeacher="مهدی وکیلی"
             coursePrice=" ۲۰,۰۰۰ تومان"
           />
           <Card
             icon={englishCoursePng}
             courseTitle="آموزش مکالمه زبان انگلیسی"
-            description="در سرتاسر دنیا، چه شرق چه ..."
+            shortDescription="در سرتاسر دنیا، چه شرق چه ..."
             courseTeacher="مهدی وکیلی"
             coursePrice=" ۲۰,۰۰۰ تومان"
           />
           <Card
             icon={englishCoursePng}
             courseTitle="آموزش مکالمه زبان انگلیسی"
-            description="در سرتاسر دنیا، چه شرق چه ..."
+            shortDescription="در سرتاسر دنیا، چه شرق چه ..."
             courseTeacher="مهدی وکیلی"
             coursePrice=" ۲۰,۰۰۰ تومان"
           />
           <Card
             icon={englishCoursePng}
             courseTitle="آموزش مکالمه زبان انگلیسی"
-            description="در سرتاسر دنیا، چه شرق چه ..."
+            shortDescription="در سرتاسر دنیا، چه شرق چه ..."
             courseTeacher="مهدی وکیلی"
             coursePrice=" ۲۰,۰۰۰ تومان"
           />
@@ -123,7 +127,11 @@ function Home() {
               میبایست ابتدا در سایت ثبت نام کنند. برای ثبت نام میتوانید از دکمه
               زیر استفاده کنید.
             </h4>
-            <Button text="ثبت نام به عنوان زبان آموز" size="large" />
+            <Button
+              text="ثبت نام به عنوان زبان آموز"
+              size="large"
+              onclick={() => (window.location.href = "login/")}
+            />
           </div>
           <div className="home-page-ads-2-left-side">
             <img src={homePageSvg2} alt="home page svg 2" />
