@@ -6,10 +6,6 @@
   border-color: #3a365e !important;
 }
 
-// :scope(.card) {
-//   --bs-card-spacer-x: 0px !important;
-//   --bs-card-spacer-y: 0px !important;
-// }
 .card {
   --bs-card-spacer-x: 0px !important;
   --bs-card-spacer-y: 0px !important;
@@ -27,7 +23,6 @@
 
 .card-h-teacher-container {
   display: flex;
-  // justify-content: ;
 }
 
 .card-h-background-yes {
@@ -36,4 +31,12 @@
 
 .card-h-background-no {
   background-color: #1c1a2d !important;
+}
+
+.col-md-3 {
+  img {
+    max-height: 169px;
+    max-width: 244px;
+    border-radius: 0px 20px 20px 0px !important;
+  }
 }
