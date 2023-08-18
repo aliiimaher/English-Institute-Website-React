@@ -4,10 +4,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10%;
+  padding: 4%;
   direction: ltr;
 
   table {
-    width: 60%;
+    width: 66%;
   }
+
+  tr {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 24px;
+    align-items: center;
+    gap: 20px;
+  }
+
+  td {
+    display: flex;
+    flex-direction: row;
+    width: 80% !important;
+    align-items: center;
+  }
+
+  img {
+    border-radius: 100%;
+    max-height: 100px;
+    margin-right: 16px;
+  }
+}
+
+.personal-github {
+  display: flex;
+  justify-content: right;
 }
