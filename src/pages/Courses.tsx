@@ -10,8 +10,13 @@ import openedMenuToggleSvg from "../assets/Pic/openedMenuToggleSvg.svg";
 import axios from "axios";
 
 import Course from "../interfaces/Course";
+import Button from "../components/Button";
 
 function Courses() {
+  const filterClick = function () {
+    console.log(selectedLanguages, selectedFee);
+  };
+
   const [courses, setCourses] = useState<Course[]>([]);
 
   useEffect(() => {
@@ -443,6 +448,14 @@ function Courses() {
           {/* <button onClick={() => console.log(selectedDiffLevels)}>
             Diff levels
           </button> */}
+          <div style={{ width: "100%", marginTop: "24px" }}>
+            <Button
+              text="اعمال فیلتر"
+              size="large"
+              btn100Width="yes"
+              onclick={filterClick}
+            />
+          </div>
         </div>
 
         <div className="courses-page-container-left">
