@@ -15,7 +15,6 @@ function Courses() {
   const [courses, setCourses] = useState<Course[]>([]);
 
   useEffect(() => {
-    // Fetch data from API using Axios
     axios
       .get("http://localhost:8000/course/")
       .then((response) => {
@@ -194,9 +193,9 @@ function Courses() {
             </div>
           </div>
           {/* test btn */}
-          <button onClick={() => console.log(selectedLanguages)}>
+          {/* <button onClick={() => console.log(selectedLanguages)}>
             Languages
-          </button>
+          </button> */}
 
           {/* ========== Fee ========== */}
           <div className="dropdown-fee">
@@ -455,6 +454,9 @@ function Courses() {
               icon={course.course_image}
               coursePrice={course.price.toString()}
               courseTeacher={course.teacher.fullname}
+              onclick={() =>
+                (location.href = "/course-info/" + course.id + "/")
+              }
             />
           ))}
         </div>

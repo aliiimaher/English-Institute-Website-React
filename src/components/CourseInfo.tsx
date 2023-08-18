@@ -1,6 +1,5 @@
 import "../styles/components/CourseInfo.scss";
 
-import CourseData from "../interfaces/CourseData";
 import Button from "./Button";
 
 import teacherSvg from "../assets/Pic/CourseInfo/teacher_course_info.svg";
@@ -9,18 +8,47 @@ import clockSvg from "../assets/Pic/CourseInfo/clock_course_info.svg";
 import graduateSvg from "../assets/Pic/CourseInfo/graduate_course_info.svg";
 import cartSvg from "../assets/Pic/CourseInfo/cart.svg";
 
-interface CoursesPageProps {
-  thisCourse: CourseData;
-}
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Course from "../interfaces/Course";
 
-function CourseInfo({ thisCourse }: CoursesPageProps) {
+function CourseInfo() {
+  const { course_id } = useParams();
+  const [thisCourse, setThisCourse] = useState<Course>();
+
+  useEffect(() => {
+    axios.get(`http://localhost:8000/course/${course_id}/`).then((response) => {
+      setThisCourse(response.data);
+      console.log(response.data);
+    });
+  }, []);
+
+  function addToCart() {
+    axios.put(
+      `http://localhost:8000/cart/add/${course_id}/`,
+      {},
+      {
+        headers: {
+          Authorization: "Token " + window.localStorage.getItem("token"),
+        },
+      }
+    );
+  }
+
   return (
     <>
       <div className="course-info-page-container">
         <div className="course-info-up-side">
           <div className="course-info-up-side-right-hand">
-            <img src={thisCourse.picturePath} alt="course picture" />
-            <div style={{ marginTop: "20px" }}>{thisCourse.description}</div>
+            <img
+              src={thisCourse?.course_image}
+              alt="course picture"
+              style={{ maxWidth: "873px", maxHeight: "575px" }}
+            />
+            <div style={{ marginTop: "20px" }}>
+              {thisCourse?.description}
+            </div>
           </div>
           <div className="course-info-up-side-left-hand">
             <div className="course-info-up-side-left-hand-price-ticket">
@@ -48,7 +76,7 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
                     fontWeight: "700",
                   }}
                 >
-                  {thisCourse.price}
+                  {thisCourse?.price}
                 </div>
                 <span
                   style={{ backgroundColor: "#3A365E" }}
@@ -59,6 +87,7 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
                 text="اضافه کردن به سبد خرید"
                 size="large"
                 icon={cartSvg}
+                onclick={() => addToCart()}
               />
             </div>
             <div className="course-info-up-side-left-hand-course-sub-info">
@@ -68,7 +97,7 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
                     <img src={teacherSvg} style={{ marginLeft: "8px" }} />
                     <div style={{ fontFamily: "KalamehThin" }}>مدرس دوره:</div>
                   </th>
-                  <td>{thisCourse.teacher}</td>
+                  <td>{thisCourse?.teacher.fullname}</td>
                 </tr>
                 <tr>
                   <th>
@@ -77,7 +106,7 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
                       تعداد ویدیو:
                     </div>
                   </th>
-                  <td>{thisCourse.numberOfSessions}</td>
+                  <td>{thisCourse?.number_of_sessions}</td>
                 </tr>
                 <tr>
                   <th>
@@ -86,7 +115,7 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
                       مدت زمان دوره:
                     </div>
                   </th>
-                  <td>{thisCourse.duration}</td>
+                  <td>{thisCourse?.duration}</td>
                 </tr>
 
                 <tr>
@@ -96,7 +125,7 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
                       تعداد دانشجو:
                     </div>
                   </th>
-                  <td>{thisCourse.numberOfStudents}</td>
+                  <td>{thisCourse?.number_of_students}</td>
                 </tr>
               </table>
             </div>
@@ -109,25 +138,30 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
                 }}
               >
                 <img
-                  src={thisCourse.teacherPicturePath}
-                  style={{ borderRadius: "100%", marginLeft: "16px" }}
+                  src={thisCourse?.teacher.teacher_image}
+                  style={{
+                    borderRadius: "100%",
+                    marginLeft: "16px",
+                    maxWidth: "100px",
+                    maxHeight: "100px",
+                  }}
                 />
                 <div>
-                  {thisCourse.teacher}
+                  {thisCourse?.teacher.fullname}
                   <br />
                   <div style={{ fontFamily: "KalamehThin" }}>
                     طراح وب و توسعه گر فرانت-اند
                   </div>
                 </div>
               </div>
-              <div>{thisCourse.teacherDescription}</div>
+              <div>{thisCourse?.teacher.description}</div>
             </div>
           </div>
         </div>
         <div className="course-info-down-side">
           <div className="course-info-down-side-right-hand">
             <div className="course-info-down-side-right-hand">
-              {thisCourse.children}
+              {thisCourse?.content}
               <div className="course-info-page-preview-part">
                 <div
                   style={{
@@ -138,7 +172,7 @@ function CourseInfo({ thisCourse }: CoursesPageProps) {
                 >
                   پيش نمايش
                 </div>
-                {thisCourse.preViews}
+                {thisCourse?.preview}
               </div>
             </div>
           </div>

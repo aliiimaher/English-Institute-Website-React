@@ -10,6 +10,7 @@ interface Props {
   courseTeacher: string;
   coursePrice: string;
   className?: string;
+  onclick?: () => void;
 }
 
 function Card({
@@ -19,6 +20,7 @@ function Card({
   courseTeacher,
   coursePrice,
   className,
+  onclick,
 }: Props) {
   return (
     <>
@@ -37,7 +39,7 @@ function Card({
           <div className="btn-price-container">
             {coursePrice}
             <a href="#">
-              <Button text="مشاهده دوره" size="large" />
+              <Button text="مشاهده دوره" size="large" onclick={onclick} />
             </a>
           </div>
         </div>

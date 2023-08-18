@@ -19,6 +19,7 @@ import axios from "axios";
 function Cart() {
   // list of orders
   const [orders, setOrders] = useState<Course[]>([]);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
 
   const header = {
     "Content-Type": "application/json",
@@ -30,37 +31,47 @@ function Cart() {
       .get("http://localhost:8000/cart/", { headers: header })
       .then((response) => {
         setOrders(response.data.course);
+        setTotalPrice(response.data.price);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
-  
+
+  function removeCourse(course_id: number) {
+    axios.delete(`http://localhost:8000/cart/add/${course_id}/`, {
+      headers: {
+        Authorization: "Token " + window.localStorage.getItem("token"),
+      },
+    });
+  }
+
   const handleRemoveCard = (index: number) => {
     const updatedOrders = [...orders];
     updatedOrders.splice(index, 1);
     setOrders(updatedOrders);
-    // handleCalculateTotalPrice();
+    handleCalculateTotalPrice();
   };
 
   var price = 0;
-  var discount = 5000;
+  var discount = 0;
   const [finalPrice, setFinalPrice] = useState(0);
 
   // ========== handle for calculation total price ==========
-  // const handleCalculateTotalPrice = () => {
-  //   price = 0;
-  //   orders.forEach((item) => {
-  //     let temp = persianToEnglishNumerals(
-  //       item.coursePrice.replace("تومان", "").replace(",", "")
-  //     );
-  //     price += Number(temp);
-  //   });
-  //   setFinalPrice(price - discount);
-  // };
+  const handleCalculateTotalPrice = () => {
+    price = 0;
+    orders.forEach((item) => {
+      // let temp = persianToEnglishNumerals(
+      //   item.price.replace("تومان", "").replace(",", "")
+      // );
+      // price += Number(temp);
+      price += item.price;
+    });
+    setFinalPrice(price - discount);
+  };
 
   useEffect(() => {
-    // handleCalculateTotalPrice();
+    handleCalculateTotalPrice();
   }, [orders]);
 
   return (
@@ -73,23 +84,23 @@ function Cart() {
             نمی باشد!
           </div>
 
-          {/* here test */}
           <div>
-            {orders !== null ? (
+            {orders.length !== 0 ? (
               <>
-                {orders.map((item, index) => (
+                {orders.map((course, index) => (
                   <CardH
                     key={index}
-                    courseTitle={item.title}
-                    courseDescription={item.short_description}
-                    picture={item.course_image}
-                    coursePrice={item.price.toString()}
-                    courseTeacher={item.teacher.fullname}
-                    onClick={() => handleRemoveCard(index)}
+                    courseTitle={course.title}
+                    courseDescription={course.short_description}
+                    picture={course.course_image}
+                    coursePrice={course.price.toString()}
+                    courseTeacher={course.teacher.fullname}
+                    onClick={() => {
+                      handleRemoveCard(index), removeCourse(course.id);
+                    }}
                     background="no"
                   />
                 ))}
-                {console.log(orders)}
               </>
             ) : (
               <div className="panel-no-course">
@@ -117,7 +128,7 @@ function Cart() {
                     <div style={{ fontFamily: "KalamehThin" }}>مبلغ کل:</div>
                   </th>
                   <td>
-                    <strong>{finalPrice + discount} تومان</strong>
+                    <strong>{totalPrice} تومان</strong>
                   </td>
                 </tr>
 

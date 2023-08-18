@@ -1,7 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import testData from "./Data/TestData";
-
 import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
@@ -24,10 +22,7 @@ function MyRoutes() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/courses" element={<CoursesPage />} />
-        <Route
-          path="/course-info"
-          element={<CourseInfoPage thisCourse={testData} />}
-        />
+        <Route path="/course-info/:course_id" element={<CourseInfoPage />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/panel-dashboard" element={<DashboardPage />} />
         <Route path="/panel-my-courses" element={<MyCoursesPage />} />
