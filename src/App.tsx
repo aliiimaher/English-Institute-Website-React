@@ -8,8 +8,12 @@ import MyRoutes from "./Routes";
 import { useEffect, useState } from "react";
 import { UserContext } from "./jsFiles/UserContext.js";
 import axios from "axios";
+import Repair from "./components/Repair.js";
 
 function App() {
+  // middle ware handling
+  const [repairMode, setRepairMode] = useState(false);
+
   const [thisUser, setThisUser] = useState(null);
   const fetchUser = async () => {
     try {
@@ -24,6 +28,7 @@ function App() {
 
       setThisUser(response.data);
     } catch (error) {
+      setRepairMode(true);
       console.error("Error fetching user data:", error);
     }
   };
@@ -38,17 +43,17 @@ function App() {
   return (
     <>
       <UserContext.Provider value={thisUser ? thisUser : {}}>
-        {/* {thisUser ? (
-          <> */}
-        <Header />
-        <div className="app-container">
-          <MyRoutes />
-        </div>
-        <Footer />
-        {/* </>
+        {repairMode ? (
+          <Repair />
         ) : (
-          <p>Please Wait...</p>
-        )} */}
+          <>
+            <Header />
+            <div className="app-container">
+              <MyRoutes />
+            </div>
+            <Footer />
+          </>
+        )}
       </UserContext.Provider>
     </>
   );

@@ -10,8 +10,22 @@ import openedMenuToggleSvg from "../assets/Pic/openedMenuToggleSvg.svg";
 import axios from "axios";
 
 import Course from "../interfaces/Course";
+import Button from "../components/Button";
+// import { useLocation, useHistory } from "react-router-dom";
 
 function Courses() {
+  // const location = useLocation();
+  // const history = useHistory();
+
+  // const queryParams = new URLSearchParams(location.search);
+  // const brandsParam = queryParams.get("brands") || "";
+
+  // const filterClick = function () {
+  //   console.log(selectedLanguages, selectedFee);
+  //   {selectedLanguages.map(lang, index) {
+  //   }}
+  // };
+
   const [courses, setCourses] = useState<Course[]>([]);
 
   useEffect(() => {
@@ -443,6 +457,14 @@ function Courses() {
           {/* <button onClick={() => console.log(selectedDiffLevels)}>
             Diff levels
           </button> */}
+          <div style={{ width: "100%", marginTop: "24px" }}>
+            <Button
+              text="اعمال فیلتر"
+              size="large"
+              btn100Width="yes"
+              onclick={filterClick}
+            />
+          </div>
         </div>
 
         <div className="courses-page-container-left">
