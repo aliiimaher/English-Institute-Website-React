@@ -11,11 +11,20 @@ import axios from "axios";
 
 import Course from "../interfaces/Course";
 import Button from "../components/Button";
+// import { useLocation, useHistory } from "react-router-dom";
 
 function Courses() {
-  const filterClick = function () {
-    console.log(selectedLanguages, selectedFee);
-  };
+  // const location = useLocation();
+  // const history = useHistory();
+
+  // const queryParams = new URLSearchParams(location.search);
+  // const brandsParam = queryParams.get("brands") || "";
+
+  // const filterClick = function () {
+  //   console.log(selectedLanguages, selectedFee);
+  //   {selectedLanguages.map(lang, index) {
+  //   }}
+  // };
 
   const [courses, setCourses] = useState<Course[]>([]);
 
