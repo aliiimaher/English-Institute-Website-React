@@ -6,11 +6,12 @@ import InputBox from "../components/InputBox";
 import englishCoursePng from "../assets/Pic/learn-english-language.png";
 import englishCoursePngH from "../assets/Pic/learn-english-design-cardh.png";
 import personSvg from "../assets/Pic/person.svg";
+import Repair from "../components/Repair";
 
 function Test() {
   return (
     <>
-      <div>
+      {/* <div>
         <h1>this is test page</h1>
         <h3>here you can see all components that are used in project</h3>
 
@@ -66,11 +67,10 @@ function Test() {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
+      <Repair />
     </>
   );
 }
 
 export default Test;
-
-
