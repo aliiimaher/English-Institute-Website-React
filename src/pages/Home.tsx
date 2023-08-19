@@ -1,12 +1,10 @@
 import Button from "../components/Button";
-import Card from "../components/Card";
-
+import { Slider } from "../components/slider";
 import "../styles/pages/Home.scss";
 
 import homePageSvg1 from "../assets/Pic/homePageSvg1.svg";
 import homePageSvg2 from "../assets/Pic/homePageSvg2.svg";
 import homePageSvg3 from "../assets/Pic/homePageSvg3.svg";
-import englishCoursePng from "../assets/Pic/learn-english-language.png";
 import leftArrowSvg from "../assets/Pic/leftArrowSvg.svg";
 
 function Home() {
@@ -52,34 +50,7 @@ function Home() {
             margin: "40px",
           }}
         >
-          <Card
-            icon={englishCoursePng}
-            courseTitle="آموزش مکالمه زبان انگلیسی"
-            shortDescription="در سرتاسر دنیا، چه شرق چه ..."
-            courseTeacher="مهدی وکیلی"
-            coursePrice=" ۲۰,۰۰۰ تومان"
-          />
-          <Card
-            icon={englishCoursePng}
-            courseTitle="آموزش مکالمه زبان انگلیسی"
-            shortDescription="در سرتاسر دنیا، چه شرق چه ..."
-            courseTeacher="مهدی وکیلی"
-            coursePrice=" ۲۰,۰۰۰ تومان"
-          />
-          <Card
-            icon={englishCoursePng}
-            courseTitle="آموزش مکالمه زبان انگلیسی"
-            shortDescription="در سرتاسر دنیا، چه شرق چه ..."
-            courseTeacher="مهدی وکیلی"
-            coursePrice=" ۲۰,۰۰۰ تومان"
-          />
-          <Card
-            icon={englishCoursePng}
-            courseTitle="آموزش مکالمه زبان انگلیسی"
-            shortDescription="در سرتاسر دنیا، چه شرق چه ..."
-            courseTeacher="مهدی وکیلی"
-            coursePrice=" ۲۰,۰۰۰ تومان"
-          />
+          <Slider />
         </div>
       </div>
       <div>
