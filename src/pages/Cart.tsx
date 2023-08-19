@@ -61,11 +61,9 @@ function Cart() {
   const handleCalculateTotalPrice = () => {
     price = 0;
     orders.forEach((item) => {
-      // let temp = persianToEnglishNumerals(
-      //   item.price.replace("تومان", "").replace(",", "")
-      // );
-      // price += Number(temp);
-      price += item.price;
+      let temp = persianToEnglishNumerals(item.price.toString());
+      price += Number(temp);
+      // price += item.price;
     });
     setFinalPrice(price - discount);
   };

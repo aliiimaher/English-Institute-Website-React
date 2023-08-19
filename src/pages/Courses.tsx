@@ -462,7 +462,7 @@ function Courses() {
               text="اعمال فیلتر"
               size="large"
               btn100Width="yes"
-              onclick={filterClick}
+              // onclick={filterClick}
             />
           </div>
         </div>
