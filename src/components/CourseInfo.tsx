@@ -16,6 +16,7 @@ import Course from "../interfaces/Course";
 function CourseInfo() {
   const { course_id } = useParams();
   const [thisCourse, setThisCourse] = useState<Course>();
+  const [message, setMessage] = useState({ type: "", text: "" });
 
   useEffect(() => {
     axios.get(`http://localhost:8000/course/${course_id}/`).then((response) => {
@@ -24,17 +25,27 @@ function CourseInfo() {
     });
   }, []);
 
+
   function addToCart() {
-    axios.put(
-      `http://localhost:8000/cart/add/${course_id}/`,
-      {},
-      {
+    axios
+      .put(`http://localhost:8000/cart/add/${course_id}/`, {}, {
         headers: {
           Authorization: "Token " + window.localStorage.getItem("token"),
         },
-      }
-    );
-  }
+      })
+      .then(() => {
+        setMessage({ type: "success", text: "محصول به سبد خرید اضافه شد!" });
+        setTimeout(() => {
+          setMessage({ type: "", text: "" });
+        }, 3000);
+      })
+      .catch((error) => {
+        setMessage({ type: "error", text: error.response.data.error });
+        setTimeout(() => {
+          setMessage({ type: "", text: "" });
+        }, 3000);
+      });
+    }
 
   return (
     <>
@@ -89,6 +100,16 @@ function CourseInfo() {
                 icon={cartSvg}
                 onclick={() => addToCart()}
               />
+              {message.type === "success" && (
+                <p style={{ color: "rgb(3, 255, 3)", marginTop: "10px" }}>
+                  {message.text}
+                </p>
+              )}
+              {message.type === "error" && (
+                <p style={{ color: "rgb(255, 0, 0)", marginTop: "10px" }}>
+                  {message.text}
+                </p>
+              )}
             </div>
             <div className="course-info-up-side-left-hand-course-sub-info">
               <table style={{ width: "90%" }}>

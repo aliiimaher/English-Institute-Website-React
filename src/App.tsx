@@ -28,16 +28,24 @@ function App() {
 
       setThisUser(response.data);
     } catch (error) {
-      setRepairMode(true);
+      //setRepairMode(true);
       console.error("Error fetching user data:", error);
     }
   };
 
+  const isRepairMode = () => {
+    axios.get("http://localhost:8000/course")
+    .then(() => {
+      setRepairMode(false)
+    })
+    .catch(() => {
+      setRepairMode(true)
+    })
+  }
+
   useEffect(() => {
-    fetchUser();
-    if (thisUser !== null) {
-      console.log(thisUser);
-    }
+    window.localStorage.getItem("token") !== null ? fetchUser() : {}
+    isRepairMode();
   }, []);
 
   return (
