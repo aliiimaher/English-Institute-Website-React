@@ -28,13 +28,11 @@ function Card({
       <div className={"card my-card " + className}>
         <img src={icon} className="card-img-top" alt="card image" />
         <div className="card-body">
-          <h5 className="card-title" dir="rtl">
-            {courseTitle}
-          </h5>
+          <h5 className="card-title">{courseTitle}</h5>
           <p className="card-text">{shortDescription}</p>
           <div className="teacher-container">
             <img src={teacherSvg} alt="teacherSvg" />
-            <h3 style={{ marginRight: "8px" }}>{courseTeacher}</h3>
+            <h3>{courseTeacher}</h3>
           </div>
           <div className="btn-price-container">
             {coursePrice}

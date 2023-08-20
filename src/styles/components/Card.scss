@@ -12,7 +12,12 @@
 .teacher-container {
   display: flex;
   justify-content: left;
+  align-items: center;
   padding-bottom: 2% !important;
+  h3 {
+    margin-right: 8px;
+    margin-bottom: 0;
+  }
 }
 
 .card-img-top {
