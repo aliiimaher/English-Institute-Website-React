@@ -12,10 +12,11 @@
 }
 
 .text-part-container {
-  margin: 20px 20px 20px 20px;
+  margin: 20px 0px 20px 20px;
 }
 
 .price-teacher-container {
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,6 +26,7 @@
   display: flex;
   h3 {
     margin-right: 8px;
+    margin-bottom: 0;
   }
 }
 
@@ -36,10 +38,10 @@
   background-color: #1c1a2d !important;
 }
 
-.col-md-3 {
+.col-md-4 {
   img {
-    max-height: 169px;
-    max-width: 244px;
+    max-height: 160px;
+    max-width: 280px;
     border-radius: 0px 20px 20px 0px !important;
   }
 }

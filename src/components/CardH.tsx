@@ -48,14 +48,14 @@ function CardH({
           className="row g-0"
           style={{ display: "flex", justifyContent: "space-between" }}
         >
-          <div className="col-md-3">
+          <div className="col-md-4">
             <img
               src={picture}
               className="img-fluid rounded-end"
               alt="card picture"
             />
           </div>
-          <div className="col-md-9">
+          <div className="col-md-8">
             <div className="card-body text-part-container">
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <h5 className="card-title">{courseTitle}</h5>
