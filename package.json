@@ -16,7 +16,8 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.2",
     "react-router-dom": "^6.15.0",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "swiper": "^10.2.0"
   },
   "devDependencies": {
     "@hookform/devtools": "^4.3.1",
