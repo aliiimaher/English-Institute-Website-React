@@ -27,7 +27,7 @@ function Card({
       {/* this is a card {courseTitle} and {courseTeacher} */}
       <div className={"card my-card " + className}>
         <img src={icon} className="card-img-top" alt="card image" />
-        <div className="card-body">
+        <div className="card-body-1">
           <h5 className="card-title">{courseTitle}</h5>
           <p className="card-text">{shortDescription}</p>
           <div className="teacher-container">
