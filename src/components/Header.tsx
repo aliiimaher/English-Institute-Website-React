@@ -1,16 +1,31 @@
 import Button from "./Button";
 import "../styles/components/Header.scss";
-import {useState} from 'react';
+import { useState, useEffect } from "react";
 import Loading from "./Loading";
 import logoPng from "../assets/Pic/Frame.png";
+import axios from "axios";
 
 function Header() {
+  const header = {
+    "Content-Type": "application/json",
+    Authorization: "Token " + window.localStorage.getItem("token"),
+  };
 
-  const [isLoading, setIsLoading] = useState(false)
+  const [ordersNumber, setOrdersNumber] = useState("");
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/cart/", { headers: header })
+      .then((response) => {
+        setOrdersNumber("سبد خرید(" + response.data.items + ")");
+      });
+  }, []);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <>
-      {isLoading && <Loading/>}
+      {isLoading && <Loading />}
       <nav className="navbar navbar-expand-lg">
         <div
           className="container-fluid header-links"
@@ -48,15 +63,21 @@ function Header() {
               <>
                 <div style={{ marginLeft: "20px", marginRight: "40px" }}>
                   <Button
-                    text="سبد خرید"
+                    text={ordersNumber}
                     size="large"
-                    onclick={() => {setIsLoading(true);window.location.href = "/cart"}}
+                    onclick={() => {
+                      setIsLoading(true);
+                      window.location.href = "/cart";
+                    }}
                   />
                 </div>
                 <Button
                   text="پروفایل"
                   size="large"
-                  onclick={() => {setIsLoading(true);window.location.href = "/panel-dashboard"}}
+                  onclick={() => {
+                    setIsLoading(true);
+                    window.location.href = "/panel-dashboard";
+                  }}
                 />
               </>
             ) : (
@@ -64,14 +85,20 @@ function Header() {
                 <Button
                   text="ثبت نام"
                   size="large"
-                  onclick={() => {setIsLoading(true);window.location.href = "/register"}}
+                  onclick={() => {
+                    setIsLoading(true);
+                    window.location.href = "/register";
+                  }}
                 />
                 <div style={{ marginRight: "40px" }}>
                   <Button
                     text="ورود"
                     size="large"
                     backgroundColor="no"
-                    onclick={() => {setIsLoading(true);window.location.href = "/login"}}
+                    onclick={() => {
+                      setIsLoading(true);
+                      window.location.href = "/login";
+                    }}
                   />
                 </div>
               </>
