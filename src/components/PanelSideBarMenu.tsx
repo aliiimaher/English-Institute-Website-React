@@ -2,17 +2,19 @@ import "../styles/components/PanelSideBarMenu.scss";
 
 import UserData from "../interfaces/UserData";
 import { Link, useLocation } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../jsFiles/UserContext";
-
+import Loading from "./Loading";
 // only for test
 import usofPng from "../assets/Pic/CourseInfo/usof.png";
 
 function PanelSideBarMenu() {
   const thisUser: UserData = useContext(UserContext);
   const location = useLocation();
+  const [isloading, setIsLoading] = useState(false);
   return (
     <>
+      {isloading && <Loading/>}
       <div className="panel-side-bar-menu-container">
         <div className="panel-side-bar-menu-person">
           <img
@@ -41,6 +43,7 @@ function PanelSideBarMenu() {
           <Link
             to={location}
             onClick={() => {
+              setIsLoading(true)
               window.localStorage.removeItem("token");
               window.location.reload;
               window.location.href = "/";

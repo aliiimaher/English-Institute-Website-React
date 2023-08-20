@@ -9,7 +9,7 @@ import passwordSvg from "../assets/Pic/passwordSvg.svg";
 import loginSvg from "../assets/Pic/loginSvg.svg";
 
 import { useForm } from "react-hook-form";
-
+import Loading from "../components/Loading";
 import { useState } from "react";
 import PopUpLogin from "../components/PopUpLogin";
 
@@ -19,6 +19,9 @@ type FormValues = {
 };
 
 function Login() {
+  // ========== loading ==========
+  const [loading, setLoading] = useState(false);
+
   // ========== forget password ==========
   const [forgetPasswordPopUp, setForgetPasswordPopUp] = useState(false);
 
@@ -48,7 +51,8 @@ function Login() {
     console.log("form submitted", data);
   };
 
-  const onclick = function () {
+  const onclick = () => {
+    setLoading(true);
     const api = axios.create({ baseURL: "http://localhost:8000/" });
     api
       .post("user/token/login/", {
@@ -67,107 +71,117 @@ function Login() {
             localStorage.removeItem("remember"));
         window.location.href = "/panel-dashboard";
       });
-    setTimeout(() => {
-      if (localStorage.getItem("token") === null) {
-        alert("رمز عبور یا نام کاربری خود را نادرست وارد کردید!");
-      }
-    }, 500);
+    // setTimeout(() => {
+    //   if (localStorage.getItem("token") === null) {
+    //     alert("رمز عبور یا نام کاربری خود را نادرست وارد کردید!");
+    //   }
+    // }, 500);
   };
 
   return (
+    // if isloading == true show loading and loginpage else show loginpage
     <>
-      {forgetPasswordPopUp ? (
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <PopUpLogin onclick={() => setForgetPasswordPopUp(false)} />
-        </div>
-      ) : (
-        <>
-          <div className="login-container">
-            <div className="login-right-side" onSubmit={handleSubmit(onSubmit)}>
-              <form>
-                <div className="login-right-side-up">
-                  <h1 style={{ paddingBottom: "16px" }}>از اینجا وارد شوید!</h1>
-                  <h3 style={{ paddingBottom: "68px" }}>
-                    برای دسترسی به خدمات میبایست ابتدا وارد حساب خود شوید.
-                  </h3>
-                  <InputBox
-                    placeHolder="نام کاربری یا ایمیل"
-                    icon={personSvg}
-                    reactHookFrom={register("username")}
-                  />
-                  <InputBox
-                    placeHolder="رمز عبور"
-                    type={pwdShown ? "text" : "password"}
-                    icon={passwordSvg}
-                    reactHookFrom={register("password")}
-                  />
-                </div>
-                <div className="login-right-side-down">
-                  <div className="login-under-input-box">
-                    <div>
-                      <input
-                        type="checkbox"
-                        onClick={() => setPwdShown(!pwdShown)}
-                        style={{ marginLeft: "8px" }}
-                      />
-                      نمایش رمز عبور
-                    </div>
-                    <a onClick={() => setForgetPasswordPopUp(true)}>
-                      رمز عبور خود را فراموش کرده‌اید؟
-                    </a>
+      {loading && <Loading />}
+
+      <>
+        {forgetPasswordPopUp ? (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <PopUpLogin onclick={() => setForgetPasswordPopUp(false)} />
+          </div>
+        ) : (
+          <>
+            <div className="login-container">
+              <div
+                className="login-right-side"
+                onSubmit={handleSubmit(onSubmit)}
+              >
+                <form>
+                  <div className="login-right-side-up">
+                    <h1 style={{ paddingBottom: "16px" }}>
+                      از اینجا وارد شوید!
+                    </h1>
+                    <h3 style={{ paddingBottom: "68px" }}>
+                      برای دسترسی به خدمات میبایست ابتدا وارد حساب خود شوید.
+                    </h3>
+                    <InputBox
+                      placeHolder="نام کاربری یا ایمیل"
+                      icon={personSvg}
+                      reactHookFrom={register("username")}
+                    />
+                    <InputBox
+                      placeHolder="رمز عبور"
+                      type={pwdShown ? "text" : "password"}
+                      icon={passwordSvg}
+                      reactHookFrom={register("password")}
+                    />
                   </div>
-                  <div className="login-remember-btn">
-                    <div style={{ display: "flex", justifyContent: "right" }}>
-                      <input
-                        type="checkbox"
-                        onClick={() => setRemember(!remember)}
-                        style={{ marginLeft: "8px" }}
-                        checked={remember ? true : false}
-                      />
-                      مرا به خاطر بسپار
-                    </div>
-                    <div className="login-btn">
-                      <button
-                        style={{
-                          backgroundColor: "none",
-                          border: "none",
-                          background: "none",
-                          width: "100%",
-                        }}
-                      >
-                        <Button
-                          text="ورود"
-                          size="large"
-                          btn100Width="yes"
-                          onclick={onclick}
+                  <div className="login-right-side-down">
+                    <div className="login-under-input-box">
+                      <div>
+                        <input
+                          type="checkbox"
+                          onClick={() => setPwdShown(!pwdShown)}
+                          style={{ marginLeft: "8px" }}
                         />
-                      </button>
-                    </div>
-                    <div>
-                      حساب کاربری ندارید؟
-                      <a
-                        style={{ fontWeight: "700", color: "#58A4BD" }}
-                        href="/register"
-                      >
-                        عضویت در زبان لرن
+                        نمایش رمز عبور
+                      </div>
+                      <a onClick={() => setForgetPasswordPopUp(true)}>
+                        رمز عبور خود را فراموش کرده‌اید؟
                       </a>
                     </div>
+                    <div className="login-remember-btn">
+                      <div style={{ display: "flex", justifyContent: "right" }}>
+                        <input
+                          type="checkbox"
+                          onClick={() => setRemember(!remember)}
+                          style={{ marginLeft: "8px" }}
+                          checked={remember ? true : false}
+                        />
+                        مرا به خاطر بسپار
+                      </div>
+                      <div className="login-btn">
+                        <button
+                          style={{
+                            backgroundColor: "none",
+                            border: "none",
+                            background: "none",
+                            width: "100%",
+                          }}
+                        >
+                          <Button
+                            text="ورود"
+                            size="large"
+                            btn100Width="yes"
+                            onclick={() => onclick()}
+                          />
+                        </button>
+                      </div>
+                      <div>
+                        حساب کاربری ندارید؟
+                        <a
+                          style={{ fontWeight: "700", color: "#58A4BD" }}
+                          href="/register"
+                        >
+                          عضویت در زبان لرن
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
+              <div className="login-left-side">
+                <h1>سلام دوباره!</h1>
+                <h3>
+                  وبسایت زبان لرن شامل آموزش‌های زیادی هست.
+                  <br />
+                  ما انواع آموزش‌های آفلاین، آنلاین و حضوری رو داریم.
+                </h3>
+                <img src={loginSvg} alt="login-svg" />
+              </div>
             </div>
-            <div className="login-left-side">
-              <h1>سلام دوباره!</h1>
-              <h3>
-                وبسایت زبان لرن شامل آموزش‌های زیادی هست.
-                <br />
-                ما انواع آموزش‌های آفلاین، آنلاین و حضوری رو داریم.
-              </h3>
-              <img src={loginSvg} alt="login-svg" />
-            </div>
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </>
     </>
   );
 }

@@ -1,15 +1,19 @@
 import Button from "../components/Button";
 import { Slider } from "../components/slider";
 import "../styles/pages/Home.scss";
-
+import Loading from "../components/Loading";
 import homePageSvg1 from "../assets/Pic/homePageSvg1.svg";
 import homePageSvg2 from "../assets/Pic/homePageSvg2.svg";
 import homePageSvg3 from "../assets/Pic/homePageSvg3.svg";
 import leftArrowSvg from "../assets/Pic/leftArrowSvg.svg";
-
+import {useState} from 'react'
 function Home() {
+
+  const [isLoading, setIsLoading] = useState(false)
+
   return (
     <>
+      {isLoading && <Loading/>}
       <div className="home-page-ads-1">
         <div style={{ maxWidth: "572px" }}>
           <h1>زبان را با ما بیاموزید!</h1>
@@ -20,7 +24,10 @@ function Home() {
           <Button
             text="مشاهده دوره‌های آموزشی"
             size="large"
-            onclick={() => (window.location.href = "courses/")}
+            onclick={() => {
+              setIsLoading(true);
+              window.location.href='courses/'
+            }}
           />
         </div>
         <img src={homePageSvg1} alt="home page svg 1" />
