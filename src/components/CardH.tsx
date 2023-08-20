@@ -59,13 +59,17 @@ function CardH({
             <div className="card-body text-part-container">
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <h5 className="card-title">{courseTitle}</h5>
-                <img src={closeSvg} style={{ margin: "2px" }} onClick={onClick} />
+                <img
+                  src={closeSvg}
+                  style={{ margin: "2px" }}
+                  onClick={onClick}
+                />
               </div>
               <p className="card-text">{courseDescription}</p>
               <div className="price-teacher-container">
                 <div className="card-h-teacher-container">
                   <img src={teacherSvg} alt="teacherSvg" />
-                  <h3 style={{ marginRight: "8px" }}>{courseTeacher}</h3>
+                  <h3>{courseTeacher}</h3>
                 </div>
                 {coursePrice}
               </div>

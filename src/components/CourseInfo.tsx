@@ -25,14 +25,17 @@ function CourseInfo() {
     });
   }, []);
 
-
   function addToCart() {
     axios
-      .put(`http://localhost:8000/cart/add/${course_id}/`, {}, {
-        headers: {
-          Authorization: "Token " + window.localStorage.getItem("token"),
-        },
-      })
+      .put(
+        `http://localhost:8000/cart/add/${course_id}/`,
+        {},
+        {
+          headers: {
+            Authorization: "Token " + window.localStorage.getItem("token"),
+          },
+        }
+      )
       .then(() => {
         setMessage({ type: "success", text: "محصول به سبد خرید اضافه شد!" });
         setTimeout(() => {
@@ -45,7 +48,7 @@ function CourseInfo() {
           setMessage({ type: "", text: "" });
         }, 3000);
       });
-    }
+  }
 
   return (
     <>
@@ -57,9 +60,7 @@ function CourseInfo() {
               alt="course picture"
               style={{ maxWidth: "873px", maxHeight: "575px" }}
             />
-            <div style={{ marginTop: "20px" }}>
-              {thisCourse?.description}
-            </div>
+            <div style={{ marginTop: "20px" }}>{thisCourse?.description}</div>
           </div>
           <div className="course-info-up-side-left-hand">
             <div className="course-info-up-side-left-hand-price-ticket">
@@ -193,7 +194,17 @@ function CourseInfo() {
                 >
                   پيش نمايش
                 </div>
-                {thisCourse?.preview}
+                {thisCourse
+                  ? thisCourse.previews.map((preview, index) => (
+                      <div key={index}>
+                        <h3>{preview.title}</h3>
+                        <video controls>
+                          <source src={preview.video} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    ))
+                  : ""}
               </div>
             </div>
           </div>
