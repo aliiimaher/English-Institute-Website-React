@@ -2,7 +2,7 @@
   padding: 40px;
   padding-left: 10%;
   padding-right: 10%;
-  margin-bottom: 200px;
+  margin-bottom: 4%;
 }
 
 .course-info-up-side {
@@ -80,7 +80,19 @@ th {
 }
 
 .course-info-down-side-right-hand {
-  max-width: 720px;
+  max-width: 873px;
+  h3 {
+    background-color: #3a365e;
+    padding: 16px;
+    margin: 16px 0px 8px 16px;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  video {
+    max-width: 872px;
+    max-height: 575px;
+  }
 }
 
 .course-info-down-side-left-hand-arrow {

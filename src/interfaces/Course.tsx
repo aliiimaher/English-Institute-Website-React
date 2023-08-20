@@ -10,7 +10,7 @@ export default interface Course {
   number_of_students: number;
   duration: number;
   content: string;
-  preview: [];
+  previews: Preview[];
 }
 
 export interface Teacher {
@@ -18,4 +18,9 @@ export interface Teacher {
   teacher_image: string;
   description: string;
   subtitle: string;
+}
+
+export interface Preview {
+  title: string;
+  video: string;
 }

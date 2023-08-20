@@ -194,7 +194,17 @@ function CourseInfo() {
                 >
                   پيش نمايش
                 </div>
-                {thisCourse?.preview}
+                {thisCourse
+                  ? thisCourse.previews.map((preview, index) => (
+                      <div key={index}>
+                        <h3>{preview.title}</h3>
+                        <video controls>
+                          <source src={preview.video} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    ))
+                  : ""}
               </div>
             </div>
           </div>
