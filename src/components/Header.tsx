@@ -1,11 +1,16 @@
 import Button from "./Button";
 import "../styles/components/Header.scss";
-
+import {useState} from 'react';
+import Loading from "./Loading";
 import logoPng from "../assets/Pic/Frame.png";
 
 function Header() {
+
+  const [isLoading, setIsLoading] = useState(false)
+
   return (
     <>
+      {isLoading && <Loading/>}
       <nav className="navbar navbar-expand-lg">
         <div
           className="container-fluid header-links"
@@ -45,13 +50,13 @@ function Header() {
                   <Button
                     text="سبد خرید"
                     size="large"
-                    onclick={() => (window.location.href = "/cart")}
+                    onclick={() => {setIsLoading(true);window.location.href = "/cart"}}
                   />
                 </div>
                 <Button
                   text="پروفایل"
                   size="large"
-                  onclick={() => (window.location.href = "/panel-dashboard")}
+                  onclick={() => {setIsLoading(true);window.location.href = "/panel-dashboard"}}
                 />
               </>
             ) : (
@@ -59,14 +64,14 @@ function Header() {
                 <Button
                   text="ثبت نام"
                   size="large"
-                  onclick={() => (window.location.href = "/register")}
+                  onclick={() => {setIsLoading(true);window.location.href = "/register"}}
                 />
                 <div style={{ marginRight: "40px" }}>
                   <Button
                     text="ورود"
                     size="large"
                     backgroundColor="no"
-                    onclick={() => (window.location.href = "/login")}
+                    onclick={() => {setIsLoading(true);window.location.href = "/login"}}
                   />
                 </div>
               </>
