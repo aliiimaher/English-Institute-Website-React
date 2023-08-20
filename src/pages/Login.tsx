@@ -3,7 +3,7 @@ import axios from "axios";
 
 import InputBox from "../components/InputBox";
 import Button from "../components/Button";
-
+import Notif from "../components/Notif";
 import personSvg from "../assets/Pic/person.svg";
 import passwordSvg from "../assets/Pic/passwordSvg.svg";
 import loginSvg from "../assets/Pic/loginSvg.svg";
@@ -19,6 +19,8 @@ type FormValues = {
 };
 
 function Login() {
+  const [errorLogin, setErrorLogin] = useState(false)
+
   // ========== loading ==========
   const [loading, setLoading] = useState(false);
 
@@ -70,19 +72,17 @@ function Login() {
             localStorage.removeItem("password"),
             localStorage.removeItem("remember"));
         window.location.href = "/panel-dashboard";
-      });
-    // setTimeout(() => {
-    //   if (localStorage.getItem("token") === null) {
-    //     alert("رمز عبور یا نام کاربری خود را نادرست وارد کردید!");
-    //   }
-    // }, 500);
+      })
+      .catch(() => {
+        setLoading(false)
+        setErrorLogin(true)
+      })
   };
 
   return (
-    // if isloading == true show loading and loginpage else show loginpage
     <>
       {loading && <Loading />}
-
+      {errorLogin && <Notif text="ریدی کاکو رمزت اشتباهه" mode="error"/>}
       <>
         {forgetPasswordPopUp ? (
           <div style={{ display: "flex", justifyContent: "center" }}>
