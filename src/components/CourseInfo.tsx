@@ -1,7 +1,7 @@
 import "../styles/components/CourseInfo.scss";
 
 import Button from "./Button";
-
+import Loading from "./Loading";
 import teacherSvg from "../assets/Pic/CourseInfo/teacher_course_info.svg";
 import videoSvg from "../assets/Pic/CourseInfo/video_course_info.svg";
 import clockSvg from "../assets/Pic/CourseInfo/clock_course_info.svg";
@@ -17,6 +17,7 @@ function CourseInfo() {
   const { course_id } = useParams();
   const [thisCourse, setThisCourse] = useState<Course>();
   const [message, setMessage] = useState({ type: "", text: "" });
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     axios.get(`http://localhost:8000/course/${course_id}/`).then((response) => {
@@ -26,6 +27,7 @@ function CourseInfo() {
   }, []);
 
   function addToCart() {
+    setIsLoading(true)
     axios
       .put(
         `http://localhost:8000/cart/add/${course_id}/`,
@@ -41,17 +43,21 @@ function CourseInfo() {
         setTimeout(() => {
           setMessage({ type: "", text: "" });
         }, 3000);
+        location.reload();
       })
       .catch((error) => {
         setMessage({ type: "error", text: error.response.data.error });
         setTimeout(() => {
           setMessage({ type: "", text: "" });
         }, 3000);
+        setIsLoading(false)
       });
+
   }
 
   return (
     <>
+      {isLoading && <Loading/>}
       <div className="course-info-page-container">
         <div className="course-info-up-side">
           <div className="course-info-up-side-right-hand">
