@@ -63,7 +63,7 @@ function Header() {
               <>
                 <div style={{ marginLeft: "20px", marginRight: "40px" }}>
                   <Button
-                    text={ordersNumber}
+                    text={ordersNumber || "سبد خرید(۰)"}
                     size="large"
                     onclick={() => {
                       setIsLoading(true);
