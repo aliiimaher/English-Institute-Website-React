@@ -6,20 +6,23 @@ import { useContext, useState } from "react";
 import { UserContext } from "../jsFiles/UserContext";
 import Loading from "./Loading";
 // only for test
-import usofPng from "../assets/Pic/CourseInfo/usof.png";
+//import usofPng from "../assets/Pic/CourseInfo/usof.png";
 
 function PanelSideBarMenu() {
   const thisUser: UserData = useContext(UserContext);
   const location = useLocation();
   const [isloading, setIsLoading] = useState(false);
+
+  var image_url = "http://localhost:8000/" + thisUser.profile_image
+
   return (
     <>
       {isloading && <Loading/>}
       <div className="panel-side-bar-menu-container">
         <div className="panel-side-bar-menu-person">
           <img
-            // src={thisUser.picSrc}
-            src={usofPng}
+            src={image_url}
+            //src={usofPng}
             width="143px"
             style={{ borderRadius: "100%" }}
           />

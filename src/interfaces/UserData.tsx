@@ -7,5 +7,5 @@ export default interface UserData {
   sex?: "مرد" | "زن";
   phone_number: string;
   location: string;
-  picSrc: string;
+  profile_image: string;
 }
