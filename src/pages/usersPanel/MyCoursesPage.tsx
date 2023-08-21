@@ -51,6 +51,7 @@ function MyCoursesPage() {
                   picture={course.course_image}
                   coursePrice={course.price.toString()}
                   courseTeacher={course.teacher.fullname}
+                  IS_MY_COURSE="yes"
                 />
               ))}
             </div>
