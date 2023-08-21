@@ -4,6 +4,7 @@ import "../styles/components/CardH.scss";
 
 import teacherSvg from "../assets/Pic/teacher.svg";
 import closeSvg from "../assets/Pic/closeTicket.svg";
+import Button from "./Button";
 
 interface Props {
   picture?: string;
@@ -12,7 +13,7 @@ interface Props {
   courseTeacher?: string;
   coursePrice?: string;
   onClick?: () => void;
-  background?: "yes" | "no";
+  IS_MY_COURSE?: "yes" | "no";
 }
 
 function CardH({
@@ -22,7 +23,7 @@ function CardH({
   courseTeacher,
   coursePrice,
   onClick,
-  background,
+  IS_MY_COURSE = "no",
 }: Props) {
   const [cardBackground, setCardBackground] = useState("card-h-background-yes");
 
@@ -31,7 +32,7 @@ function CardH({
   }, []);
 
   const generateCardBackground = () => {
-    if (background === "no") {
+    if (IS_MY_COURSE === "no") {
       setCardBackground("card-h-background-no");
     } else {
       setCardBackground("card-h-background-yes");
@@ -59,11 +60,17 @@ function CardH({
             <div className="card-body text-part-container">
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <h5 className="card-title">{courseTitle}</h5>
-                <img
-                  src={closeSvg}
-                  style={{ margin: "2px" }}
-                  onClick={onClick}
-                />
+                {IS_MY_COURSE === "no" ? (
+                  <>
+                    <img
+                      src={closeSvg}
+                      style={{ margin: "2px" }}
+                      onClick={onClick}
+                    />
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
               <p className="card-text">{courseDescription}</p>
               <div className="price-teacher-container">
@@ -71,7 +78,15 @@ function CardH({
                   <img src={teacherSvg} alt="teacherSvg" />
                   <h3>{courseTeacher}</h3>
                 </div>
-                {coursePrice}
+                {IS_MY_COURSE === "no" ? (
+                  coursePrice
+                ) : (
+                  <>
+                    <div style={{ marginTop: "-20px" }}>
+                      <Button text="برو به دوره" size="large" />
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>

@@ -96,7 +96,6 @@ function Cart() {
                     onClick={() => {
                       handleRemoveCard(index), removeCourse(course.id);
                     }}
-                    background="no"
                   />
                 ))}
               </>
