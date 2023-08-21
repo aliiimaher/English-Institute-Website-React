@@ -1,6 +1,6 @@
 import PanelSideBarMenu from "../../components/PanelSideBarMenu";
 import UserData from "../../interfaces/UserData";
-
+import Notif from "../../components/Notif";
 import personSvg from "../../assets/Pic/Panel/PersonSvg.svg";
 import callSvg from "../../assets/Pic/Panel/CallSvg.svg";
 import locationSvg from "../../assets/Pic/Panel/LocationSvg.svg";
@@ -9,7 +9,7 @@ import mailSvg from "../../assets/Pic/Panel/MailSvg.svg";
 import editSvg from "../../assets/Pic/Panel/editSvg.svg";
 import plusSvg from "../../assets/Pic/Panel/plusSvg.svg";
 import Loading from "../../components/Loading";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../jsFiles/UserContext";
 import { useForm } from "react-hook-form";
 
@@ -29,6 +29,7 @@ type FormValues = {
 };
 
 function EditInfoPage() {
+  const [isNotif, setIsNotif] = useState(false)
   const thisUser: UserData = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
   const onclick = function () {
@@ -51,13 +52,25 @@ function EditInfoPage() {
           },
         }
       )
-      .then((response) => {
-        console.log(response.data);
+      .then(() => {
+        localStorage.setItem("isDone", "true");
+        localStorage.setItem("showReloadNotif", "true");
+        window.location.reload();
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        localStorage.setItem("isDone", "false");
+        localStorage.setItem("showReloadNotif", "true");
+        window.location.reload();
       });
   };
+
+  useEffect(() => {
+    const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
+    if (shouldShowReloadNotif === "true") {
+      setIsNotif(true); // Show the notification
+      localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
+    }
+  }, []);
 
   // ========== filled or unfilled status ==========
   const [filledStatusFName, setFilledStatusFName] = useState(true);
@@ -113,14 +126,17 @@ function EditInfoPage() {
       watch("sex")
     );
     onclick();
-    setTimeout(() => {
-      window.location.reload();
-    }, 1500);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 1500);
   };
 
   return (
     <>
       {isLoading && <Loading />}
+      {isNotif && <Notif
+        text={localStorage.getItem("isDone") == "true" ? "ویرایش حساب کاربری با موفقیت انجام شد!" : "NOK"}
+        mode={localStorage.getItem("isDone") == "true" ? "ok" : "error"} />}
       <>
         <div className="panel-edit-info">
           <div className="panel-edit-info-right-side">
