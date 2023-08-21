@@ -42,7 +42,7 @@ function MyCoursesPage() {
               هیچ دوره‌ای پیدا نشد :(
             </div>
           ) : (
-            <div>
+            <div className="panel-myCoursePage-left-hand-cardh-render">
               {userCourses.map((course, index) => (
                 <CardH
                   key={index}
