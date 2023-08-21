@@ -15,32 +15,27 @@ function Home() {
       {isLoading && <Loading />}
       <div className="home-main-container">
         <div className="home-page-ads-1">
-          <div style={{ maxWidth: "572px" }}>
+          <div className="home-page-ads-1-up-side">
             <h1>زبان را با ما بیاموزید!</h1>
-            <h2 style={{ fontSize: "28px", marginBottom: "56px" }}>
+            <h2>
               آکادمی زبان لرن با بیش از 5 سال سابقه حرفه‌ای در آموزش زبان‌های
               زنده دنیا شما را همراهی می‌کند.
             </h2>
-            <Button
-              text="مشاهده دوره‌های آموزشی"
-              size="large"
-              onclick={() => {
-                setIsLoading(true);
-                window.location.href = "courses/";
-              }}
-            />
+            <div className="home-page-ads-1-up-side-btn">
+              <Button
+                text="مشاهده دوره‌های آموزشی"
+                size="large"
+                onclick={() => {
+                  setIsLoading(true);
+                  window.location.href = "courses/";
+                }}
+              />
+            </div>
           </div>
           <img src={homePageSvg1} alt="home page svg 1" />
         </div>
         <div className="home-page-courses-in-row">
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "40px",
-            }}
-          >
+          <div className="home-page-course-in-row-up-side">
             <h1>دوره‌های ویژه</h1>
             <a href="courses/">
               <h3>

@@ -26,11 +26,16 @@ const Slider = () => {
   return (
     <Swiper
       spaceBetween={0}
-      slidesPerView={4}
+      slidesPerView={1}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
       navigation={true}
       autoplay={{ delay: 3000 }}
+      breakpoints={{
+        800: {
+          slidesPerView: 4,
+        },
+      }}
     >
       {courses.map((course) => {
         return (
