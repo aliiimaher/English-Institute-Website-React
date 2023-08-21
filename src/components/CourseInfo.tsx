@@ -178,7 +178,7 @@ function CourseInfo() {
                   {thisCourse?.teacher.fullname}
                   <br />
                   <div style={{ fontFamily: "KalamehThin" }}>
-                    طراح وب و توسعه گر فرانت-اند
+                    {thisCourse?.teacher.subtitle}
                   </div>
                 </div>
               </div>
