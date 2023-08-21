@@ -10,7 +10,7 @@ import loginSvg from "../assets/Pic/loginSvg.svg";
 
 import { useForm } from "react-hook-form";
 import Loading from "../components/Loading";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PopUpLogin from "../components/PopUpLogin";
 
 type FormValues = {
@@ -19,7 +19,7 @@ type FormValues = {
 };
 
 function Login() {
-  const [errorLogin, setErrorLogin] = useState(false)
+  const [errorLogin, setErrorLogin] = useState(false);
 
   // ========== loading ==========
   const [loading, setLoading] = useState(false);
@@ -74,15 +74,31 @@ function Login() {
         window.location.href = "/panel-dashboard";
       })
       .catch(() => {
-        setLoading(false)
-        setErrorLogin(true)
-      })
+        setLoading(false);
+        setErrorLogin(true);
+      });
   };
+
+  // a timeout to set the errorLogin false again
+  useEffect(() => {
+    if (errorLogin) {
+      const timeoutId = setTimeout(() => {
+        setErrorLogin(false);
+      }, 6000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [errorLogin]);
 
   return (
     <>
       {loading && <Loading />}
-      {errorLogin && <Notif text="ریدی کاکو رمزت اشتباهه" mode="error"/>}
+      {errorLogin && (
+        <Notif
+          text="نام کاربری یا رمز عبور را نادرست وارد کرده‌اید!"
+          mode="error"
+        />
+      )}
       <>
         {forgetPasswordPopUp ? (
           <div style={{ display: "flex", justifyContent: "center" }}>
