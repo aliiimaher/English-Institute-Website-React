@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-
+import { useForm } from 'react-hook-form'
 import Button from "../components/Button";
-
+import Notif from "../components/Notif";
 import "../styles/pages/Cart.scss";
 import Loading from "../components/Loading";
 import dangerSvg from "../assets/Pic/Cart/DangerSvg.svg";
@@ -16,7 +16,16 @@ import persianToEnglishNumerals from "../helper/PersianToEnglishFunction";
 import Course from "../interfaces/Course";
 import axios from "axios";
 
+interface DiscountFormData {
+  discountcode: string;
+}
+
+
 function Cart() {
+  const [notif, setNotif] = useState(false);
+  const { register, handleSubmit, watch } = useForm<DiscountFormData>()
+  const [finalPrice2, setFinalPrice2] = useState(0);
+  const [discount2, setDiscount2] = useState(0);
   const [loading, setLoading] = useState<boolean>(false);
   // list of orders
   const [orders, setOrders] = useState<Course[]>([]);
@@ -33,6 +42,8 @@ function Cart() {
       .then((response) => {
         setOrders(response.data.course);
         setTotalPrice(response.data.price);
+        setFinalPrice2(response.data.final_price)
+        setDiscount2(response.data.discount_price)
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -52,6 +63,7 @@ function Cart() {
     updatedOrders.splice(index, 1);
     setOrders(updatedOrders);
     handleCalculateTotalPrice();
+    window.location.reload();
   };
 
   var price = 0;
@@ -85,9 +97,35 @@ function Cart() {
     window.location.href = "/panel-my-courses";
   }
 
+  const applyDiscount = () => {
+    axios.post("http://localhost:8000/cart/discount/", {
+      discountcode: watch("discountcode")
+    }, {
+      headers: {
+        Authorization: "Token " + window.localStorage.getItem("token"),
+      },
+    })
+    .then(() => {
+      localStorage.setItem("isDone", "true")
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+  }
+
+  useEffect(()  => {
+    if (localStorage.getItem("isDone") === "true") {
+      setNotif(true)
+      localStorage.removeItem("isDone")
+    }
+  })
+
+
   return (
     <>
       {loading && <Loading />}
+      {notif && <Notif text="کد تخفیف با موفقیت اعمال شد!" mode="success" />}
       <div className="cart-page-container">
         <div className="cart-page-right-hand">
           <div className="cart-page-right-hand-danger-box">
@@ -123,12 +161,15 @@ function Cart() {
         </div>
         <div className="cart-page-left-hand">
           <div className="cart-page-left-hand-discount-part">
+            <form onSubmit={handleSubmit(applyDiscount)} >
             <input
               type="text"
               placeholder="کد تخفیف"
               className="cart-page-left-hand-input-box"
+              {...register("discountcode")}
             />
             <button className="cart-page-left-hand-btn">اعمال کد</button>
+            </form>
           </div>
           <div className="cart-page-left-hand-payment-part">
             <div className="cart-page-left-hand-payment-part-table">
@@ -149,14 +190,14 @@ function Cart() {
                     <div style={{ fontFamily: "KalamehThin" }}>تخفیف:</div>
                   </th>
                   <td>
-                    <strong>{discount} تومان</strong>
+                    <strong>{discount2} تومان</strong>
                   </td>
                 </tr>
               </table>
             </div>
             <hr style={{ margin: "0px", background: "#EAD2B7" }} />
             <div className="cart-page-left-hand-payment-part-price">
-              مبلغ قابل پرداخت : {finalPrice} تومان
+              مبلغ قابل پرداخت : {finalPrice2} تومان
             </div>
             <div
               style={{
