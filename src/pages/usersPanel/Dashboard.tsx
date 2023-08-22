@@ -1,20 +1,33 @@
 import PanelSideBarMenu from "../../components/PanelSideBarMenu";
 
 import "../../styles/pages/userPanel/Dashboard.scss";
-
+import SuccessNotify from "../../components/SuccessNotify";
+import Notif from "../../components/Notif";
 import personSvg from "../../assets/Pic/Panel/PersonSvg.svg";
 import callSvg from "../../assets/Pic/Panel/CallSvg.svg";
 import locationSvg from "../../assets/Pic/Panel/LocationSvg.svg";
 import sexSvg from "../../assets/Pic/Panel/SexSvg.svg";
 import mailSvg from "../../assets/Pic/Panel/MailSvg.svg";
 import UserData from "../../interfaces/UserData";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../jsFiles/UserContext";
 
 function Dashboard() {
   const thisUser: UserData = useContext(UserContext);
+  const [notif, setNotif] = useState(false);
+
+  useEffect(() => {
+    const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
+    if (shouldShowReloadNotif === "true") {
+      setNotif(true);
+      SuccessNotify({ text: "خوش اومدی!" });
+      localStorage.removeItem("showReloadNotif");
+    }
+  }, []);
+
   return (
     <>
+      {notif &&<Notif />}
       <div className="panel-dashboard">
         <div className="panel-dashboard-right-side">
           <PanelSideBarMenu />
