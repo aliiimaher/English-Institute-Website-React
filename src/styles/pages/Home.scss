@@ -1,4 +1,6 @@
 .home-main-container {
+  max-width: 2000px;
+  margin: auto;
 }
 
 .home-page-ads-1 {
@@ -109,7 +111,114 @@
   margin: 16px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .home-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .home-page-ads-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    img {
+      max-width: 450px !important;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+    }
+
+    .home-page-ads-1-up-side {
+      .home-page-ads-1-up-side-btn {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 24px !important;
+      }
+    }
+  }
+
+  .home-page-course-in-row-up-side {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-page-end-part-title {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-page-ads-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    h1 {
+      margin: 16px 0px 8px 0px !important;
+    }
+
+    img {
+      max-width: 450px !important;
+    }
+  }
+
+  .home-page-ads-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    h1 {
+      margin: 16px 0px 8px 0px !important;
+    }
+
+    img {
+      max-width: 450px !important;
+    }
+  }
+
+  .home-page-courses-in-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &.home-slider {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  .home-page-zaban-learn-info {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    max-width: 300px !important;
+  }
+
+  .home-page-zaban-learn-info-item {
+    max-width: 280px;
+    padding: 1%;
+  }
+
+  .home-page-ads-2-right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .home-page-ads-3-left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
   .home-main-container {
     display: flex;
     flex-direction: column;
