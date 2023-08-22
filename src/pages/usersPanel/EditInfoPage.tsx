@@ -30,6 +30,7 @@ type FormValues = {
 
 function EditInfoPage() {
   const [isNotif, setIsNotif] = useState(false)
+  const [isDone, setIsDone] = useState(false)
   const thisUser: UserData = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>("");
@@ -75,6 +76,8 @@ function EditInfoPage() {
     if (shouldShowReloadNotif === "true") {
       setIsNotif(true); // Show the notification
       setError(localStorage.getItem("error") || ""); // Set the error text
+      setIsDone(localStorage.getItem("isDone") == "true" ? true : false);
+      localStorage.removeItem("isDone");
       localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
       localStorage.removeItem("error"); // Remove the value from localStorage 
     }
@@ -144,8 +147,8 @@ function EditInfoPage() {
     <>
       {isLoading && <Loading />}
       {isNotif && <Notif
-        text={localStorage.getItem("isDone") == "true" ? "ویرایش حساب کاربری با موفقیت انجام شد!" : error}
-        mode={localStorage.getItem("isDone") == "true" ? "ok" : "error"} />}
+        text={isDone == true ? "ویرایش حساب کاربری با موفقیت انجام شد!" : error}
+        mode={isDone == true ? "ok" : "error"} />}
       <>
         <div className="panel-edit-info">
           <div className="panel-edit-info-right-side">
