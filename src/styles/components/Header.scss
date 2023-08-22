@@ -12,8 +12,15 @@
   }
 }
 
+.header-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 li {
   margin-left: 64px;
+  text-align: center;
 }
 
 a:link {
@@ -38,4 +45,76 @@ a:active {
   color: yellow;
   background-color: transparent;
   text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .header-main-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .navbar {
+    width: 100%;
+    display: flex;
+
+    .navbar-expand-lg {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: right !important;
+    }
+  }
+
+  .navbar-toggler {
+    color: #f27e2e !important;
+    border: 2px solid #ead2b7 !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header-main-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .navbar-toggler {
+    color: #f27e2e !important;
+    border: 2px solid #ead2b7 !important;
+  }
+
+  .navbar {
+    width: 100%;
+    display: flex;
+
+    .navbar-expand-lg {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: right !important;
+    }
+  }
+
+  .container-fluid {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+
+    a {
+      text-align: right;
+    }
+  }
+
+  .menu-items {
+    padding-right: 2%;
+    text-align: right;
+    align-items: right;
+  }
+
+  .navbar-nav {
+    display: flex;
+    justify-content: right;
+  }
+
+  li {
+    margin: 0px 0px 0px 0px;
+    text-align: right;
+  }
 }
