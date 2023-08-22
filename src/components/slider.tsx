@@ -32,9 +32,12 @@ const Slider = () => {
       navigation={true}
       autoplay={{ delay: 3000 }}
       breakpoints={{
-        800: {
+        1200: {
           slidesPerView: 4,
         },
+        768: {
+          slidesPerView: 3,
+        }
       }}
     >
       {courses.map((course) => {
