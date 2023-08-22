@@ -30,8 +30,10 @@ type FormValues = {
 
 function EditInfoPage() {
   const [isNotif, setIsNotif] = useState(false)
+  const [isDone, setIsDone] = useState(false)
   const thisUser: UserData = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string>("");
   const onclick = function () {
     setIsLoading(true);
     const api = axios.create({ baseURL: "http://localhost:8000/" });
@@ -57,9 +59,14 @@ function EditInfoPage() {
         localStorage.setItem("showReloadNotif", "true");
         window.location.reload();
       })
-      .catch(() => {
+      .catch((error) => {
         localStorage.setItem("isDone", "false");
         localStorage.setItem("showReloadNotif", "true");
+        if (error.response.data.phone_number) {
+          localStorage.setItem("error", error.response.data.phone_number);
+        } else if (error.response.data.email) {
+          localStorage.setItem("error", error.response.data.email);
+        }
         window.location.reload();
       });
   };
@@ -68,8 +75,13 @@ function EditInfoPage() {
     const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
     if (shouldShowReloadNotif === "true") {
       setIsNotif(true); // Show the notification
+      setError(localStorage.getItem("error") || ""); // Set the error text
+      setIsDone(localStorage.getItem("isDone") == "true" ? true : false);
+      localStorage.removeItem("isDone");
       localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
+      localStorage.removeItem("error"); // Remove the value from localStorage 
     }
+
   }, []);
 
   // ========== filled or unfilled status ==========
@@ -135,8 +147,8 @@ function EditInfoPage() {
     <>
       {isLoading && <Loading />}
       {isNotif && <Notif
-        text={localStorage.getItem("isDone") == "true" ? "ویرایش حساب کاربری با موفقیت انجام شد!" : "NOK"}
-        mode={localStorage.getItem("isDone") == "true" ? "ok" : "error"} />}
+        text={isDone == true ? "ویرایش حساب کاربری با موفقیت انجام شد!" : error}
+        mode={isDone == true ? "ok" : "error"} />}
       <>
         <div className="panel-edit-info">
           <div className="panel-edit-info-right-side">
