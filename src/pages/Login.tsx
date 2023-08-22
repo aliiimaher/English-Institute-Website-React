@@ -7,10 +7,10 @@ import Notif from "../components/Notif";
 import personSvg from "../assets/Pic/person.svg";
 import passwordSvg from "../assets/Pic/passwordSvg.svg";
 import loginSvg from "../assets/Pic/loginSvg.svg";
-
+import ErrorNotify from "../components/ErrorNotify";
 import { useForm } from "react-hook-form";
 import Loading from "../components/Loading";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import PopUpLogin from "../components/PopUpLogin";
 
 type FormValues = {
@@ -63,7 +63,7 @@ function Login() {
       })
       .then((response) => {
         window.localStorage.setItem("token", response.data.auth_token);
-        console.log(response.data);
+        localStorage.setItem("showReloadNotif", "true");
         remember
           ? (localStorage.setItem("username", watch("username")),
             localStorage.setItem("password", watch("password")),
@@ -76,28 +76,15 @@ function Login() {
       .catch(() => {
         setLoading(false);
         setErrorLogin(true);
+        ErrorNotify({ text: "نام کاربری یا رمز عبور اشتباه است!" });
       });
   };
-
-  // a timeout to set the errorLogin false again
-  useEffect(() => {
-    if (errorLogin) {
-      const timeoutId = setTimeout(() => {
-        setErrorLogin(false);
-      }, 6000);
-
-      return () => clearTimeout(timeoutId);
-    }
-  }, [errorLogin]);
 
   return (
     <>
       {loading && <Loading />}
       {errorLogin && (
-        <Notif
-          text="نام کاربری یا رمز عبور را نادرست وارد کرده‌اید!"
-          mode="error"
-        />
+        <Notif />
       )}
       <>
         {forgetPasswordPopUp ? (

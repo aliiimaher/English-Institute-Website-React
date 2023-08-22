@@ -48,7 +48,7 @@ function PanelSideBarMenu() {
             onClick={() => {
               setIsLoading(true)
               window.localStorage.removeItem("token");
-              window.location.reload;
+              //window.location.reload;
               window.location.href = "/";
             }}
           >

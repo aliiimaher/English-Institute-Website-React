@@ -7,16 +7,17 @@ import videoSvg from "../assets/Pic/CourseInfo/video_course_info.svg";
 import clockSvg from "../assets/Pic/CourseInfo/clock_course_info.svg";
 import graduateSvg from "../assets/Pic/CourseInfo/graduate_course_info.svg";
 import cartSvg from "../assets/Pic/CourseInfo/cart.svg";
-
+import Notif from "./Notif";
+import SuccessNotify from "./SuccessNotify";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Course from "../interfaces/Course";
-
+import ErrorNotify from "./ErrorNotify";
 function CourseInfo() {
+  const [notif, setNotif] = useState(false);
   const { course_id } = useParams();
   const [thisCourse, setThisCourse] = useState<Course>();
-  const [message, setMessage] = useState({ type: "", text: "" });
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
@@ -24,6 +25,16 @@ function CourseInfo() {
       setThisCourse(response.data);
       console.log(response.data);
     });
+  }, []);
+
+  useEffect(() => {
+    const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
+    if (shouldShowReloadNotif === "true") {
+      setNotif(true); // Show the notification
+      SuccessNotify({ text: "دوره به سبد خرید اضافه شد" });
+      localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
+    }
+
   }, []);
 
   function addToCart() {
@@ -39,17 +50,12 @@ function CourseInfo() {
         }
       )
       .then(() => {
-        setMessage({ type: "success", text: "محصول به سبد خرید اضافه شد!" });
-        setTimeout(() => {
-          setMessage({ type: "", text: "" });
-        }, 3000);
+        localStorage.setItem("showReloadNotif", "true");
         location.reload();
       })
       .catch((error) => {
-        setMessage({ type: "error", text: error.response.data.error });
-        setTimeout(() => {
-          setMessage({ type: "", text: "" });
-        }, 3000);
+        setNotif(true);
+        ErrorNotify({text:error.response.data.error})
         setIsLoading(false)
       });
 
@@ -58,6 +64,7 @@ function CourseInfo() {
   return (
     <>
       {isLoading && <Loading/>}
+      {notif && <Notif />}
       <div className="course-info-page-container">
         <div className="course-info-up-side">
           <div className="course-info-up-side-right-hand">
@@ -107,16 +114,6 @@ function CourseInfo() {
                 icon={cartSvg}
                 onclick={() => addToCart()}
               />
-              {message.type === "success" && (
-                <p style={{ color: "rgb(3, 255, 3)", marginTop: "10px" }}>
-                  {message.text}
-                </p>
-              )}
-              {message.type === "error" && (
-                <p style={{ color: "rgb(255, 0, 0)", marginTop: "10px" }}>
-                  {message.text}
-                </p>
-              )}
             </div>
             <div className="course-info-up-side-left-hand-course-sub-info">
               <table style={{ width: "90%" }}>

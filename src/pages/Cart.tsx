@@ -8,11 +8,11 @@ import dangerSvg from "../assets/Pic/Cart/DangerSvg.svg";
 import paymentSvg from "../assets/Pic/Cart/PaymentSvg.svg";
 import priceSvg from "../assets/Pic/Cart/PriceSvg.svg";
 import discountSvg from "../assets/Pic/Cart/DiscountSvg.svg";
-
+import SuccessNotify from "../components/SuccessNotify";
+import ErrorNotify from "../components/ErrorNotify";
 // import for rendering orders
 import CardH from "../components/CardH";
 
-import persianToEnglishNumerals from "../helper/PersianToEnglishFunction";
 import Course from "../interfaces/Course";
 import axios from "axios";
 
@@ -30,6 +30,16 @@ function Cart() {
   // list of orders
   const [orders, setOrders] = useState<Course[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
+
+  useEffect(() => {
+    const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
+    if (shouldShowReloadNotif === "true") {
+      setNotif(true); // Show the notification
+      SuccessNotify({ text: "کد تخفیف با موفقیت اعمال شد" });
+      localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
+    }
+
+  }, []);
 
   const header = {
     "Content-Type": "application/json",
@@ -62,28 +72,28 @@ function Cart() {
     const updatedOrders = [...orders];
     updatedOrders.splice(index, 1);
     setOrders(updatedOrders);
-    handleCalculateTotalPrice();
+    // handleCalculateTotalPrice();
     window.location.reload();
   };
 
-  var price = 0;
-  var discount = 0;
-  const [finalPrice, setFinalPrice] = useState(0);
+  // var price = 0;
+  // var discount = 0;
+  // const [finalPrice, setFinalPrice] = useState(0);
 
   // ========== handle for calculation total price ==========
-  const handleCalculateTotalPrice = () => {
-    price = 0;
-    orders.forEach((item) => {
-      let temp = persianToEnglishNumerals(item.price.toString());
-      price += Number(temp);
-      // price += item.price;
-    });
-    setFinalPrice(price - discount);
-  };
+  // const handleCalculateTotalPrice = () => {
+  //   price = 0;
+  //   orders.forEach((item) => {
+  //     let temp = persianToEnglishNumerals(item.price.toString());
+  //     price += Number(temp);
+  //     // price += item.price;
+  //   });
+  //   setFinalPrice(price - discount);
+  // };
 
-  useEffect(() => {
-    handleCalculateTotalPrice();
-  }, [orders]);
+  // useEffect(() => {
+  //   handleCalculateTotalPrice();
+  // }, [orders]);
 
   const handlePayment = () => {
     setLoading(true)
@@ -106,26 +116,20 @@ function Cart() {
       },
     })
     .then(() => {
-      localStorage.setItem("isDone", "true")
+      localStorage.setItem("showReloadNotif", "true");
       window.location.reload();
     })
     .catch((error) => {
-      console.error("Error fetching data:", error);
+      setNotif(true);
+      ErrorNotify({ text: error.response.data.error });
     });
   }
-
-  useEffect(()  => {
-    if (localStorage.getItem("isDone") === "true") {
-      setNotif(true)
-      localStorage.removeItem("isDone")
-    }
-  })
 
 
   return (
     <>
       {loading && <Loading />}
-      {notif && <Notif text="کد تخفیف با موفقیت اعمال شد!" mode="success" />}
+      {notif && <Notif />}
       <div className="cart-page-container">
         <div className="cart-page-right-hand">
           <div className="cart-page-right-hand-danger-box">
