@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Button from "../components/Button";
 
 import "../styles/pages/Cart.scss";
-
+import Loading from "../components/Loading";
 import dangerSvg from "../assets/Pic/Cart/DangerSvg.svg";
 import paymentSvg from "../assets/Pic/Cart/PaymentSvg.svg";
 import priceSvg from "../assets/Pic/Cart/PriceSvg.svg";
@@ -17,6 +17,7 @@ import Course from "../interfaces/Course";
 import axios from "axios";
 
 function Cart() {
+  const [loading, setLoading] = useState<boolean>(false);
   // list of orders
   const [orders, setOrders] = useState<Course[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -72,8 +73,21 @@ function Cart() {
     handleCalculateTotalPrice();
   }, [orders]);
 
+  const handlePayment = () => {
+    setLoading(true)
+    axios.put("http://localhost:8000/cart/pay/", {}
+    , {
+      headers: {
+        Authorization: "Token " + window.localStorage.getItem("token"),
+      },
+    })
+
+    window.location.href = "/panel-my-courses";
+  }
+
   return (
     <>
+      {loading && <Loading />}
       <div className="cart-page-container">
         <div className="cart-page-right-hand">
           <div className="cart-page-right-hand-danger-box">
@@ -155,6 +169,7 @@ function Cart() {
                 text="ثبت و پرداخت نهایی"
                 size="large"
                 icon={paymentSvg}
+                onclick={handlePayment}
               />
             </div>
           </div>
