@@ -13,10 +13,7 @@ function Footer() {
     <>
       <div className="footer-main-container">
         <nav className="navbar navbar-expand-lg">
-          <div
-            className="container-fluid"
-            style={{ marginLeft: "40px", marginRight: "40px", padding: "40px" }}
-          >
+          <div className="container-fluid">
             <button
               className="navbar-toggler"
               type="button"
