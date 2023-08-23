@@ -36,7 +36,7 @@ function Dashboard() {
           <div className="panel-dashboard-personal-info">
             اطلاعات حساب کاربری
             <hr />
-            <table width="1000px">
+            <table>
               <tr>
                 <th className="dashboard-th">
                   <img src={personSvg} style={{ marginLeft: "8px" }} />
