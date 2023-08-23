@@ -68,3 +68,41 @@ h6 {
   font-family: KalamehThin;
   font-size: 16px !important;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .login-container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1a2d;
+    background-image: none;
+  }
+
+  .login-left-side {
+    display: none;
+  }
+
+  .login-right-side {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .login-container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1a2d;
+    background-image: none;
+  }
+
+  .login-left-side {
+    display: none;
+  }
+
+  .login-right-side {
+    padding: 20px;
+  }
+}
