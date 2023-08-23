@@ -6,12 +6,45 @@
 }
 
 .panel-dashboard-personal-info {
-  border: solid 4px #3A365E;
+  border: solid 4px #3a365e;
   border-radius: 20px;
   padding: 40px;
+
+  table {
+    width: 1000px;
+  }
 }
 
-.dashboard-th {
-//  min-width: 200px;
-//  max-width: 300px;
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  .panel-dashboard {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .panel-dashboard-personal-info {
+    margin-top: 20px;
+
+    table {
+      width: 100%;
+      align-items: start;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .panel-dashboard {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .panel-dashboard-personal-info {
+    margin-top: 20px;
+
+    table {
+      width: 100%;
+      align-items: none;
+    }
+  }
 }
