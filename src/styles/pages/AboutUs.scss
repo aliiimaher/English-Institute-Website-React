@@ -37,3 +37,39 @@
   display: flex;
   justify-content: right;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1999px) {
+  .about-us-container {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    padding: 1%;
+  }
+
+  table {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 66%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-us-container {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  table {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
