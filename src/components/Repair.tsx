@@ -1,29 +1,17 @@
 import repairSvg from "../assets/Pic/construction-amico.svg";
 
+import "../styles/components/Repair.scss";
+
 function Repair() {
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          margin: "40px",
-        }}
-      >
-        <div
-          style={{
-            fontSize: "32px",
-            textAlign:  "center",
-            marginBottom: "20px",
-          }}
-        >
+      <div className="repair-page-container">
+        <div className="repair-page-text-container">
           در حال تعمیرات هستیم ...
           <br />
           از شکیبایی شما سپاسگزاریم.
         </div>
-        <img src={repairSvg} style={{ maxWidth: "540px" }} />
+        <img src={repairSvg} />
       </div>
     </>
   );
