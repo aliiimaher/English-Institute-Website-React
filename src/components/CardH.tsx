@@ -41,10 +41,7 @@ function CardH({
 
   return (
     <>
-      <div
-        className={"card mb-3 my-card-h " + cardBackground}
-        style={{ maxWidth: "890px", maxHeight: "170px" }}
-      >
+      <div className={"card mb-3 my-card-h " + cardBackground}>
         <div
           className="row g-0"
           style={{ display: "flex", justifyContent: "space-between" }}

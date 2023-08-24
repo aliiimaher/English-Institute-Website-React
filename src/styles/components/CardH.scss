@@ -4,6 +4,8 @@
   border-style: solid !important;
   border-radius: 20px !important;
   border-color: #3a365e !important;
+  max-width: 890px;
+  max-height: 170px;
 }
 
 .card {
@@ -43,5 +45,38 @@
     max-height: 160px;
     max-width: 280px;
     border-radius: 0px 20px 20px 0px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .my-card-h {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 1000px;
+    padding: 8px 8px 8px 8px !important;
+  }
+
+  .col-md-4 {
+    display: flex;
+    justify-content: center;
+    img {
+      max-height: 100%;
+      max-width: 100%;
+      border-radius: 20px 20px 20px 20px !important;
+    }
+  }
+
+  .card-h-teacher-container {
+    align-items: center;
+  }
+
+  .text-part-container {
+    margin: 8px;
+  }
+
+  .price-teacher-container {
+    padding-top: 0;
   }
 }
