@@ -13,6 +13,7 @@ function Loading() {
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent black background
+        zIndex: 1000
       }}
     >
       <ReactLoading type={"bars"} color={"#F27E2E"} height={100} width={100} />

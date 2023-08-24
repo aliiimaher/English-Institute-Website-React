@@ -4,15 +4,15 @@ import UserData from "../interfaces/UserData";
 import usofPng from "../assets/Pic/CourseInfo/usofSvg.svg";
 
 const testUser1: UserData = {
-  f_name: "یوسف",
-  l_name: "اسدی",
+  first_name: "یوسف",
+  last_name: "اسدی",
   username: "usof_asadi",
   email: "usof@gmail.com",
   password: "۱۲۳",
   sex: "مرد",
-  phoneNumber: "۰۹۱۷",
+  phone_number: "۰۹۱۷",
   location: "شبان",
-  picSrc: usofPng,
+  profile_image: usofPng,
 };
 
 export default testUser1;

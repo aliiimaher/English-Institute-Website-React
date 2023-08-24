@@ -1,6 +1,6 @@
 import "../styles/pages/Home.scss";
 import Button from "../components/Button";
-import Slider from "../components/Slider";
+import Slider from "../components/slider";
 import Loading from "../components/Loading";
 import homePageSvg1 from "../assets/Pic/homePageSvg1.svg";
 import homePageSvg2 from "../assets/Pic/homePageSvg2.svg";
