@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useForm } from 'react-hook-form'
+import { useForm } from "react-hook-form";
 import Button from "../components/Button";
 import Notif from "../components/Notif";
 import "../styles/pages/Cart.scss";
@@ -20,10 +20,9 @@ interface DiscountFormData {
   discountcode: string;
 }
 
-
 function Cart() {
   const [notif, setNotif] = useState(false);
-  const { register, handleSubmit, watch } = useForm<DiscountFormData>()
+  const { register, handleSubmit, watch } = useForm<DiscountFormData>();
   const [finalPrice2, setFinalPrice2] = useState(0);
   const [discount2, setDiscount2] = useState(0);
   const [loading, setLoading] = useState<boolean>(false);
@@ -38,7 +37,6 @@ function Cart() {
       SuccessNotify({ text: "کد تخفیف با موفقیت اعمال شد" });
       localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
     }
-
   }, []);
 
   const header = {
@@ -52,8 +50,8 @@ function Cart() {
       .then((response) => {
         setOrders(response.data.course);
         setTotalPrice(response.data.price);
-        setFinalPrice2(response.data.final_price)
-        setDiscount2(response.data.discount_price)
+        setFinalPrice2(response.data.final_price);
+        setDiscount2(response.data.discount_price);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -96,35 +94,42 @@ function Cart() {
   // }, [orders]);
 
   const handlePayment = () => {
-    setLoading(true)
-    axios.put("http://localhost:8000/cart/pay/", {}
-    , {
-      headers: {
-        Authorization: "Token " + window.localStorage.getItem("token"),
-      },
-    })
+    setLoading(true);
+    axios.put(
+      "http://localhost:8000/cart/pay/",
+      {},
+      {
+        headers: {
+          Authorization: "Token " + window.localStorage.getItem("token"),
+        },
+      }
+    );
 
     window.location.href = "/panel-my-courses";
-  }
+  };
 
   const applyDiscount = () => {
-    axios.post("http://localhost:8000/cart/discount/", {
-      discountcode: watch("discountcode")
-    }, {
-      headers: {
-        Authorization: "Token " + window.localStorage.getItem("token"),
-      },
-    })
-    .then(() => {
-      localStorage.setItem("showReloadNotif", "true");
-      window.location.reload();
-    })
-    .catch((error) => {
-      setNotif(true);
-      ErrorNotify({ text: error.response.data.error });
-    });
-  }
-
+    axios
+      .post(
+        "http://localhost:8000/cart/discount/",
+        {
+          discountcode: watch("discountcode"),
+        },
+        {
+          headers: {
+            Authorization: "Token " + window.localStorage.getItem("token"),
+          },
+        }
+      )
+      .then(() => {
+        localStorage.setItem("showReloadNotif", "true");
+        window.location.reload();
+      })
+      .catch((error) => {
+        setNotif(true);
+        ErrorNotify({ text: error.response.data.error });
+      });
+  };
 
   return (
     <>
@@ -165,14 +170,14 @@ function Cart() {
         </div>
         <div className="cart-page-left-hand">
           <div className="cart-page-left-hand-discount-part">
-            <form onSubmit={handleSubmit(applyDiscount)} >
-            <input
-              type="text"
-              placeholder="کد تخفیف"
-              className="cart-page-left-hand-input-box"
-              {...register("discountcode")}
-            />
-            <button className="cart-page-left-hand-btn">اعمال کد</button>
+            <form onSubmit={handleSubmit(applyDiscount)}>
+              <input
+                type="text"
+                placeholder="کد تخفیف"
+                className="cart-page-left-hand-input-box"
+                {...register("discountcode")}
+              />
+              <button className="cart-page-left-hand-btn">اعمال کد</button>
             </form>
           </div>
           <div className="cart-page-left-hand-payment-part">
