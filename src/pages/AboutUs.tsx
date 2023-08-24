@@ -8,38 +8,33 @@ function AboutUs() {
   return (
     <>
       <div className="about-us-container">
-        <table>
-          <tr>
-            <th>UI/UX</th>
-            <td>
-              <img src={usofImg} alt="" />
+        <div className="about-us-person">
+          <img src={usofImg} alt="" />
+          <div>
+            <a href="https://github.com/YousofAsadi">
               <i>Yousof Asadi</i>
-            </td>
-            <td className="personal-github">
-              <a href="https://github.com/YousofAsadi">GitHub</a>
-            </td>
-          </tr>
-          <tr>
-            <th>Front-End</th>
-            <td>
-              <img src={aliImg} alt="" />
+            </a>
+          </div>
+          UI/UX
+        </div>
+        <div className="about-us-person">
+          <img src={aliImg} alt="" />
+          <div>
+            <a href="https://github.com/aliiimaher">
               <i>Ali Maher</i>
-            </td>
-            <td className="personal-github">
-              <a href="https://github.com/aliiimaher">GitHub</a>
-            </td>
-          </tr>
-          <tr>
-            <th>Back-End</th>
-            <td>
-              <img src={msnImg} alt="" />
+            </a>
+          </div>
+          Front-End
+        </div>
+        <div className="about-us-person">
+          <img src={msnImg} alt="" />
+          <div>
+            <a href="https://github.com/msnzmt">
               <i>Mohsen Zahmatkesh</i>
-            </td>
-            <td className="personal-github">
-              <a href="https://github.com/msnzmt">GitHub</a>
-            </td>
-          </tr>
-        </table>
+            </a>
+          </div>
+          Back-End
+        </div>
       </div>
     </>
   );

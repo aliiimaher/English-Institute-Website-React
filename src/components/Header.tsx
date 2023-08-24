@@ -28,11 +28,8 @@ function Header() {
       {isLoading && <Loading />}
       <div className="header-main-container">
         <nav className="navbar navbar-expand-lg">
-          <div
-            className="container-fluid header-links"
-            style={{ marginLeft: "40px", marginRight: "40px" }}
-          >
-            <a className="navbar-brand" href="#">
+          <div className="container-fluid header-links">
+            <a className="navbar-brand" href="/">
               <img src={logoPng} alt="Logo" width="80" height="63" />
             </a>
             <button
@@ -73,7 +70,7 @@ function Header() {
               </ul>
               {window.localStorage.getItem("token") ? (
                 <>
-                  <div style={{ marginLeft: "20px", marginRight: "40px" }}>
+                  <div className="cart-btn">
                     <Button
                       text={ordersNumber || "سبد خرید(۰)"}
                       size="large"
@@ -102,7 +99,7 @@ function Header() {
                       window.location.href = "/register";
                     }}
                   />
-                  <div style={{ marginRight: "40px" }}>
+                  <div className="login-btn">
                     <Button
                       text="ورود"
                       size="large"

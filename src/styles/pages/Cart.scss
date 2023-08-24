@@ -77,3 +77,40 @@
   margin: 20px;
   margin-top: 0px;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .cart-page-container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .cart-page-right-hand {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cart-page-container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .cart-page-left-hand-discount-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .cart-page-left-hand-input-box {
+      border-radius: 20px 20px 0px 0px;
+    }
+
+    .cart-page-left-hand-btn {
+      width: 100%;
+      border-radius: 0px 0px 20px 20px;
+    }
+  }
+
+  .cart-page-right-hand {
+    width: 80%;
+  }
+}

@@ -5,11 +5,22 @@
   text-decoration: none;
 }
 
+.login-btn {
+  margin-right: 40px;
+}
+
+.cart-btn {
+  margin-left: 20px;
+  margin-right: 40px;
+}
+
 .header-links {
   a {
     font-weight: 700;
     font-size: 18px;
   }
+  margin-left: 40px !important;
+  margin-right: 40px !important;
 }
 
 .header-btn {
@@ -73,6 +84,7 @@ a:active {
 @media screen and (max-width: 767px) {
   .header-main-container {
     display: flex;
+    align-items: center;
     width: 100%;
   }
 
@@ -85,6 +97,8 @@ a:active {
     width: 100%;
     display: flex;
 
+    --bs-navbar-brand-margin-end: 0 !important;
+
     .navbar-expand-lg {
       display: flex !important;
       flex-direction: column !important;
@@ -96,16 +110,24 @@ a:active {
     display: flex;
     justify-content: right;
     width: 100%;
+    margin: 4%;
 
     a {
       text-align: right;
     }
   }
 
+  .header-links {
+    padding: 0px 16px !important;
+  }
+
   .menu-items {
-    padding-right: 2%;
-    text-align: right;
-    align-items: right;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 0;
+    margin: auto;
   }
 
   .navbar-nav {
@@ -116,5 +138,14 @@ a:active {
   li {
     margin: 0px 0px 0px 0px;
     text-align: right;
+  }
+
+  .login-btn {
+    margin: 0;
+  }
+
+  .cart-btn {
+    margin: 0;
+    margin-bottom: 8px;
   }
 }
