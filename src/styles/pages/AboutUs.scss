@@ -2,43 +2,26 @@
   font-family: "Times New Roman", Times, serif;
   font-size: 32px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin: auto;
+  width: 66%;
   align-items: center;
-  padding: 4%;
+  padding: 4% 0 4% 0;
   direction: ltr;
-
-  table {
-    width: 66%;
-  }
-
-  tr {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 24px;
-    align-items: center;
-    gap: 20px;
-  }
-
-  td {
-    display: flex;
-    flex-direction: row;
-    width: 80% !important;
-    align-items: center;
-  }
 
   img {
     border-radius: 100%;
     max-height: 100px;
-    margin-right: 16px;
   }
 }
 
-.personal-github {
+.about-us-person {
   display: flex;
-  justify-content: right;
+  flex-direction: column !important;
+  align-items: center !important;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1999px) {
+@media screen and (min-width: 768px) and (max-width: 1199px) {
   .about-us-container {
     display: flex !important;
     flex-direction: column;
@@ -46,14 +29,6 @@
     align-items: center;
     font-size: 24px;
     padding: 1%;
-  }
-
-  table {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 66%;
   }
 }
 
@@ -64,12 +39,5 @@
     justify-content: center;
     align-items: center;
     font-size: 16px;
-  }
-
-  table {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 }
