@@ -77,7 +77,6 @@ function EditInfoPage() {
           ErrorNotify({ text: error.response.data.email[0] });
           setFilledStatusEmail(false);
         }
-
       });
   };
 
@@ -155,11 +154,7 @@ function EditInfoPage() {
             <table className="panel-edit-info-table">
               <tr>
                 <th>
-                  <div
-                    style={{
-                      fontFamily: "KalamehThin",
-                    }}
-                  >
+                  <div className="panel-edit-info-item">
                     <img src={personSvg} style={{ marginLeft: "8px" }} />
                     نام:
                   </div>
@@ -193,11 +188,7 @@ function EditInfoPage() {
 
               <tr>
                 <th>
-                  <div
-                    style={{
-                      fontFamily: "KalamehThin",
-                    }}
-                  >
+                  <div className="panel-edit-info-item">
                     <img src={personSvg} style={{ marginLeft: "8px" }} />
                     نام خانوادگی:
                   </div>
@@ -231,7 +222,7 @@ function EditInfoPage() {
 
               <tr>
                 <th>
-                  <div style={{ fontFamily: "KalamehThin" }}>
+                  <div className="panel-edit-info-item">
                     <img src={callSvg} style={{ marginLeft: "8px" }} />
                     شماره تماس:
                   </div>
@@ -269,7 +260,7 @@ function EditInfoPage() {
               <tr>
                 <th>
                   <img src={mailSvg} style={{ marginLeft: "8px" }} />
-                  <div style={{ fontFamily: "KalamehThin" }}>ایمیل:</div>
+                  <div className="panel-edit-info-item">ایمیل:</div>
                 </th>
                 <td>
                   <strong>
@@ -301,7 +292,7 @@ function EditInfoPage() {
               <tr>
                 <th>
                   <img src={locationSvg} style={{ marginLeft: "8px" }} />
-                  <div style={{ fontFamily: "KalamehThin" }}>محل سکونت:</div>
+                  <div className="panel-edit-info-item">محل سکونت:</div>
                 </th>
                 <td>
                   <strong>
@@ -333,7 +324,7 @@ function EditInfoPage() {
               <tr>
                 <th>
                   <img src={sexSvg} style={{ marginLeft: "8px" }} />
-                  <div style={{ fontFamily: "KalamehThin" }}>جنسیت:</div>
+                  <div className="panel-edit-info-item">جنسیت:</div>
                 </th>
                 <td>
                   <strong>
