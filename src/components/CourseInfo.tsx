@@ -18,7 +18,7 @@ function CourseInfo() {
   const [notif, setNotif] = useState(false);
   const { course_id } = useParams();
   const [thisCourse, setThisCourse] = useState<Course>();
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     axios.get(`http://localhost:8000/course/${course_id}/`).then((response) => {
@@ -34,11 +34,10 @@ function CourseInfo() {
       SuccessNotify({ text: "دوره به سبد خرید اضافه شد" });
       localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
     }
-
   }, []);
 
   function addToCart() {
-    setIsLoading(true)
+    setIsLoading(true);
     axios
       .put(
         `http://localhost:8000/cart/add/${course_id}/`,
@@ -55,25 +54,22 @@ function CourseInfo() {
       })
       .catch((error) => {
         setNotif(true);
-        ErrorNotify({text:error.response.data.error})
-        setIsLoading(false)
+        ErrorNotify({ text: error.response.data.error });
+        setIsLoading(false);
       });
-
   }
 
   return (
     <>
-      {isLoading && <Loading/>}
+      {isLoading && <Loading />}
       {notif && <Notif />}
       <div className="course-info-page-container">
         <div className="course-info-up-side">
           <div className="course-info-up-side-right-hand">
-            <img
-              src={thisCourse?.course_image}
-              alt="course picture"
-              style={{ maxWidth: "873px", maxHeight: "575px" }}
-            />
-            <div style={{ marginTop: "20px" }}>{thisCourse?.description}</div>
+            <img src={thisCourse?.course_image} alt="course picture" />
+            <div className="course-info-picture-description">
+              {thisCourse?.description}
+            </div>
           </div>
           <div className="course-info-up-side-left-hand">
             <div className="course-info-up-side-left-hand-price-ticket">
