@@ -1,11 +1,4 @@
-import Button from "../components/Button";
-import Card from "../components/Card";
-import CardH from "../components/CardH";
-import InputBox from "../components/InputBox";
 
-import englishCoursePng from "../assets/Pic/learn-english-language.png";
-import englishCoursePngH from "../assets/Pic/learn-english-design-cardh.png";
-import personSvg from "../assets/Pic/person.svg";
 import Repair from "../components/Repair";
 
 function Test() {

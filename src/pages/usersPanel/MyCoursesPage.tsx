@@ -6,7 +6,7 @@ import Course from "../../interfaces/Course";
 import "../../styles/pages/userPanel/MyCoursesPage.scss";
 import CardH from "../../components/CardH";
 
-import DangerSvg from "../../assets/pic/Cart/DangerSvg.svg";
+import DangerSvg from "../../assets/Pic/Cart/DangerSvg.svg";
 import axios from "axios";
 
 function MyCoursesPage() {
