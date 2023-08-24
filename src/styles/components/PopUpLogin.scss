@@ -23,3 +23,17 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .popUpLogin {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .popUpLogin {
+    width: 80%;
+    padding: 20px;
+    margin: 40px;
+  }
+}
