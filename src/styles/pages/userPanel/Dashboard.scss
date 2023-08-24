@@ -15,7 +15,7 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1000px) {
+@media screen and (min-width: 768px) and (max-width: 1280px) {
   .panel-dashboard {
     flex-direction: column;
     justify-content: center;
@@ -39,12 +39,18 @@
     align-items: center;
   }
 
+  .panel-dashboard-left-side {
+    max-width: 300px;
+  }
+
   .panel-dashboard-personal-info {
     margin-top: 20px;
 
     table {
-      width: 100%;
-      align-items: none;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
     }
   }
 }
