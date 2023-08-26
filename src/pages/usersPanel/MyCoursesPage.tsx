@@ -5,12 +5,23 @@ import Course from "../../interfaces/Course";
 
 import "../../styles/pages/userPanel/MyCoursesPage.scss";
 import CardH from "../../components/CardH";
-
+import Notif from "../../components/Notif";
+import SuccessNotify from "../../components/SuccessNotify";
 import DangerSvg from "../../assets/Pic/Cart/DangerSvg.svg";
 import axios from "axios";
 
 function MyCoursesPage() {
   const [userCourses, setUserCourses] = useState<Course[]>([]);
+  const [notif, setNotif] = useState(false);
+
+  useEffect(() => {
+    const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
+    if (shouldShowReloadNotif === "true") {
+      setNotif(true);
+      SuccessNotify({ text: "پرداخت شما با موفقیت انجام شد!" });
+      localStorage.removeItem("showReloadNotif");
+    }
+  }, []);
 
   const header = {
     "Content-Type": "application/json",
@@ -29,6 +40,7 @@ function MyCoursesPage() {
 
   return (
     <>
+      {notif && <Notif />}
       <div className="panel-myCoursePage-container">
         <div className="panel-myCoursePage-right-hand">
           <PanelSideBarMenu />
