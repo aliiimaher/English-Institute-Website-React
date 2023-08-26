@@ -56,6 +56,9 @@ function Cart() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
+    return () => {
+      setLoading(false);
+    };
   }, []);
 
   function removeCourse(course_id: number) {
