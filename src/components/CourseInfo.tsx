@@ -85,19 +85,17 @@ function CourseInfo() {
                     height: "124px",
                     display: "flex",
                     alignItems: "center",
-                    marginRight: "-8%",
                   }}
                 >
                   قیمت:
                 </div>
                 <div
                   style={{
-                    marginLeft: "-8%",
                     fontSize: "28px",
                     fontWeight: "700",
                   }}
                 >
-                  {thisCourse?.price}
+                  {thisCourse?.price} تومان
                 </div>
                 <span
                   style={{ backgroundColor: "#3A365E" }}
@@ -127,7 +125,7 @@ function CourseInfo() {
                       تعداد ویدیو:
                     </div>
                   </th>
-                  <td>{thisCourse?.number_of_sessions}</td>
+                  <td>{thisCourse?.number_of_sessions} تا</td>
                 </tr>
                 <tr>
                   <th>
@@ -136,7 +134,7 @@ function CourseInfo() {
                       مدت زمان دوره:
                     </div>
                   </th>
-                  <td>{thisCourse?.duration}</td>
+                  <td>{thisCourse?.duration} ساعت</td>
                 </tr>
 
                 <tr>
@@ -146,7 +144,7 @@ function CourseInfo() {
                       تعداد دانشجو:
                     </div>
                   </th>
-                  <td>{thisCourse?.number_of_students}</td>
+                  <td>{thisCourse?.number_of_students} نفر</td>
                 </tr>
               </table>
             </div>

@@ -1,7 +1,7 @@
 .course-info-page-container {
-  padding: 40px;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 4%;
+  padding-left: 5%;
+  padding-right: 5%;
   margin-bottom: 4%;
 
   img {
@@ -12,6 +12,7 @@
 
 .course-info-picture-description {
   margin-top: 20px;
+  font-weight: 600;
 }
 
 .course-info-up-side {
@@ -137,6 +138,10 @@ th {
   .course-info-down-side-right-hand {
     align-items: start;
     width: 100%;
+
+    video {
+      max-width: 600px;
+    }
   }
 
   .course-info-picture-description {
@@ -168,6 +173,10 @@ th {
   .course-info-down-side-right-hand {
     align-items: start;
     width: 100%;
+
+    video {
+      max-width: 600px;
+    }
   }
 
   .course-info-picture-description {
