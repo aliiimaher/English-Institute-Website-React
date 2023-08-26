@@ -106,9 +106,16 @@ function Cart() {
           Authorization: "Token " + window.localStorage.getItem("token"),
         },
       }
-    );
-
-    window.location.href = "/panel-my-courses";
+    )
+    .then(()=>{
+      localStorage.setItem("showReloadNotif", "true");
+      window.location.href = "/panel-my-courses";
+    })
+    .catch((error)=>{
+      setLoading(false)
+      setNotif(true)
+      ErrorNotify({ text: error.response.data.error });
+    })
   };
 
   const applyDiscount = () => {
