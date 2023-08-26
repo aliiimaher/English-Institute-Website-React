@@ -56,9 +56,6 @@ function Cart() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-    return () => {
-      setLoading(false);
-    };
   }, []);
 
   function removeCourse(course_id: number) {
@@ -98,24 +95,25 @@ function Cart() {
 
   const handlePayment = () => {
     setLoading(true);
-    axios.put(
-      "http://localhost:8000/cart/pay/",
-      {},
-      {
-        headers: {
-          Authorization: "Token " + window.localStorage.getItem("token"),
-        },
-      }
-    )
-    .then(()=>{
-      localStorage.setItem("showReloadNotif", "true");
-      window.location.href = "/panel-my-courses";
-    })
-    .catch((error)=>{
-      setLoading(false)
-      setNotif(true)
-      ErrorNotify({ text: error.response.data.error });
-    })
+    axios
+      .put(
+        "http://localhost:8000/cart/pay/",
+        {},
+        {
+          headers: {
+            Authorization: "Token " + window.localStorage.getItem("token"),
+          },
+        }
+      )
+      .then(() => {
+        localStorage.setItem("showReloadNotif", "true");
+        window.location.href = "/panel-my-courses";
+      })
+      .catch((error) => {
+        setLoading(false);
+        setNotif(true);
+        ErrorNotify({ text: error.response.data.error });
+      });
   };
 
   const applyDiscount = () => {

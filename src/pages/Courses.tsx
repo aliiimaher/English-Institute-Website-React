@@ -10,8 +10,6 @@ import openedMenuToggleSvg from "../assets/Pic/openedMenuToggleSvg.svg";
 import axios from "axios";
 
 import Course from "../interfaces/Course";
-import Button from "../components/Button";
-// import { useLocation, useHistory } from "react-router-dom";
 
 function Courses() {
   const [courses, setCourses] = useState<Course[]>([]);
@@ -24,14 +22,6 @@ function Courses() {
 
   useEffect(() => {
     fetchFilteredCourses();
-    // axios
-    //   .get("http://localhost:8000/course/")
-    //   .then((response) => {
-    //     setCourses(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error fetching data:", error);
-    //   });
   }, [
     selectedLanguages,
     selectedFee,
@@ -59,9 +49,10 @@ function Courses() {
     console.log(queryParams.toString());
 
     axios
-      .get(`http://localhost:8000/course/?${queryParams.toString()}`)
+      .get(`http://localhost:8000/course/filter/?${queryParams.toString()}`)
       .then((response) => {
         setCourses(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -228,10 +219,6 @@ function Courses() {
               </div>
             </div>
           </div>
-          {/* test btn */}
-          {/* <button onClick={() => console.log(selectedLanguages)}>
-            Languages
-          </button> */}
 
           {/* ========== Fee ========== */}
           <div className="dropdown-fee">
@@ -293,8 +280,6 @@ function Courses() {
               </div>
             </div>
           </div>
-          {/* test btn */}
-          {/* <button onClick={() => console.log(selectedFee)}>Fee</button> */}
 
           {/* ========== TechWay ========== */}
           <div className="dropdown-tech-way">
@@ -354,7 +339,6 @@ function Courses() {
             </div>
           </div>
           {/* test btn */}
-          {/* <button onClick={() => console.log(selectedTechWay)}>Tech way</button> */}
 
           {/* ========== teachers ========== */}
           <div className="dropdown-teachers">
@@ -413,10 +397,6 @@ function Courses() {
               </div>
             </div>
           </div>
-          {/* test btn */}
-          {/* <button onClick={() => console.log(selectedTeachers)}>
-            Teachers
-          </button> */}
 
           {/* ========== diff levels ========== */}
           <div className="dropdown-diff-level">
@@ -474,18 +454,6 @@ function Courses() {
                 <label className="form-check-label">پیشرفته</label>
               </div>
             </div>
-          </div>
-          {/* test btn */}
-          {/* <button onClick={() => console.log(selectedDiffLevels)}>
-            Diff levels
-          </button> */}
-          <div style={{ width: "100%", marginTop: "24px" }}>
-            <Button
-              text="اعمال فیلتر"
-              size="large"
-              btn100Width="yes"
-              onclick={() => fetchFilteredCourses()}
-            />
           </div>
         </div>
 
