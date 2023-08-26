@@ -14,37 +14,59 @@ import Button from "../components/Button";
 // import { useLocation, useHistory } from "react-router-dom";
 
 function Courses() {
-  // const location = useLocation();
-  // const history = useHistory();
-
-  // const queryParams = new URLSearchParams(location.search);
-  // const brandsParam = queryParams.get("brands") || "";
-
-  // const filterClick = function () {
-  //   console.log(selectedLanguages, selectedFee);
-  //   {selectedLanguages.map(lang, index) {
-  //   }}
-  // };
-
   const [courses, setCourses] = useState<Course[]>([]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/course/")
-      .then((response) => {
-        setCourses(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
   // ========== checkbox states ==========
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
   const [selectedFee, setSelectedFee] = useState<string | null>(null);
   const [selectedTechWay, setSelectedTechWay] = useState<string[]>([]);
   const [selectedTeachers, setSelectedTeachers] = useState<string[]>([]);
   const [selectedDiffLevels, setSelectedDiffLevels] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetchFilteredCourses();
+    // axios
+    //   .get("http://localhost:8000/course/")
+    //   .then((response) => {
+    //     setCourses(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching data:", error);
+    //   });
+  }, [
+    selectedLanguages,
+    selectedFee,
+    selectedTechWay,
+    selectedTeachers,
+    selectedDiffLevels,
+  ]);
+
+  const fetchFilteredCourses = () => {
+    const queryParams = new URLSearchParams();
+    selectedLanguages.forEach((lang) => queryParams.append("languages", lang));
+    if (selectedFee) {
+      queryParams.append("fee", selectedFee);
+    }
+    selectedTechWay.forEach((techWay) =>
+      queryParams.append("techWays", techWay)
+    );
+    selectedTeachers.forEach((teacher) =>
+      queryParams.append("teachers", teacher)
+    );
+    selectedDiffLevels.forEach((diffLevel) =>
+      queryParams.append("diffLevels", diffLevel)
+    );
+
+    console.log(queryParams.toString());
+
+    axios
+      .get(`http://localhost:8000/course/?${queryParams.toString()}`)
+      .then((response) => {
+        setCourses(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
 
   // ========== checkbox change handles ==========
   // language
@@ -462,7 +484,7 @@ function Courses() {
               text="اعمال فیلتر"
               size="large"
               btn100Width="yes"
-              // onclick={filterClick}
+              onclick={() => fetchFilteredCourses()}
             />
           </div>
         </div>
