@@ -9,6 +9,7 @@ interface Props {
   btn100Width?: "yes" | "no";
   icon?: string;
   onclick?: () => void;
+  type?: "button" | "submit";
 }
 
 function Button({
@@ -18,6 +19,7 @@ function Button({
   btn100Width = "no",
   icon,
   onclick,
+  type = "button"
 }: Props) {
   const [btnSize, setBtnSize] = useState("btn-sm");
   const [btnBackground, setBtnBackground] = useState("background-yes");
@@ -66,7 +68,7 @@ function Button({
   return (
     <>
       <button
-        type="button"
+        type={type}
         className={
           "btn btn-primary shadow my-btn " +
           btnSize +
