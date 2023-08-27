@@ -35,7 +35,7 @@ function Card({
             <h3>{courseTeacher}</h3>
           </div>
           <div className="btn-price-container">
-            {coursePrice}
+            {coursePrice} تومان
             <a href="#">
               <Button text="مشاهده دوره" size="large" onclick={onclick} />
             </a>
