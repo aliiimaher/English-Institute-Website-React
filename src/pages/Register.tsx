@@ -1,6 +1,6 @@
 import "../styles/pages/Register.scss";
 import Loading from "../components/Loading";
-import {useState} from "react"
+import { useState, useEffect } from "react";
 import InputBox from "../components/InputBox";
 import Button from "../components/Button";
 import { useForm } from "react-hook-form";
@@ -9,24 +9,58 @@ import personSvg from "../assets/Pic/person.svg";
 import passwordSvg from "../assets/Pic/passwordSvg.svg";
 import registerSvg from "../assets/Pic/registerSvg.svg";
 import axios from "axios";
+import ErrorNotify from "../components/ErrorNotify";
+import Notif from "../components/Notif";
 
 function Register() {
-  const { register, handleSubmit } = useForm();
+  // Reload the page when navigating back
+  useEffect(() => {
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
+  }, []);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [loading, setLoading] = useState(false);
+  const [isNotif, setIsNotif] = useState(false);
 
   const submitform = (data: any) => {
     setLoading(true);
     axios
       .post("http://localhost:8000/user/signup/", data)
       .then((response) => {
-        localStorage.setItem("token", response.data.auth_token)
+        localStorage.setItem("token", response.data.auth_token);
         window.location.href = "/panel-dashboard";
+      })
+      .catch((error) => {
+        setLoading(false);
+        setIsNotif(true);
+        if (error.response.data.username) {
+          ErrorNotify({ text: error.response.data.username[0] });
+        } else if (error.response.data.email) {
+          ErrorNotify({ text: error.response.data.email[0] });
+        } else if (error.response.data.non_field_errors) {
+          ErrorNotify({ text: error.response.data.non_field_errors[0] });
+        }
       });
   };
 
   return (
     <>
       {loading && <Loading />}
+      {isNotif && <Notif />}
       <div className="register-container">
         <form onSubmit={handleSubmit(submitform)}>
           <div className="register-right-side">
@@ -35,23 +69,68 @@ function Register() {
               <InputBox
                 placeHolder="ایمیل"
                 icon={emailSvg}
-                reactHookFrom={register("email")}
+                reactHookFrom={register("email", {
+                  required: "وارد کردن ایمیل الزامی است",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
+                    message: "آدرس ایمیل معتبر وارد کنید",
+                  },
+                })}
               />
+              {errors.email && (
+                <p className="formError">{errors.email.message?.toString()}</p>
+              )}
               <InputBox
                 placeHolder="نام کاربری"
                 icon={personSvg}
-                reactHookFrom={register("username")}
+                reactHookFrom={register("username", {
+                  required: "وارد کردن نام کاربری الزامی است",
+                  pattern: {
+                    value: /^[a-zA-Z0-9_]{3,20}$/,
+                    message:
+                      "نام کاربری باید از حروف کوچک، حروف بزرگ، اعداد و آندرلاین تشکیل شده باشد و بین ۳ تا ۲۰ کاراکتر باشد",
+                  },
+                })}
               />
+              {errors.username && (
+                <p className="formError">
+                  {errors.username.message?.toString()}
+                </p>
+              )}
               <InputBox
                 placeHolder="رمز عبور"
                 icon={passwordSvg}
-                reactHookFrom={register("password")}
+                reactHookFrom={register("password", {
+                  required: "وارد کردن رمزعبور الزامی است",
+                  minLength: {
+                    value: 8,
+                    message: "نام کاربری باید حداقل شامل ۸ حرف باشد",
+                  },
+                  pattern: {
+                    value:
+                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                    message:
+                      "رمز عبور باید شامل حروف کوچک، حروف بزرگ، اعداد و کاراکترهای ویژه باشد",
+                  },
+                })}
               />
+              {errors.password && (
+                <p className="formError">
+                  {errors.password.message?.toString()}
+                </p>
+              )}
               <InputBox
                 placeHolder="تکرار رمز عبور"
                 icon={passwordSvg}
-                reactHookFrom={register("confirm_password")}
+                reactHookFrom={register("confirm_password", {
+                  required: "وارد کردن تکرار رمز عبور الزامی است",
+                })}
               />
+              {errors.confirm_password && (
+                <p className="formError">
+                  {errors.confirm_password.message?.toString()}
+                </p>
+              )}
             </div>
             <div className="register-right-side-down">
               <Button
@@ -60,7 +139,6 @@ function Register() {
                 btn100Width="yes"
                 type="submit"
               />
-              {/* <button type="submit" value="ثبت" /> */}
               <div style={{ marginTop: "16px" }}>
                 حساب کاربری دارید؟
                 <a
