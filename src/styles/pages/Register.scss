@@ -11,10 +11,32 @@
   );
 }
 
+.register-wrong-input-alarm-container {
+  background-color: #ead2b7;
+  border-radius: 20px;
+  border: red solid;
+  padding: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-left: 8px;
+    max-width: 24px;
+  }
+
+  p {
+    margin-bottom: 0;
+    color: #1C1A2D;
+    font-weight: 700 !important;
+  }
+}
+
 .register-right-side {
   color: #ead2b7;
   min-width: 480px;
   padding-left: 60;
+  text-align: center;
 }
 
 .register-right-side-up {
@@ -94,8 +116,7 @@ h6 {
   }
 }
 
-
-.formError{
+.formError {
   color: red;
   font-size: 15px !important;
   // margin-left: 300px;
