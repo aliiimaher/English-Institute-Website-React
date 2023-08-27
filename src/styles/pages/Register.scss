@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 }
 
 .register-right-side-down {
@@ -92,4 +92,11 @@ h6 {
     min-width: 0;
     padding: 20px;
   }
+}
+
+
+.formError{
+  color: red;
+  font-size: 15px !important;
+  // margin-left: 300px;
 }
