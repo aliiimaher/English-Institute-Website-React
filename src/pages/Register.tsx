@@ -1,4 +1,5 @@
 import "../styles/pages/Register.scss";
+import dangerSvg from "../assets/Pic/Cart/DangerSvg.svg";
 import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
 import InputBox from "../components/InputBox";
@@ -36,7 +37,7 @@ function Register() {
   const [loading, setLoading] = useState(false);
   const [isNotif, setIsNotif] = useState(false);
 
-  const submitform = (data: any) => {
+  const submitForm = (data: any) => {
     setLoading(true);
     axios
       .post("http://localhost:8000/user/signup/", data)
@@ -62,10 +63,10 @@ function Register() {
       {loading && <Loading />}
       {isNotif && <Notif />}
       <div className="register-container">
-        <form onSubmit={handleSubmit(submitform)}>
+        <form onSubmit={handleSubmit(submitForm)}>
           <div className="register-right-side">
+            <h1>از اینجا ثبت نام کنید!</h1>
             <div className="register-right-side-up">
-              <h1>از اینجا ثبت نام کنید!</h1>
               <InputBox
                 placeHolder="ایمیل"
                 icon={emailSvg}
@@ -78,7 +79,12 @@ function Register() {
                 })}
               />
               {errors.email && (
-                <p className="formError">{errors.email.message?.toString()}</p>
+                <div className="register-wrong-input-alarm-container">
+                  <img src={dangerSvg} />
+                  <p className="formError">
+                    {errors.email.message?.toString()}
+                  </p>
+                </div>
               )}
               <InputBox
                 placeHolder="نام کاربری"
@@ -93,18 +99,21 @@ function Register() {
                 })}
               />
               {errors.username && (
-                <p className="formError">
-                  {errors.username.message?.toString()}
-                </p>
+                <div className="register-wrong-input-alarm-container">
+                  <img src={dangerSvg} />
+                  <p className="formError">
+                    {errors.username.message?.toString()}
+                  </p>
+                </div>
               )}
               <InputBox
                 placeHolder="رمز عبور"
                 icon={passwordSvg}
                 reactHookFrom={register("password", {
-                  required: "وارد کردن رمزعبور الزامی است",
+                  required: "وارد کردن رمز عبور الزامی است",
                   minLength: {
                     value: 8,
-                    message: "نام کاربری باید حداقل شامل ۸ حرف باشد",
+                    message: "رمز عبور باید حداقل شامل ۸ حرف باشد",
                   },
                   pattern: {
                     value:
@@ -115,9 +124,12 @@ function Register() {
                 })}
               />
               {errors.password && (
-                <p className="formError">
-                  {errors.password.message?.toString()}
-                </p>
+                <div className="register-wrong-input-alarm-container">
+                  <img src={dangerSvg} />
+                  <p className="formError">
+                    {errors.password.message?.toString()}
+                  </p>
+                </div>
               )}
               <InputBox
                 placeHolder="تکرار رمز عبور"
@@ -127,9 +139,12 @@ function Register() {
                 })}
               />
               {errors.confirm_password && (
-                <p className="formError">
-                  {errors.confirm_password.message?.toString()}
-                </p>
+                <div className="register-wrong-input-alarm-container">
+                  <img src={dangerSvg} />
+                  <p className="formError">
+                    {errors.confirm_password.message?.toString()}
+                  </p>
+                </div>
               )}
             </div>
             <div className="register-right-side-down">
