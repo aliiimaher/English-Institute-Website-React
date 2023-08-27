@@ -69,19 +69,6 @@ function Cart() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-
-    // Reload the page when navigating back
-    const handlePageShow = (event: PageTransitionEvent) => {
-      if (event.persisted) {
-        window.location.reload();
-      }
-    };
-
-    window.addEventListener("pageshow", handlePageShow);
-
-    return () => {
-      window.removeEventListener("pageshow", handlePageShow);
-    };
   }, []);
 
   function removeCourse(course_id: number) {
