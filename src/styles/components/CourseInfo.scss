@@ -1,4 +1,6 @@
 .course-info-page-container {
+  display: flex;
+  flex-direction: column;
   padding: 4%;
   padding-left: 5%;
   padding-right: 5%;
@@ -22,6 +24,13 @@
 
 .course-info-up-side-right-hand {
   max-width: 880px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.course-info-up-side-left-hand {
+  width: 400px;
 }
 
 .course-info-up-side-left-hand-course-sub-info {
@@ -43,9 +52,19 @@ th {
 }
 
 .course-info-up-side-left-hand-teacher-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   padding: 20px;
   background-color: #3a365e;
   border-radius: 20px;
+  max-width: 400px;
+  word-wrap: break-word;
+
+  p {
+    max-width: 100% !important;
+    margin-bottom: 0;
+  }
 }
 
 .course-info-up-side-left-hand-price-ticket {
@@ -122,8 +141,10 @@ th {
     align-items: center;
 
     img {
-      max-width: 600px !important;
+      max-width: 80% !important;
     }
+
+    margin-bottom: 0;
   }
 
   .course-info-up-side {
@@ -133,14 +154,18 @@ th {
 
   .course-info-down-side {
     width: 100%;
+    justify-content: center;
+    align-items: center;
   }
 
   .course-info-down-side-right-hand {
-    align-items: start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     width: 100%;
 
     video {
-      max-width: 600px;
+      max-width: 100%;
     }
   }
 
@@ -155,10 +180,18 @@ th {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 2%;
 
     img {
-      max-width: 280px !important;
+      max-width: 80% !important;
     }
+
+    margin-bottom: 0;
+  }
+
+  .course-info-up-side-left-hand {
+    width: 300px;
+    margin-bottom: 16px;
   }
 
   .course-info-up-side {
@@ -168,19 +201,24 @@ th {
 
   .course-info-down-side {
     width: 100%;
+    margin: auto;
   }
 
   .course-info-down-side-right-hand {
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
 
     video {
-      max-width: 600px;
+      max-width: 100%;
     }
   }
 
   .course-info-picture-description {
     margin-top: 8px;
     margin-bottom: 16px;
+    max-width: 100%;
+    padding: 4%;
   }
 }
