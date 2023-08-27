@@ -22,12 +22,9 @@ function App() {
         Authorization: "Token " + window.localStorage.getItem("token"),
       };
 
-      const response = await axios.get(
-        "https://zabanlearner.iran.liara.run/user/me",
-        {
-          headers: headers,
-        }
-      );
+      const response = await axios.get("http://localhost:8000/user/me", {
+        headers: headers,
+      });
 
       setThisUser(response.data);
     } catch (error) {
@@ -37,7 +34,7 @@ function App() {
 
   const isRepairMode = () => {
     axios
-      .get("https://zabanlearner.iran.liara.run/course")
+      .get("http://localhost:8000/course")
       .then(() => {
         setRepairMode(false);
       })

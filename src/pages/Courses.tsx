@@ -22,7 +22,7 @@ function Courses() {
 
   useEffect(() => {
     fetchFilteredCourses();
-    
+
     // Reload the page when navigating back
     const handlePageShow = (event: PageTransitionEvent) => {
       if (event.persisted) {
@@ -62,9 +62,7 @@ function Courses() {
     console.log(queryParams.toString());
 
     axios
-      .get(
-        `https://zabanlearner.iran.liara.run/course/filter/?${queryParams.toString()}`
-      )
+      .get(`http://localhost:8000/course/filter/?${queryParams.toString()}`)
       .then((response) => {
         setCourses(response.data);
         console.log(response.data);

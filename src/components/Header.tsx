@@ -15,7 +15,7 @@ function Header() {
 
   useEffect(() => {
     axios
-      .get("https://zabanlearner.iran.liara.run/cart/", { headers: header })
+      .get("http://localhost:8000/cart/", { headers: header })
       .then((response) => {
         setOrdersNumber("سبد خرید(" + response.data.items + ")");
       });

@@ -9,7 +9,7 @@ const Slider = () => {
 
   const fetchCourses = () => {
     axios
-      .get("https://zabanlearner.iran.liara.run/course/")
+      .get("http://localhost:8000/course/")
       .then((res) => {
         setCourses(res.data);
         console.log(res.data);

@@ -59,7 +59,7 @@ function Cart() {
 
   useEffect(() => {
     axios
-      .get("https://zabanlearner.iran.liara.run/cart/", { headers: header })
+      .get("http://localhost:8000/cart/", { headers: header })
       .then((response) => {
         setOrders(response.data.course);
         setTotalPrice(response.data.price);
@@ -85,7 +85,7 @@ function Cart() {
   }, []);
 
   function removeCourse(course_id: number) {
-    axios.delete(`https://zabanlearner.iran.liara.run/cart/add/${course_id}/`, {
+    axios.delete(`http://localhost:8000/cart/add/${course_id}/`, {
       headers: {
         Authorization: "Token " + window.localStorage.getItem("token"),
       },
@@ -103,7 +103,7 @@ function Cart() {
     setLoading(true);
     axios
       .put(
-        "https://zabanlearner.iran.liara.run/cart/pay/",
+        "http://localhost:8000/cart/pay/",
         {},
         {
           headers: {
@@ -125,7 +125,7 @@ function Cart() {
   const applyDiscount = () => {
     axios
       .post(
-        "https://zabanlearner.iran.liara.run/cart/discount/",
+        "http://localhost:8000/cart/discount/",
         {
           discountcode: watch("discountcode"),
         },

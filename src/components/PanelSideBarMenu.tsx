@@ -12,12 +12,11 @@ function PanelSideBarMenu() {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
 
-  var image_url =
-    "https://zabanlearner.iran.liara.run/" + thisUser.profile_image;
+  var image_url = "http://localhost:8000/" + thisUser.profile_image;
 
   // ========== logout api ==========
   function handleLogout() {
-    axios.post("https://zabanlearner.iran.liara.run/user/token/logout/", null, {
+    axios.post("http://localhost:8000/user/token/logout/", null, {
       headers: {
         Authorization: "Token " + window.localStorage.getItem("token"),
       },

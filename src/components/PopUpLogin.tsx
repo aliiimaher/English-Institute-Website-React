@@ -28,7 +28,7 @@ function PopUpLogin({ onclick }: Props) {
   const handleForForgetPassword = () => {
     // send request to backend
     const api = axios.create({
-      baseURL: "https://zabanlearner.iran.liara.run/",
+      baseURL: "http://localhost:8000/",
     });
     api.post("user/password_reset/", {
       email: watch("email"),
@@ -37,7 +37,7 @@ function PopUpLogin({ onclick }: Props) {
 
   const sendPassCode = () => {
     const api = axios.create({
-      baseURL: "https://zabanlearner.iran.liara.run/",
+      baseURL: "http://localhost:8000/",
     });
     api
       .post("user/password_reset/validate_token/", {
