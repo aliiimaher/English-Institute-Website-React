@@ -2,7 +2,7 @@ import "../styles/components/PanelSideBarMenu.scss";
 
 import UserData from "../interfaces/UserData";
 import { Link, useLocation } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import { UserContext } from "../jsFiles/UserContext";
 import Loading from "./Loading";
 import axios from "axios";
@@ -22,6 +22,21 @@ function PanelSideBarMenu() {
       },
     });
   }
+
+  useEffect(() => {
+    // Reload the page when navigating back
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
+  }, []);
 
   return (
     <>

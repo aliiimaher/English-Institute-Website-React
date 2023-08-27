@@ -37,6 +37,19 @@ function Cart() {
       SuccessNotify({ text: "کد تخفیف با موفقیت اعمال شد" });
       localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
     }
+
+    // Reload the page when navigating back
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
   }, []);
 
   const header = {
@@ -70,28 +83,8 @@ function Cart() {
     const updatedOrders = [...orders];
     updatedOrders.splice(index, 1);
     setOrders(updatedOrders);
-    // handleCalculateTotalPrice();
     window.location.reload();
   };
-
-  // var price = 0;
-  // var discount = 0;
-  // const [finalPrice, setFinalPrice] = useState(0);
-
-  // ========== handle for calculation total price ==========
-  // const handleCalculateTotalPrice = () => {
-  //   price = 0;
-  //   orders.forEach((item) => {
-  //     let temp = persianToEnglishNumerals(item.price.toString());
-  //     price += Number(temp);
-  //     // price += item.price;
-  //   });
-  //   setFinalPrice(price - discount);
-  // };
-
-  // useEffect(() => {
-  //   handleCalculateTotalPrice();
-  // }, [orders]);
 
   const handlePayment = () => {
     setLoading(true);

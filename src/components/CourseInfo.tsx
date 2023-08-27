@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Course from "../interfaces/Course";
 import ErrorNotify from "./ErrorNotify";
+
 function CourseInfo() {
   const [notif, setNotif] = useState(false);
   const { course_id } = useParams();
@@ -173,7 +174,7 @@ function CourseInfo() {
                   </div>
                 </div>
               </div>
-              <div>{thisCourse?.teacher.description}</div>
+              <p>{thisCourse?.teacher.description}</p>
             </div>
           </div>
         </div>

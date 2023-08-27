@@ -6,9 +6,28 @@ import homePageSvg1 from "../assets/Pic/homePageSvg1.svg";
 import homePageSvg2 from "../assets/Pic/homePageSvg2.svg";
 import homePageSvg3 from "../assets/Pic/homePageSvg3.svg";
 import leftArrowSvg from "../assets/Pic/leftArrowSvg.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function Home() {
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setIsLoading(false);
+    }
+
+    // Reload the page when navigating back
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
+  }, []);
 
   return (
     <>

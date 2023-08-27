@@ -22,6 +22,19 @@ function Courses() {
 
   useEffect(() => {
     fetchFilteredCourses();
+
+    // Reload the page when navigating back
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
   }, [
     selectedLanguages,
     selectedFee,

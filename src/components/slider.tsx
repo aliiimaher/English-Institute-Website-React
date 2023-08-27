@@ -37,7 +37,7 @@ const Slider = () => {
         },
         768: {
           slidesPerView: 3,
-        }
+        },
       }}
     >
       {courses.map((course) => {
