@@ -2,7 +2,7 @@ import "../styles/components/PanelSideBarMenu.scss";
 
 import UserData from "../interfaces/UserData";
 import { Link, useLocation } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import { UserContext } from "../jsFiles/UserContext";
 import Loading from "./Loading";
 import axios from "axios";
@@ -12,16 +12,32 @@ function PanelSideBarMenu() {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
 
-  var image_url = "http://localhost:8000/" + thisUser.profile_image;
+  var image_url =
+    "https://zabanlearner.iran.liara.run/" + thisUser.profile_image;
 
   // ========== logout api ==========
   function handleLogout() {
-    axios.post("http://localhost:8000/user/token/logout/", null, {
+    axios.post("https://zabanlearner.iran.liara.run/user/token/logout/", null, {
       headers: {
         Authorization: "Token " + window.localStorage.getItem("token"),
       },
     });
   }
+
+  useEffect(() => {
+    // Reload the page when navigating back
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
+  }, []);
 
   return (
     <>

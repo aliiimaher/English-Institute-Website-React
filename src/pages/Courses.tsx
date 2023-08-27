@@ -22,6 +22,19 @@ function Courses() {
 
   useEffect(() => {
     fetchFilteredCourses();
+    
+    // Reload the page when navigating back
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
   }, [
     selectedLanguages,
     selectedFee,
@@ -49,7 +62,9 @@ function Courses() {
     console.log(queryParams.toString());
 
     axios
-      .get(`http://localhost:8000/course/filter/?${queryParams.toString()}`)
+      .get(
+        `https://zabanlearner.iran.liara.run/course/filter/?${queryParams.toString()}`
+      )
       .then((response) => {
         setCourses(response.data);
         console.log(response.data);

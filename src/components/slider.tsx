@@ -9,7 +9,7 @@ const Slider = () => {
 
   const fetchCourses = () => {
     axios
-      .get("http://localhost:8000/course/")
+      .get("https://zabanlearner.iran.liara.run/course/")
       .then((res) => {
         setCourses(res.data);
         console.log(res.data);
@@ -37,7 +37,7 @@ const Slider = () => {
         },
         768: {
           slidesPerView: 3,
-        }
+        },
       }}
     >
       {courses.map((course) => {

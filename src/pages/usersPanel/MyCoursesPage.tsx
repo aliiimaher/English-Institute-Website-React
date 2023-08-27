@@ -29,7 +29,9 @@ function MyCoursesPage() {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:8000/course/thisuser/", { headers: header })
+      .get("https://zabanlearner.iran.liara.run/course/thisuser/", {
+        headers: header,
+      })
       .then((response) => {
         setUserCourses(response.data);
       })

@@ -22,10 +22,12 @@ function CourseInfo() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/course/${course_id}/`).then((response) => {
-      setThisCourse(response.data);
-      console.log(response.data);
-    });
+    axios
+      .get(`https://zabanlearner.iran.liara.run/course/${course_id}/`)
+      .then((response) => {
+        setThisCourse(response.data);
+        console.log(response.data);
+      });
   }, []);
 
   useEffect(() => {
@@ -41,7 +43,7 @@ function CourseInfo() {
     setIsLoading(true);
     axios
       .put(
-        `http://localhost:8000/cart/add/${course_id}/`,
+        `https://zabanlearner.iran.liara.run/cart/add/${course_id}/`,
         {},
         {
           headers: {

@@ -16,7 +16,9 @@ function ChangePassword() {
   const { register, watch } = form;
 
   const onclick = function () {
-    const api = axios.create({ baseURL: "http://localhost:8000/" });
+    const api = axios.create({
+      baseURL: "https://zabanlearner.iran.liara.run/",
+    });
     api
       .post("user/password_reset/confirm/", {
         password: watch("newPassword"),

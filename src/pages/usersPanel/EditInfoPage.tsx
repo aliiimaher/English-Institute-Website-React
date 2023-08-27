@@ -41,11 +41,26 @@ function EditInfoPage() {
       SuccessNotify({ text: "ویرایش حساب کاربری با موفقیت انجام شد!" });
       localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
     }
+
+    // Reload the page when navigating back
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
   }, []);
 
   const onclick = function () {
     setIsLoading(true);
-    const api = axios.create({ baseURL: "http://localhost:8000/" });
+    const api = axios.create({
+      baseURL: "https://zabanlearner.iran.liara.run/",
+    });
     api
       .put(
         "user/edit/",

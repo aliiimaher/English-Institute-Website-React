@@ -10,7 +10,7 @@ import loginSvg from "../assets/Pic/loginSvg.svg";
 import ErrorNotify from "../components/ErrorNotify";
 import { useForm } from "react-hook-form";
 import Loading from "../components/Loading";
-import {  useState } from "react";
+import { useEffect, useState } from "react";
 import PopUpLogin from "../components/PopUpLogin";
 
 type FormValues = {
@@ -55,7 +55,9 @@ function Login() {
 
   const onclick = () => {
     setLoading(true);
-    const api = axios.create({ baseURL: "http://localhost:8000/" });
+    const api = axios.create({
+      baseURL: "https://zabanlearner.iran.liara.run/",
+    });
     api
       .post("user/token/login/", {
         username: watch("username"),
@@ -80,12 +82,25 @@ function Login() {
       });
   };
 
+  useEffect(() => {
+    // Reload the page when navigating back
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
+  }, []);
+
   return (
     <>
       {loading && <Loading />}
-      {errorLogin && (
-        <Notif />
-      )}
+      {errorLogin && <Notif />}
       <>
         {forgetPasswordPopUp ? (
           <div style={{ display: "flex", justifyContent: "center" }}>

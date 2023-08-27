@@ -15,10 +15,23 @@ function Header() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/cart/", { headers: header })
+      .get("https://zabanlearner.iran.liara.run/cart/", { headers: header })
       .then((response) => {
         setOrdersNumber("سبد خرید(" + response.data.items + ")");
       });
+
+    // Reload the page when navigating back
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
   }, []);
 
   const [isLoading, setIsLoading] = useState(false);
