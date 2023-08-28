@@ -110,6 +110,7 @@ function Cart() {
   };
 
   const applyDiscount = () => {
+    setLoading(true);
     axios
       .post(
         "http://localhost:8000/cart/discount/",
@@ -127,6 +128,7 @@ function Cart() {
         window.location.reload();
       })
       .catch((error) => {
+        setLoading(false);
         setNotif(true);
         ErrorNotify({ text: error.response.data.error });
       });
