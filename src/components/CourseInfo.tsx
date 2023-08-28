@@ -54,9 +54,14 @@ function CourseInfo() {
         location.reload();
       })
       .catch((error) => {
-        setNotif(true);
-        ErrorNotify({ text: error.response.data.error });
-        setIsLoading(false);
+        if (error.response.status === 401) {
+          window.location.href = "/login";
+          localStorage.setItem("showReloadNotif", "true");
+        } else {
+          setNotif(true);
+          ErrorNotify({ text: error.response.data.error });
+          setIsLoading(false);
+        }
       });
   }
 
