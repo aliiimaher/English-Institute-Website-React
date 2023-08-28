@@ -67,14 +67,14 @@ function Footer() {
                 <li className="nav-item">
                   <strong>تلفن‌های تماس</strong>
                 </li>
-                <li className="nav-item">۰۹۱۶-۴۵۱-۶۴۳۲</li>
-                <li className="nav-item">۰۹۱۰-۶۶۶-۳۵۳۰</li>
+                <li className="nav-item">۰۹۰۲-۲۰۰-۹۲۹۷</li>
+                <li className="nav-item">۰۹۳۵-۱۹۸-۵۱۹۳</li>
                 <li className="nav-item">
                   <strong>پشتیبانی</strong>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="mailto:support@zabanlearn.com">
-                    support@zabanlearn.com
+                    support@zabanlearner.ir
                   </a>
                 </li>
               </ul>
