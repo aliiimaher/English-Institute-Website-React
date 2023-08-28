@@ -19,6 +19,7 @@ type FormValues = {
 };
 
 function Login() {
+  const [notif, setNotif] = useState(false);
   const [errorLogin, setErrorLogin] = useState(false);
 
   // ========== loading ==========
@@ -34,6 +35,15 @@ function Login() {
   const [remember, setRemember] = useState(
     localStorage.getItem("remember") ? true : false
   );
+
+  useEffect(() => {
+    const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
+    if (shouldShowReloadNotif === "true") {
+      setNotif(true); // Show the notification
+      ErrorNotify({ text: "لطفا ابتدا وارد حساب کاربری خود شوید!" });
+      localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
+    }
+  }, []);
 
   const form = useForm<FormValues>({
     defaultValues: {
@@ -101,6 +111,7 @@ function Login() {
     <>
       {loading && <Loading />}
       {errorLogin && <Notif />}
+      {notif && <Notif />}
       <>
         {forgetPasswordPopUp ? (
           <div style={{ display: "flex", justifyContent: "center" }}>
