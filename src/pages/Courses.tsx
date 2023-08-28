@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import "../styles/pages/Courses.scss";
-
+import Loading from "../components/Loading";
 import Card from "../components/Card";
 
 import closedMenuToggleSvg from "../assets/Pic/closedMenuToggleSvg.svg";
@@ -12,6 +12,7 @@ import axios from "axios";
 import Course from "../interfaces/Course";
 
 function Courses() {
+  const [isLoading, setIsLoading] = useState(false);
   const [courses, setCourses] = useState<Course[]>([]);
   // ========== checkbox states ==========
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
@@ -62,7 +63,11 @@ function Courses() {
     console.log(queryParams.toString());
 
     axios
-      .get(`http://localhost:8000/course/filter/?${queryParams.toString()}`)
+      .get(
+        queryParams !== null
+          ? `http://localhost:8000/course/filter/?${queryParams.toString()}`
+          : `http://localhost:8000/course/`
+      )
       .then((response) => {
         setCourses(response.data);
         console.log(response.data);
@@ -151,6 +156,7 @@ function Courses() {
 
   return (
     <>
+      {isLoading && <Loading />}
       <div className="courses-page-container">
         <div className="courses-page-container-right">
           {/* ========== languages ========== */}
@@ -479,9 +485,10 @@ function Courses() {
               icon={course.course_image}
               coursePrice={course.price.toString()}
               courseTeacher={course.teacher.fullname}
-              onclick={() =>
+              onclick={() => (
+                setIsLoading(true),
                 (location.href = "/course-info/" + course.id + "/")
-              }
+              )}
             />
           ))}
         </div>

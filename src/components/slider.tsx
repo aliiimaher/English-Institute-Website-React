@@ -3,6 +3,10 @@ import Card from "./Card";
 import "swiper/css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "swiper/css/autoplay";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css/navigation";
+import "../styles/components/Slider.scss"
 
 const Slider = () => {
   const [courses, setCourses] = useState([] as any[]);
@@ -25,12 +29,11 @@ const Slider = () => {
 
   return (
     <Swiper
+      modules={[Autoplay, Navigation]}
       spaceBetween={0}
       slidesPerView={1}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
-      navigation={true}
-      autoplay={{ delay: 3000 }}
+      navigation
+      autoplay={{ delay: 2000 }}
       breakpoints={{
         1200: {
           slidesPerView: 4,
@@ -53,7 +56,9 @@ const Slider = () => {
               courseTeacher={course.teacher.fullname}
               coursePrice={course.price}
               className="my-card"
-              onclick={() => (window.location.href = "courses/")}
+              onclick={() =>
+                (window.location.href = `course-info/${course.id}/`)
+              }
             />
           </SwiperSlide>
         );
