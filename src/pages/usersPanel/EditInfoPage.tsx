@@ -9,7 +9,7 @@ import mailSvg from "../../assets/Pic/Panel/MailSvg.svg";
 import editSvg from "../../assets/Pic/Panel/editSvg.svg";
 import plusSvg from "../../assets/Pic/Panel/plusSvg.svg";
 import Loading from "../../components/Loading";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, ChangeEvent } from "react";
 import { UserContext } from "../../context/UserContext";
 import { useForm } from "react-hook-form";
 import SuccessNotify from "../../components/SuccessNotify";
@@ -146,6 +146,32 @@ function EditInfoPage() {
       watch("sex")
     );
     onclick();
+  };
+
+  // ========== photo edit ==========
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setSelectedFile(event.target.files[0]);
+    }
+  };
+
+  const handleUpload = () => {
+    // Here you can use the selectedFile to upload the image to the server
+    if (selectedFile) {
+      const formData = new FormData();
+      formData.append("image", selectedFile);
+
+      console.log(formData);
+
+      // Use axios or fetch to send the formData to the server
+      // Example using axios:
+      // axios.post("/upload", formData).then(response => { ... }).catch(error => { ... });
+      axios.put("/user/edit/....", formData).catch((error) => {
+        console.error(error);
+      });
+    }
   };
 
   return (
@@ -369,6 +395,22 @@ function EditInfoPage() {
                 onclick={handleCombinedClick}
                 size="large"
                 btn100Width="yes"
+              />
+            </div>
+            <hr />
+            <div className="edit-info-page-upload-pic">
+              <div className="edit-info-page-upload-pic-inner">
+                عکس پروفایل:
+                <label className="upload-pic-btn">
+                  <input type="file" onChange={handleFileChange} />
+                  <span>Choose a file</span>
+                </label>
+              </div>
+              <Button
+                text="آپلود کن"
+                size="large"
+                btn100Width="yes"
+                onclick={handleUpload}
               />
             </div>
           </div>
