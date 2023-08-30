@@ -24,7 +24,6 @@ function Card({
 }: Props) {
   return (
     <>
-      {/* this is a card {courseTitle} and {courseTeacher} */}
       <div className={"card my-card " + className}>
         <img src={icon} className="card-img-top" alt="card image" />
         <div className="card-body-1">

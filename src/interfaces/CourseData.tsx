@@ -12,7 +12,6 @@ export default interface CourseData {
   numberOfSessions?: string;
   duration?: string;
   numberOfStudents?: string;
-  // content
   children?: ReactNode;
   preViews?: string;
 }

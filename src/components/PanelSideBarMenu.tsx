@@ -1,9 +1,10 @@
 import "../styles/components/PanelSideBarMenu.scss";
 
+import plusSvg from "../assets/Pic/Panel/plusSvg.svg";
 import UserData from "../interfaces/UserData";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useContext, useState } from "react";
-import { UserContext } from "../jsFiles/UserContext";
+import { UserContext } from "../context/UserContext";
 import Loading from "./Loading";
 import axios from "axios";
 
@@ -12,11 +13,11 @@ function PanelSideBarMenu() {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
 
-  var image_url = "http://localhost:8000/" + thisUser.profile_image;
+  var image_url = axios.defaults.baseURL + thisUser.profile_image;
 
   // ========== logout api ==========
   function handleLogout() {
-    axios.post("http://localhost:8000/user/token/logout/", null, {
+    axios.post("/user/token/logout/", null, {
       headers: {
         Authorization: "Token " + window.localStorage.getItem("token"),
       },
@@ -43,7 +44,11 @@ function PanelSideBarMenu() {
       {isLoading && <Loading />}
       <div className="panel-side-bar-menu-container">
         <div className="panel-side-bar-menu-person">
-          <img src={image_url} width="143px" style={{ borderRadius: "100%" }} />
+          {image_url ? (
+            <img src={image_url} />
+          ) : (
+            <img src={plusSvg} onClick={() => console.log("hello")} />
+          )}
           <div className="panel-side-bar-menu-person-name">
             {thisUser.first_name} {thisUser.last_name}
           </div>
@@ -67,7 +72,6 @@ function PanelSideBarMenu() {
               setIsLoading(true);
               handleLogout();
               window.localStorage.removeItem("token");
-              //window.location.reload;
               window.location.href = "/";
             }}
           >

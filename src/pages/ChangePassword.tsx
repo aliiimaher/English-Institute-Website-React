@@ -16,10 +16,7 @@ function ChangePassword() {
   const { register, watch } = form;
 
   const onclick = function () {
-    const api = axios.create({
-      baseURL: "http://localhost:8000/",
-    });
-    api
+    axios
       .post("user/password_reset/confirm/", {
         password: watch("newPassword"),
         token: localStorage.getItem("forget_password_token"),

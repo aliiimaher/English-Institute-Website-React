@@ -15,7 +15,7 @@ function Header() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/cart/", { headers: header })
+      .get("/cart/", { headers: header })
       .then((response) => {
         setOrdersNumber("سبد خرید(" + response.data.items + ")");
       });

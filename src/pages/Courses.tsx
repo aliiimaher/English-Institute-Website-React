@@ -65,8 +65,8 @@ function Courses() {
     axios
       .get(
         queryParams !== null
-          ? `http://localhost:8000/course/filter/?${queryParams.toString()}`
-          : `http://localhost:8000/course/`
+          ? `/course/filter/?${queryParams.toString()}`
+          : `/course/`
       )
       .then((response) => {
         setCourses(response.data);
@@ -357,7 +357,6 @@ function Courses() {
               </div>
             </div>
           </div>
-          {/* test btn */}
 
           {/* ========== teachers ========== */}
           <div className="dropdown-teachers">

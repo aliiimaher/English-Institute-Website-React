@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import MyRoutes from "./Routes";
 
 import { useEffect, useState } from "react";
-import { UserContext } from "./jsFiles/UserContext.js";
+import { UserContext } from "./context/UserContext.js";
 import axios from "axios";
 import Repair from "./components/Repair.js";
 
@@ -22,7 +22,7 @@ function App() {
         Authorization: "Token " + window.localStorage.getItem("token"),
       };
 
-      const response = await axios.get("http://localhost:8000/user/me", {
+      const response = await axios.get("/user/me", {
         headers: headers,
       });
 
@@ -34,7 +34,7 @@ function App() {
 
   const isRepairMode = () => {
     axios
-      .get("http://localhost:8000/course")
+      .get("/course")
       .then(() => {
         setRepairMode(false);
       })

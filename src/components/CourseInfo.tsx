@@ -22,7 +22,7 @@ function CourseInfo() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/course/${course_id}/`).then((response) => {
+    axios.get(`/course/${course_id}/`).then((response) => {
       setThisCourse(response.data);
       console.log(response.data);
     });
@@ -31,9 +31,9 @@ function CourseInfo() {
   useEffect(() => {
     const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
     if (shouldShowReloadNotif === "true") {
-      setNotif(true); // Show the notification
+      setNotif(true);
       SuccessNotify({ text: "دوره به سبد خرید اضافه شد" });
-      localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
+      localStorage.removeItem("showReloadNotif");
     }
   }, []);
 
@@ -41,7 +41,7 @@ function CourseInfo() {
     setIsLoading(true);
     axios
       .put(
-        `http://localhost:8000/cart/add/${course_id}/`,
+        `/cart/add/${course_id}/`,
         {},
         {
           headers: {

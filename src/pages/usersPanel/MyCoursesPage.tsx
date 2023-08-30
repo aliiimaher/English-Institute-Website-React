@@ -29,7 +29,7 @@ function MyCoursesPage() {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:8000/course/thisuser/", {
+      .get("/course/thisuser/", {
         headers: header,
       })
       .then((response) => {

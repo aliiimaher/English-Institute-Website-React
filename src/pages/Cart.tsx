@@ -10,7 +10,6 @@ import priceSvg from "../assets/Pic/Cart/PriceSvg.svg";
 import discountSvg from "../assets/Pic/Cart/DiscountSvg.svg";
 import SuccessNotify from "../components/SuccessNotify";
 import ErrorNotify from "../components/ErrorNotify";
-// import for rendering orders
 import CardH from "../components/CardH";
 
 import Course from "../interfaces/Course";
@@ -26,16 +25,15 @@ function Cart() {
   const [finalPrice2, setFinalPrice2] = useState(0);
   const [discount2, setDiscount2] = useState(0);
   const [loading, setLoading] = useState<boolean>(false);
-  // list of orders
   const [orders, setOrders] = useState<Course[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
   useEffect(() => {
     const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
     if (shouldShowReloadNotif === "true") {
-      setNotif(true); // Show the notification
+      setNotif(true);
       SuccessNotify({ text: "کد تخفیف با موفقیت اعمال شد" });
-      localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
+      localStorage.removeItem("showReloadNotif");
     }
 
     // Reload the page when navigating back
@@ -59,7 +57,7 @@ function Cart() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/cart/", { headers: header })
+      .get("/cart/", { headers: header })
       .then((response) => {
         setOrders(response.data.course);
         setTotalPrice(response.data.price);
@@ -72,7 +70,7 @@ function Cart() {
   }, []);
 
   function removeCourse(course_id: number) {
-    axios.delete(`http://localhost:8000/cart/add/${course_id}/`, {
+    axios.delete(`/cart/add/${course_id}/`, {
       headers: {
         Authorization: "Token " + window.localStorage.getItem("token"),
       },
@@ -90,7 +88,7 @@ function Cart() {
     setLoading(true);
     axios
       .put(
-        "http://localhost:8000/cart/pay/",
+        "/cart/pay/",
         {},
         {
           headers: {
@@ -113,7 +111,7 @@ function Cart() {
     setLoading(true);
     axios
       .post(
-        "http://localhost:8000/cart/discount/",
+        "/cart/discount/",
         {
           discountcode: watch("discountcode"),
         },

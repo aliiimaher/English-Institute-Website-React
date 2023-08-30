@@ -13,7 +13,7 @@ const Slider = () => {
 
   const fetchCourses = () => {
     axios
-      .get("http://localhost:8000/course/")
+      .get("/course/")
       .then((res) => {
         setCourses(res.data);
         console.log(res.data);

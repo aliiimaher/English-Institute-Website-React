@@ -40,7 +40,7 @@ function Register() {
   const submitForm = (data: any) => {
     setLoading(true);
     axios
-      .post("http://localhost:8000/user/signup/", data)
+      .post("/user/signup/", data)
       .then((response) => {
         localStorage.setItem("token", response.data.auth_token);
         window.location.href = "/panel-dashboard";
