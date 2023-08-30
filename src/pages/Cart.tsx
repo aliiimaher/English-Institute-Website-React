@@ -31,7 +31,7 @@ function Cart() {
   useEffect(() => {
     const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
     if (shouldShowReloadNotif === "true") {
-      setNotif(true); 
+      setNotif(true);
       SuccessNotify({ text: "کد تخفیف با موفقیت اعمال شد" });
       localStorage.removeItem("showReloadNotif");
     }
@@ -57,7 +57,7 @@ function Cart() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/cart/", { headers: header })
+      .get("/cart/", { headers: header })
       .then((response) => {
         setOrders(response.data.course);
         setTotalPrice(response.data.price);
@@ -70,7 +70,7 @@ function Cart() {
   }, []);
 
   function removeCourse(course_id: number) {
-    axios.delete(`http://localhost:8000/cart/add/${course_id}/`, {
+    axios.delete(`/cart/add/${course_id}/`, {
       headers: {
         Authorization: "Token " + window.localStorage.getItem("token"),
       },
@@ -88,7 +88,7 @@ function Cart() {
     setLoading(true);
     axios
       .put(
-        "http://localhost:8000/cart/pay/",
+        "/cart/pay/",
         {},
         {
           headers: {
@@ -111,7 +111,7 @@ function Cart() {
     setLoading(true);
     axios
       .post(
-        "http://localhost:8000/cart/discount/",
+        "/cart/discount/",
         {
           discountcode: watch("discountcode"),
         },

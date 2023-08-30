@@ -39,9 +39,9 @@ function Login() {
   useEffect(() => {
     const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
     if (shouldShowReloadNotif === "true") {
-      setNotif(true); // Show the notification
+      setNotif(true); 
       ErrorNotify({ text: "لطفا ابتدا وارد حساب کاربری خود شوید!" });
-      localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
+      localStorage.removeItem("showReloadNotif");
     }
   }, []);
 
@@ -65,10 +65,7 @@ function Login() {
 
   const onclick = () => {
     setLoading(true);
-    const api = axios.create({
-      baseURL: "http://localhost:8000/",
-    });
-    api
+    axios
       .post("user/token/login/", {
         username: watch("username"),
         password: watch("password"),

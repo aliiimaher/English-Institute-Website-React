@@ -19,7 +19,7 @@ function Button({
   btn100Width = "no",
   icon,
   onclick,
-  type = "button"
+  type = "button",
 }: Props) {
   const [btnSize, setBtnSize] = useState("btn-sm");
   const [btnBackground, setBtnBackground] = useState("background-yes");

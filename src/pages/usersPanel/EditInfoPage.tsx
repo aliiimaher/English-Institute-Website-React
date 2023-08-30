@@ -58,12 +58,9 @@ function EditInfoPage() {
 
   const onclick = function () {
     setIsLoading(true);
-    const api = axios.create({
-      baseURL: "http://localhost:8000/",
-    });
-    api
+    axios
       .put(
-        "user/edit/",
+        "/user/edit/",
         {
           email: watch("email") || thisUser.email,
           first_name: watch("firstName") || thisUser.first_name,

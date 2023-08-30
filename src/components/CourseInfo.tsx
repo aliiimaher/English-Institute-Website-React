@@ -22,7 +22,7 @@ function CourseInfo() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/course/${course_id}/`).then((response) => {
+    axios.get(`/course/${course_id}/`).then((response) => {
       setThisCourse(response.data);
       console.log(response.data);
     });
@@ -41,7 +41,7 @@ function CourseInfo() {
     setIsLoading(true);
     axios
       .put(
-        `http://localhost:8000/cart/add/${course_id}/`,
+        `/cart/add/${course_id}/`,
         {},
         {
           headers: {
