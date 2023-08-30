@@ -26,7 +26,6 @@ function PopUpLogin({ onclick }: Props) {
   const [nextPage, setNextPage] = useState(false);
 
   const handleForForgetPassword = () => {
-    // send request to backend
     const api = axios.create({
       baseURL: "http://localhost:8000/",
     });

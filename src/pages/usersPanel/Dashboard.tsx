@@ -10,7 +10,7 @@ import sexSvg from "../../assets/Pic/Panel/SexSvg.svg";
 import mailSvg from "../../assets/Pic/Panel/MailSvg.svg";
 import UserData from "../../interfaces/UserData";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../jsFiles/UserContext";
+import { UserContext } from "../../context/UserContext";
 
 function Dashboard() {
   const thisUser: UserData = useContext(UserContext);
@@ -27,7 +27,7 @@ function Dashboard() {
 
   return (
     <>
-      {notif &&<Notif />}
+      {notif && <Notif />}
       <div className="panel-dashboard">
         <div className="panel-dashboard-right-side">
           <PanelSideBarMenu />
@@ -50,7 +50,7 @@ function Dashboard() {
                   </strong>
                 </td>
 
-                <th className="dashboard-th"  >
+                <th className="dashboard-th">
                   <img src={sexSvg} style={{ marginLeft: "8px" }} />
                   <div style={{ fontFamily: "KalamehThin" }}>جنسیت:</div>
                 </th>
@@ -86,11 +86,6 @@ function Dashboard() {
               </tr>
             </table>
           </div>
-          {/* <div>
-            دوره‌های مورد علاقه شما
-            <hr />
-            render fav list here
-          </div> */}
         </div>
       </div>
     </>

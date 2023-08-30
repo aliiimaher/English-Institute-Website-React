@@ -10,7 +10,7 @@ import editSvg from "../../assets/Pic/Panel/editSvg.svg";
 import plusSvg from "../../assets/Pic/Panel/plusSvg.svg";
 import Loading from "../../components/Loading";
 import { useContext, useState, useEffect } from "react";
-import { UserContext } from "../../jsFiles/UserContext";
+import { UserContext } from "../../context/UserContext";
 import { useForm } from "react-hook-form";
 import SuccessNotify from "../../components/SuccessNotify";
 import ErrorNotify from "../../components/ErrorNotify";
@@ -37,9 +37,9 @@ function EditInfoPage() {
   useEffect(() => {
     const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
     if (shouldShowReloadNotif === "true") {
-      setIsNotif(true); // Show the notification
+      setIsNotif(true);
       SuccessNotify({ text: "ویرایش حساب کاربری با موفقیت انجام شد!" });
-      localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
+      localStorage.removeItem("showReloadNotif");
     }
 
     // Reload the page when navigating back
@@ -149,9 +149,6 @@ function EditInfoPage() {
       watch("sex")
     );
     onclick();
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 1500);
   };
 
   return (

@@ -3,7 +3,7 @@ import "../styles/components/PanelSideBarMenu.scss";
 import UserData from "../interfaces/UserData";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useContext, useState } from "react";
-import { UserContext } from "../jsFiles/UserContext";
+import { UserContext } from "../context/UserContext";
 import Loading from "./Loading";
 import axios from "axios";
 
@@ -67,7 +67,6 @@ function PanelSideBarMenu() {
               setIsLoading(true);
               handleLogout();
               window.localStorage.removeItem("token");
-              //window.location.reload;
               window.location.href = "/";
             }}
           >

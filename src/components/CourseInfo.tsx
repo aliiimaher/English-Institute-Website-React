@@ -31,9 +31,9 @@ function CourseInfo() {
   useEffect(() => {
     const shouldShowReloadNotif = localStorage.getItem("showReloadNotif");
     if (shouldShowReloadNotif === "true") {
-      setNotif(true); // Show the notification
+      setNotif(true);
       SuccessNotify({ text: "دوره به سبد خرید اضافه شد" });
-      localStorage.removeItem("showReloadNotif"); // Remove the value from localStorage
+      localStorage.removeItem("showReloadNotif");
     }
   }, []);
 

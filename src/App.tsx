@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import MyRoutes from "./Routes";
 
 import { useEffect, useState } from "react";
-import { UserContext } from "./jsFiles/UserContext.js";
+import { UserContext } from "./context/UserContext.js";
 import axios from "axios";
 import Repair from "./components/Repair.js";
 

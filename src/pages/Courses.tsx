@@ -357,7 +357,6 @@ function Courses() {
               </div>
             </div>
           </div>
-          {/* test btn */}
 
           {/* ========== teachers ========== */}
           <div className="dropdown-teachers">
