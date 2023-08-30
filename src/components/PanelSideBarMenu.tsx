@@ -44,11 +44,10 @@ function PanelSideBarMenu() {
       {isLoading && <Loading />}
       <div className="panel-side-bar-menu-container">
         <div className="panel-side-bar-menu-person">
-          {image_url ? (
-            <img src={image_url} />
-          ) : (
-            <img src={plusSvg} onClick={() => console.log("hello")} />
-          )}
+          <img
+            src={image_url || plusSvg}
+            onClick={() => (window.location.href = "/panel-edit-info")}
+          />
           <div className="panel-side-bar-menu-person-name">
             {thisUser.first_name} {thisUser.last_name}
           </div>
