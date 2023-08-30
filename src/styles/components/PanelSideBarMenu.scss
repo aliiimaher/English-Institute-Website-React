@@ -20,6 +20,15 @@
   margin: 0px;
   margin-bottom: 8px;
   padding: 24px 40px 24px 40px;
+
+  img {
+    width: 143px;
+    border-radius: 100%;
+  }
+
+  img:hover {
+    cursor: pointer;
+  }
 }
 
 .list-item-side-bar-menu {

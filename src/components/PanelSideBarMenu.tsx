@@ -1,5 +1,6 @@
 import "../styles/components/PanelSideBarMenu.scss";
 
+import plusSvg from "../assets/Pic/Panel/plusSvg.svg";
 import UserData from "../interfaces/UserData";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useContext, useState } from "react";
@@ -43,7 +44,11 @@ function PanelSideBarMenu() {
       {isLoading && <Loading />}
       <div className="panel-side-bar-menu-container">
         <div className="panel-side-bar-menu-person">
-          <img src={image_url} width="143px" style={{ borderRadius: "100%" }} />
+          {image_url ? (
+            <img src={image_url} />
+          ) : (
+            <img src={plusSvg} onClick={() => console.log("hello")} />
+          )}
           <div className="panel-side-bar-menu-person-name">
             {thisUser.first_name} {thisUser.last_name}
           </div>
