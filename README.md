@@ -18,7 +18,7 @@ This is a front-end project for a language institute built with **TypeScript, Bo
 ## Responsive :")
 ![image](./readme/screenshots/Screenshot_2.png)
 
-<div style="display: flex; align-items: center; justify-content: center">
-  <img src="./readme/screenshots/Screenshot_3.png" width="400px" /> 
-  <img src="./readme/screenshots/Screenshot_4.png" width="600px" /> 
+<div style="display: flex; align-items: center;">
+  <img src="./readme/screenshots/Screenshot_3.png" /> 
+  <img src="./readme/screenshots/Screenshot_4.png" /> 
 </div>
