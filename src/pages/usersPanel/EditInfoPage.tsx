@@ -158,19 +158,31 @@ function EditInfoPage() {
   };
 
   const handleUpload = () => {
+    setIsLoading(true)
     // Here you can use the selectedFile to upload the image to the server
     if (selectedFile) {
       const formData = new FormData();
-      formData.append("image", selectedFile);
+      formData.append("profile_image", selectedFile);
 
       console.log(formData);
 
       // Use axios or fetch to send the formData to the server
       // Example using axios:
       // axios.post("/upload", formData).then(response => { ... }).catch(error => { ... });
-      axios.put("/user/edit/....", formData).catch((error) => {
-        console.error(error);
-      });
+      axios
+        .put("/user/edit/", formData, {
+          headers: {
+            Authorization: "Token " + window.localStorage.getItem("token"),
+          },
+        })
+        .then(()=>{
+          localStorage.setItem("showReloadNotif", "true");
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error(error);
+          setIsLoading(false)
+        });
     }
   };
 
