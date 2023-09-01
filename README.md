@@ -12,6 +12,11 @@ This is a front-end project for a language institute built with **TypeScript, Bo
 ![GitHub forks](https://img.shields.io/github/forks/aliiimaher/English-Institute-Website-React?label=Forks)
 ![Started Years](https://img.shields.io/badge/Since-2023-purple?style=flat)
 
+<hr />
+<img src="./readme/screenshots/desktop1.png" />
+<img src="./readme/screenshots/desktop2.png" />
+<img src="./readme/screenshots/desktop3.png" />
+
 
 ## Demonstration
 You can visit here to see the website: https://zabanlearner.ir/
@@ -21,6 +26,8 @@ The Back-End is coded with Django by [@MsnzmT](https://github.com/MsnzmT)
 
 Repo: https://github.com/MsnzmT/English_Institue_Website_Django 
 
+## UI/UX
+Perfect Design by [@AmuYousof](https://github.com/YousofAsadi)
 
 ## ✨Features
 - Full error checking (password length checking, duplicated username, duplicated email, ...).
