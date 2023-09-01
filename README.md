@@ -8,17 +8,51 @@
 # Language-Institute-Website-React
 This is a front-end project for a language institute built with **TypeScript, Bootstrap CSS, Vite, React.js, Scss, and Axios**. 
 
+![GitHub Repo Stars](https://img.shields.io/github/stars/aliiimaher/English-Institute-Website-React?label=Stars)
+![GitHub forks](https://img.shields.io/github/forks/aliiimaher/English-Institute-Website-React?label=Forks)
+![Started Years](https://img.shields.io/badge/Since-2023-purple?style=flat)
+
+
+## Demonstration
+You can visit here to see the website: https://zabanlearner.ir/
+
+## Back-End
+The Back-End is coded with Django by [@MsnzmT](https://github.com/MsnzmT)
+
+Repo: https://github.com/MsnzmT/English_Institue_Website_Django 
+
 
 ## ✨Features
 - Full error checking (password length checking, duplicated username, duplicated email, ...).
 - Full responsive (in three sizes: desktop, tablet, and phone)
-- ...
+- User Authentication
+- Context API: I've implemented the Context API, likely for managing user authentication and sharing data across components.
+- Axios: Axios is used for making HTTP requests to your backend server. This is common for fetching data and interacting with APIs.
+- File Uploading
+- Loading Indicators: Loading indicators or spinners are displayed to inform users that content is being loaded.
+- Form Handling: The "react-hook-form" library is used for handling form submission.
+
+
+## Installation
+Clone the source code into your computer.
+
+```
+git clone https://github.com/aliiimaher/English-Institute-Website-React.git
+```
+Install the project's dependencies.
+```
+npm install
+```
+Run the project easily with HMR (I've used Vite):
+```
+npm run dev
+```
 
 
 ## Responsive :")
 ![image](./readme/screenshots/Screenshot_2.png)
 
 <div style="display: flex; align-items: center;">
-  <img src="./readme/screenshots/Screenshot_3.png" /> 
-  <img src="./readme/screenshots/Screenshot_4.png" /> 
+  <img src="./readme/screenshots/Screenshot_3.png" width="33%" /> 
+  <img src="./readme/screenshots/Screenshot_4.png" width="66%" /> 
 </div>
