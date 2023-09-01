@@ -45,7 +45,11 @@ function PanelSideBarMenu() {
       <div className="panel-side-bar-menu-container">
         <div className="panel-side-bar-menu-person">
           <img
-            src={image_url || plusSvg}
+            src={
+              image_url !== `${axios.defaults.baseURL}null`
+                ? image_url
+                : plusSvg
+            }
             onClick={() => (window.location.href = "/panel-edit-info")}
           />
           <div className="panel-side-bar-menu-person-name">
