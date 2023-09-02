@@ -14,8 +14,10 @@ This is a front-end project for a language institute built with **TypeScript, Bo
 
 <hr />
 <img src="./readme/screenshots/desktop1.png" />
-<img src="./readme/screenshots/desktop2.png" />
-<img src="./readme/screenshots/desktop3.png" />
+<div align="center">
+  <img src="./readme/screenshots/desktop2.png" width="49%" />
+  <img src="./readme/screenshots/desktop3.png" width="49%" />
+</div>
 
 
 ## Demonstration
@@ -56,9 +58,10 @@ Repo: https://github.com/MsnzmT/English_Institue_Website_Django
 Perfect Design by [@AmuYousof](https://github.com/YousofAsadi)
 
 ## Responsive :")
-![image](./readme/screenshots/Screenshot_2.png)
-
-<div style="display: flex; align-items: center;">
-  <img src="./readme/screenshots/Screenshot_3.png" width="33%" /> 
-  <img src="./readme/screenshots/Screenshot_4.png" width="66%" /> 
+<div align="center">
+  <img src="./readme/screenshots/Screenshot_2.png" width="56%" />
+  <img src="./readme/screenshots/Screenshot_3.png" width="17%" />
+  <img src="./readme/screenshots/Screenshot_4.png" width="26%" />
 </div>
+
+
