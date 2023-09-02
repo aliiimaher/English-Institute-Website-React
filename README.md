@@ -21,25 +21,6 @@ This is a front-end project for a language institute built with **TypeScript, Bo
 ## Demonstration
 You can visit here to see the website: https://zabanlearner.ir/
 
-## Back-End
-The Back-End is coded with Django by [@MsnzmT](https://github.com/MsnzmT)
-
-Repo: https://github.com/MsnzmT/English_Institue_Website_Django 
-
-## UI/UX
-Perfect Design by [@AmuYousof](https://github.com/YousofAsadi)
-
-## ✨Features
-- Full error checking (password length checking, duplicated username, duplicated email, ...).
-- Full responsive (in three sizes: desktop, tablet, and phone)
-- User Authentication
-- Context API: I've implemented the Context API, likely for managing user authentication and sharing data across components.
-- Axios: Axios is used for making HTTP requests to your backend server. This is common for fetching data and interacting with APIs.
-- File Uploading
-- Loading Indicators: Loading indicators or spinners are displayed to inform users that content is being loaded.
-- Form Handling: The "react-hook-form" library is used for handling form submission.
-
-
 ## Installation
 Clone the source code into your computer.
 
@@ -55,6 +36,24 @@ Run the project easily with HMR (I've used Vite):
 npm run dev
 ```
 
+## ✨Features
+- Full error checking (password length checking, duplicated username, duplicated email, ...).
+- Full responsive (in three sizes: desktop, tablet, and phone)
+- User Authentication
+- Context API: I've implemented the Context API, likely for managing user authentication and sharing data across components.
+- Axios: Axios is used for making HTTP requests to your backend server. This is common for fetching data and interacting with APIs.
+- File Uploading
+- Loading Indicators: Loading indicators or spinners are displayed to inform users that content is being loaded.
+- Form Handling: The "react-hook-form" library is used for handling form submission.
+
+## Other
+### Back-End
+The Back-End is coded with Django by [@MsnzmT](https://github.com/MsnzmT)
+
+Repo: https://github.com/MsnzmT/English_Institue_Website_Django 
+
+### UI/UX
+Perfect Design by [@AmuYousof](https://github.com/YousofAsadi)
 
 ## Responsive :")
 ![image](./readme/screenshots/Screenshot_2.png)
