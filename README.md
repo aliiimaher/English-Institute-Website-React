@@ -59,9 +59,9 @@ Perfect Design by [@AmuYousof](https://github.com/YousofAsadi)
 
 ## Responsive :")
 <div align="center">
-  <img src="./readme/screenshots/Screenshot_2.png" width="56%" />
-  <img src="./readme/screenshots/Screenshot_3.png" width="17%" />
-  <img src="./readme/screenshots/Screenshot_4.png" width="26%" />
+  <img src="./readme/screenshots/Screenshot_2.png" width="55%" />
+  <img src="./readme/screenshots/Screenshot_3.png" width="15%" />
+  <img src="./readme/screenshots/Screenshot_4.png" width="25%" />
 </div>
 
 
